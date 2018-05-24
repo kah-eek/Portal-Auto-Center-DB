@@ -1,3 +1,8 @@
+/*
+	VIEW DE OBTENÇÃO DOS DADOS VINCULADOS AO CLIENTE DE FORMA FORMATADA
+*/
+CREATE VIEW view_cliente_formatado AS 
+
 SELECT 
 
 /* tbl_usuario */
@@ -39,6 +44,7 @@ INNER JOIN tbl_cliente AS c ON c.id_usuario = u.id_usuario
 /* tbl_endereco */
 INNER JOIN tbl_endereco AS e ON e.id_endereco = c.id_endereco
 
-
 /* tbl_estado */
 INNER JOIN tbl_estado AS es ON es.id_estado = e.id_estado;
+
+SELECT * FROM view_cliente_formatado;
