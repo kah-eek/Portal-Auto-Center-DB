@@ -1,5 +1,10 @@
-USE db_auto_center;
+USE dbautofast;
 
-SELECT * FROM tbl_produto
-INNER JOIN tbl_categoria_produto AS ctg_prd ON ctg_prd.id_categoria_produto = tbl_produto.id_categoria_produto
-INNER JOIN tbl_modelo_produto AS mdl_prd ON mdl_prd.id_modelo_produto = tbl_produto.id_modelo_produto;
+SELECT * FROM tbl_cliente;
+
+ALTER TABLE tbl_topico_forum CHANGE id_topico_forum id_topico_forum INT NOT NULL AUTO_INCREMENT;
+
+DESCRIBE tbl_topico_forum;
+
+ALTER TABLE tbl_comentario_topico_forum CHANGE log log DATETIME NOT NULL;
+DESCRIBE tbl_comentario_topico_forum;
