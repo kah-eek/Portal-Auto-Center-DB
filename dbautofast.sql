@@ -291,7 +291,7 @@ CREATE TABLE `tbl_cliente` (
   PRIMARY KEY (`id_cliente`),
   KEY `fk_tbl_cliente_id_usuario_idx` (`id_usuario`),
   CONSTRAINT `fk_tbl_cliente_id_usuario` FOREIGN KEY (`id_usuario`) REFERENCES `tbl_usuario` (`id_usuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -300,7 +300,7 @@ CREATE TABLE `tbl_cliente` (
 
 LOCK TABLES `tbl_cliente` WRITE;
 /*!40000 ALTER TABLE `tbl_cliente` DISABLE KEYS */;
-INSERT INTO `tbl_cliente` VALUES (1,'tester','2018-03-21','4521544','emai@ll.com','116',1,'M','',1,'https://images.unsplash.com/photo-1511996706594-d6ca1d3e1c64?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=cf9fea778b21b76d06986fa63fbb4763&dpr=1&auto=format&fit=crop&w=1000&q=80&cs=tinysrgb');
+INSERT INTO `tbl_cliente` VALUES (2,'Carlos','1979-04-18','22578465845','carlos@gmail.com','11458754',1,'M','',33,'https://images.unsplash.com/photo-1493666438817-866a91353ca9?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=8d991e3d780fbd816811b54abf3fb681&dpr=1&auto=format&fit=crop&w=1000&q=80&cs=tinysrgb'),(3,'Paulo Matias de Souza','1980-06-01','85698875489','paulo.souza@outlook.com','11912546587',1,'M','1145875485',34,'https://images.unsplash.com/photo-1482264851290-446b18e3ee9f?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=052be30858afa91142f02f6a3df7f639&dpr=1&auto=format&fit=crop&w=1000&q=80&cs=tinysrgb'),(4,'Katia Medeiros Rocha','1985-05-14','10754852154','kkati85@bestbuy.com','11978542152',126,'F','1127856985',57,'https://images.unsplash.com/photo-1521117177129-ca6b2e68cb26?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=cce4201e8d3a1905d4a5e7a99b2dfd53&dpr=1&auto=format&fit=crop&w=1000&q=80&cs=tinysrgb');
 /*!40000 ALTER TABLE `tbl_cliente` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -526,7 +526,7 @@ CREATE TABLE `tbl_endereco` (
   PRIMARY KEY (`id_endereco`),
   KEY `fk_tbl_endereco_id_estado_idx` (`id_estado`),
   CONSTRAINT `fk_tbl_endereco_id_estado` FOREIGN KEY (`id_estado`) REFERENCES `tbl_estado` (`id_estado`)
-) ENGINE=InnoDB AUTO_INCREMENT=124 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=127 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -535,7 +535,7 @@ CREATE TABLE `tbl_endereco` (
 
 LOCK TABLES `tbl_endereco` WRITE;
 /*!40000 ALTER TABLE `tbl_endereco` DISABLE KEYS */;
-INSERT INTO `tbl_endereco` VALUES (1,'Rua Flamingo','8452','São Paulo',1,'01000452','Jardim Paulista',''),(96,'aaaaa','000','Osasco',1,'06286180','Mutinga','aaaa'),(97,'aaaaa','000','Osasco',1,'06286180','Mutinga','aaaa'),(98,'aaaaa','000','Osasco',1,'06286180','Mutinga','aaaa'),(99,'aaaaa','000','Osasco',1,'06286180','Mutinga','aaaa'),(100,'aaaaa','000','Osasco',1,'06286180','Mutinga','aaaa'),(101,'aaaaa','000','Osasco',1,'06286180','Mutinga','aaaa'),(102,'aaaaa','000','Osasco',1,'06286180','Mutinga','aaaa'),(103,'aaaaa','000','Osasco',1,'06286180','Mutinga','aaaa'),(104,'aaaaa','000','Osasco',1,'06286180','Mutinga','aaaa'),(105,'aaaaa','000','Osasco',1,'06286180','Mutinga','aaaa'),(106,'aaaaa','000','Osasco',3,'06286180','Mutinga','aaaa'),(107,'aaaaa','000','Osasco',5,'06286180','Mutinga','aaaa'),(108,'aaaaa','000','Osasco',2,'06286180','Mutinga','aaaa'),(109,'asddasd','56156','Osasco',2,'06286120','Mutinga','sdasa'),(110,'asd','56156','Osasco',1,'06286120','Mutinga','asdas'),(111,'sadasdas','561561','Osasco',1,'06286120','asdas','dasda'),(112,'asdas','1561','Osasco',1,'06286120','Mutinga','asdasd'),(113,'as','561','Osasco',1,'06286120','Mutinga',''),(114,'t','1','Osasco',1,'06286120','Mutinga','t'),(115,'asd','56.12','Osasco',1,'06286120','Mutinga','asdd'),(116,'fdas','45616','Osasco',1,'06286120','Mutinga','sdf'),(117,'dasfd','56.1','Osasco',1,'06286120','Mutinga',''),(118,'asdf','5616','Osasco',2,'06286120','Mutinga','asdf'),(119,'aqf','561','Osasco',1,'06286120','Mutinga','asdf'),(120,'asdfas','56165','Osasco',1,'06286120','Mutinga',''),(121,'asdfad','56156','Osasco',1,'06286120','Mutinga','adfdas'),(122,'asfdasd','58185','Osasco',1,'06286120','Mutinga','ascdsa'),(123,'asfdasd','58185','Osasco',1,'06286120','Mutinga','ascdsa');
+INSERT INTO `tbl_endereco` VALUES (1,'Rua Flamingo','8452','São Paulo',1,'01000452','Jardim Paulista',''),(96,'aaaaa','000','Osasco',1,'06286180','Mutinga','aaaa'),(97,'aaaaa','000','Osasco',1,'06286180','Mutinga','aaaa'),(98,'aaaaa','000','Osasco',1,'06286180','Mutinga','aaaa'),(99,'aaaaa','000','Osasco',1,'06286180','Mutinga','aaaa'),(100,'aaaaa','000','Osasco',1,'06286180','Mutinga','aaaa'),(101,'aaaaa','000','Osasco',1,'06286180','Mutinga','aaaa'),(102,'aaaaa','000','Osasco',1,'06286180','Mutinga','aaaa'),(103,'aaaaa','000','Osasco',1,'06286180','Mutinga','aaaa'),(104,'aaaaa','000','Osasco',1,'06286180','Mutinga','aaaa'),(105,'aaaaa','000','Osasco',1,'06286180','Mutinga','aaaa'),(106,'aaaaa','000','Osasco',3,'06286180','Mutinga','aaaa'),(107,'aaaaa','000','Osasco',5,'06286180','Mutinga','aaaa'),(108,'aaaaa','000','Osasco',2,'06286180','Mutinga','aaaa'),(109,'asddasd','56156','Osasco',2,'06286120','Mutinga','sdasa'),(110,'asd','56156','Osasco',1,'06286120','Mutinga','asdas'),(111,'sadasdas','561561','Osasco',1,'06286120','asdas','dasda'),(112,'asdas','1561','Osasco',1,'06286120','Mutinga','asdasd'),(113,'as','561','Osasco',1,'06286120','Mutinga',''),(114,'t','1','Osasco',1,'06286120','Mutinga','t'),(115,'asd','56.12','Osasco',1,'06286120','Mutinga','asdd'),(116,'fdas','45616','Osasco',1,'06286120','Mutinga','sdf'),(117,'dasfd','56.1','Osasco',1,'06286120','Mutinga',''),(118,'asdf','5616','Osasco',2,'06286120','Mutinga','asdf'),(119,'aqf','561','Osasco',1,'06286120','Mutinga','asdf'),(120,'asdfas','56165','Osasco',1,'06286120','Mutinga',''),(121,'asdfad','56156','Osasco',1,'06286120','Mutinga','adfdas'),(122,'asfdasd','58185','Osasco',1,'06286120','Mutinga','ascdsa'),(123,'asfdasd','58185','Osasco',1,'06286120','Mutinga','ascdsa'),(124,'Rua Brasil','852','Barueri',1,'25621452','Vila Garcia',''),(125,'Rua Brasil','852','Barueri',1,'25621452','Vila Garcia',''),(126,'Rua Brasil','852','Barueri',1,'25621452','Vila Garcia','');
 /*!40000 ALTER TABLE `tbl_endereco` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -990,7 +990,7 @@ CREATE TABLE `tbl_pedido` (
 
 LOCK TABLES `tbl_pedido` WRITE;
 /*!40000 ALTER TABLE `tbl_pedido` DISABLE KEYS */;
-INSERT INTO `tbl_pedido` VALUES (1,1,3,'2018-05-21 00:00:00','2018-05-20 11:32:40'),(2,1,5,'2018-02-14 00:00:00','2018-05-21 20:57:03');
+INSERT INTO `tbl_pedido` VALUES (1,2,3,'2018-05-21 00:00:00','2018-05-20 11:32:40'),(2,2,5,'2018-02-14 00:00:00','2018-05-21 20:57:03');
 /*!40000 ALTER TABLE `tbl_pedido` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1507,7 +1507,7 @@ CREATE TABLE `tbl_usuario` (
   PRIMARY KEY (`id_usuario`),
   KEY `fk_tbl_usuario_id_nivel_usuario_idx` (`id_nivel_usuario`),
   CONSTRAINT `fk_tbl_usuario_id_nivel_usuario` FOREIGN KEY (`id_nivel_usuario`) REFERENCES `tbl_nivel_usuario` (`id_nivel_usuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=57 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=58 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1516,7 +1516,7 @@ CREATE TABLE `tbl_usuario` (
 
 LOCK TABLES `tbl_usuario` WRITE;
 /*!40000 ALTER TABLE `tbl_usuario` DISABLE KEYS */;
-INSERT INTO `tbl_usuario` VALUES (1,'leticia','lele','2018-04-12 09:45:06',1,1),(33,'aaaaaa','aaaaaaa','2018-04-21 03:56:44',2,1),(34,'aaaaaass','aaaaaaa','2018-04-21 03:57:19',2,1),(35,'aaaaaassDSDD','aaaaaaa','2018-04-21 03:59:00',2,1),(36,'aaaaaassDSDDsss','aaaaaaa','2018-04-21 03:59:09',2,1),(37,'aaaaaasadasdasdasdas','aaaaaaa','2018-04-21 04:00:43',2,1),(38,'aaaaaa\\xd\\sdsadasds','aaaaaaa','2018-04-21 04:01:06',2,1),(39,'aaaaaacdasdfasdasdas','aaaaaaa','2018-04-21 04:01:38',2,1),(40,'aaaaaaadcasdas','aaaaaaa','2018-04-21 04:08:22',2,1),(41,'aaaaaaasdasdsad','aaaaaaa','2018-04-21 14:17:06',2,1),(42,'aaaaaaczxcvdacaxdca','aaaaaaa','2018-04-21 14:18:01',2,1),(43,'aaaaaa\\xc\\szxd\\s','aaaaaaa','2018-04-21 14:19:59',2,1),(44,'aaaasasa','asdasd','2018-04-21 16:07:22',2,1),(45,'nAdm','1','2018-04-21 16:10:04',2,1),(46,'asd','asdas','2018-04-21 16:13:21',2,1),(47,'ssssdd','sadas','2018-04-21 17:07:37',2,1),(48,'das','dsad','2018-04-21 17:10:28',2,1),(49,'t','t','2018-04-21 17:11:49',2,1),(50,'asddfas','sdvsd','2018-04-21 17:47:15',2,1),(51,'sdfgsdfg','asdas','2018-04-21 17:48:26',2,1),(52,'sd','sdfvsd','2018-04-21 17:49:03',2,1),(53,'sdvgfsda','asdfawe','2018-04-21 17:49:48',2,1),(54,'dsad','fdsf','2018-04-21 17:51:40',2,1),(55,'sddff','sdffae','2018-04-21 20:18:27',2,1),(56,'afasddfas','dvfda','2018-04-22 11:36:45',2,1);
+INSERT INTO `tbl_usuario` VALUES (1,'leticia','lele','2018-04-12 09:45:06',1,1),(33,'carlos','123','2018-04-21 03:56:44',3,1),(34,'paulo','123','2018-04-21 03:57:19',3,1),(35,'aaaaaaaa','csda','2018-04-21 03:59:00',3,1),(36,'aaaaaassDSDDsss','aaaaaaa','2018-04-21 03:59:09',2,1),(37,'aaaaaasadasdasdasdas','aaaaaaa','2018-04-21 04:00:43',2,1),(38,'aaaaaa\\xd\\sdsadasds','aaaaaaa','2018-04-21 04:01:06',2,1),(39,'aaaaaacdasdfasdasdas','aaaaaaa','2018-04-21 04:01:38',2,1),(40,'aaaaaaadcasdas','aaaaaaa','2018-04-21 04:08:22',2,1),(41,'aaaaaaasdasdsad','aaaaaaa','2018-04-21 14:17:06',2,1),(42,'aaaaaaczxcvdacaxdca','aaaaaaa','2018-04-21 14:18:01',2,1),(43,'aaaaaa\\xc\\szxd\\s','aaaaaaa','2018-04-21 14:19:59',2,1),(44,'aaaasasa','asdasd','2018-04-21 16:07:22',2,1),(45,'nAdm','1','2018-04-21 16:10:04',2,1),(46,'asd','asdas','2018-04-21 16:13:21',2,1),(47,'ssssdd','sadas','2018-04-21 17:07:37',2,1),(48,'das','dsad','2018-04-21 17:10:28',2,1),(49,'t','t','2018-04-21 17:11:49',2,1),(50,'asddfas','sdvsd','2018-04-21 17:47:15',2,1),(51,'sdfgsdfg','asdas','2018-04-21 17:48:26',2,1),(52,'sd','sdfvsd','2018-04-21 17:49:03',2,1),(53,'sdvgfsda','asdfawe','2018-04-21 17:49:48',2,1),(54,'dsad','fdsf','2018-04-21 17:51:40',2,1),(55,'sddff','sdffae','2018-04-21 20:18:27',2,1),(56,'afasddfas','dvfda','2018-04-22 11:36:45',2,1),(57,'katia','123','2018-05-24 09:12:31',3,1);
 /*!40000 ALTER TABLE `tbl_usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2381,4 +2381,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-05-24  8:20:14
+-- Dump completed on 2018-05-24  9:14:58
