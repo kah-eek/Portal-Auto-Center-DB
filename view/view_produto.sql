@@ -7,7 +7,7 @@
     CATEGORIA DO PRODUTO.
     
 */
-CREATE VIEW view_produto AS 
+ALTER VIEW view_produto AS 
 
 SELECT 
 
@@ -19,6 +19,10 @@ prdt.garantia,
 prdt.observacao,
 prdt.preco,
 prdt.descricao,
+
+/* FABRICANTE PRODUTO */
+fp.fabricante,
+fp.id_fabricante_produto,
 
 /* IMAGEM PRODUTO PARCEIRO */
 img_prdt_parc.imagem,
@@ -73,4 +77,8 @@ ON estd.id_estado = endrc.id_estado
 
 /* CATEGORIA DO PRODUTO*/
 INNER JOIN tbl_categoria_produto AS ctg_prdt
-ON ctg_prdt.id_categoria_produto = prdt.id_categoria_produto;
+ON ctg_prdt.id_categoria_produto = prdt.id_categoria_produto
+
+/* tbl_fabricante_produto */
+INNER JOIN tbl_fabricante_produto AS fp
+ON fp.id_fabricante_produto = mdl_prdt.id_fabricante_produto;
