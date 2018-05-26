@@ -14,7 +14,8 @@ f.fabricante,
 i.imagem,
 
 /* tbl_categoria_produto */
-c.categoria
+c.categoria,
+c.id_categoria_produto
 
 /* tbl_produto  */
 FROM tbl_produto AS p
