@@ -8,7 +8,17 @@ CREATE VIEW view_cliente AS
 SELECT
 
 /* CLIENTE */ 
-cln.*,
+cln.id_cliente,
+cln.nome,
+DATE_FORMAT(cln.dtNasc,"%d/%m/%Y") AS dtNasc,
+cln.cpf,
+cln.email,
+cln.celular,
+cln.id_endereco,
+cln.sexo,
+cln.telefone,
+cln.id_usuario,
+cln.foto_perfil,
 
 /* USUÁRIO */
 usr.usuario,

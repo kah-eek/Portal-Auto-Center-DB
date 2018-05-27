@@ -2544,4 +2544,8 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
+<<<<<<< HEAD
 -- Dump completed on 2018-05-27 19:51:05
+=======
+-- Dump completed on 2018-05-27 15:02:20
+>>>>>>> 872d7315294c3a6bbdb46fedbf4c4aaf40ccf699
