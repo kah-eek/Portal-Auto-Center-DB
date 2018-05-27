@@ -206,7 +206,7 @@ CREATE TABLE `tbl_categoria_produto` (
   `id_categoria_produto` int(11) NOT NULL AUTO_INCREMENT,
   `categoria` varchar(380) NOT NULL,
   PRIMARY KEY (`id_categoria_produto`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -215,7 +215,7 @@ CREATE TABLE `tbl_categoria_produto` (
 
 LOCK TABLES `tbl_categoria_produto` WRITE;
 /*!40000 ALTER TABLE `tbl_categoria_produto` DISABLE KEYS */;
-INSERT INTO `tbl_categoria_produto` VALUES (1,'Higienização'),(2,'Serviço');
+INSERT INTO `tbl_categoria_produto` VALUES (1,'Higienização'),(2,'Serviço'),(3,'Carro'),(4,'Acessório');
 /*!40000 ALTER TABLE `tbl_categoria_produto` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -434,8 +434,8 @@ CREATE TABLE `tbl_controle_abastecimento` (
   `id_tipo_combustivel` int(11) NOT NULL,
   `id_veiculo_cliente` int(11) NOT NULL,
   `valor_abastecimento` decimal(6,2) NOT NULL,
-  `latitute` double NOT NULL,
-  `longitude` double NOT NULL,
+  `latitude` double DEFAULT NULL,
+  `longitude` double DEFAULT NULL,
   `log_controle_abastecimento` datetime NOT NULL,
   PRIMARY KEY (`id_controle_abastecimento`),
   KEY `fk_tbl_controle_abastecimento_id_veiculo_cliente_id_tipo_co_idx` (`id_tipo_combustivel`),
@@ -598,7 +598,7 @@ CREATE TABLE `tbl_fabricante_produto` (
   `id_fabricante_produto` int(11) NOT NULL AUTO_INCREMENT,
   `fabricante` varchar(320) NOT NULL,
   PRIMARY KEY (`id_fabricante_produto`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -607,7 +607,7 @@ CREATE TABLE `tbl_fabricante_produto` (
 
 LOCK TABLES `tbl_fabricante_produto` WRITE;
 /*!40000 ALTER TABLE `tbl_fabricante_produto` DISABLE KEYS */;
-INSERT INTO `tbl_fabricante_produto` VALUES (1,'Porsch');
+INSERT INTO `tbl_fabricante_produto` VALUES (1,'Porsch'),(2,'Ferrari'),(3,'Good Air'),(4,'Premium Contact');
 /*!40000 ALTER TABLE `tbl_fabricante_produto` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -723,7 +723,7 @@ CREATE TABLE `tbl_imagem_produto_parceiro` (
   PRIMARY KEY (`id_imagem_produto_parceiro`),
   KEY `fk_tbl_imagem_produto_parceiro_id_produto_idx` (`id_produto`),
   CONSTRAINT `fk_tbl_imagem_produto_parceiro_id_produto` FOREIGN KEY (`id_produto`) REFERENCES `tbl_produto` (`id_produto`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -732,7 +732,7 @@ CREATE TABLE `tbl_imagem_produto_parceiro` (
 
 LOCK TABLES `tbl_imagem_produto_parceiro` WRITE;
 /*!40000 ALTER TABLE `tbl_imagem_produto_parceiro` DISABLE KEYS */;
-INSERT INTO `tbl_imagem_produto_parceiro` VALUES (2,3,'../pictures/galeria/auto_eletrica.jpg',1),(3,4,'../pictures/galeria/pintura_carro.jpg',1),(5,5,'../pictures/galeria/farol.jpg',1);
+INSERT INTO `tbl_imagem_produto_parceiro` VALUES (2,3,'../pictures/produto/auto_eletrica.jpg',1),(3,4,'../pictures/produto/pintura_carro.jpg',1),(5,5,'../pictures/produto/pneu17.jpg',1),(8,5,'sssss',1),(9,6,'../pictures/produto/pneu.png',1),(10,7,'../pictures/produto/bmw.jpg',1),(11,8,'../pictures/produto/ferrari2.jpg',1),(12,8,'../pictures/produto/ferra.jpg',1);
 /*!40000 ALTER TABLE `tbl_imagem_produto_parceiro` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -807,7 +807,7 @@ CREATE TABLE `tbl_modelo_produto` (
   PRIMARY KEY (`id_modelo_produto`),
   KEY `fk_tbl_modelo_produto_id_fabricante_produto__idx` (`id_fabricante_produto`),
   CONSTRAINT `fk_tbl_modelo_produto_id_fabricante_produto_` FOREIGN KEY (`id_fabricante_produto`) REFERENCES `tbl_fabricante_produto` (`id_fabricante_produto`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -816,7 +816,7 @@ CREATE TABLE `tbl_modelo_produto` (
 
 LOCK TABLES `tbl_modelo_produto` WRITE;
 /*!40000 ALTER TABLE `tbl_modelo_produto` DISABLE KEYS */;
-INSERT INTO `tbl_modelo_produto` VALUES (1,'41A-52FD',1,0.452,0.28,0.69);
+INSERT INTO `tbl_modelo_produto` VALUES (1,'41A-52FD',1,0.452,0.28,0.69),(2,'24K',1,2450,1.2,0.6),(3,'FK-26',2,300,1.8,3.4);
 /*!40000 ALTER TABLE `tbl_modelo_produto` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1128,7 +1128,7 @@ CREATE TABLE `tbl_produto` (
   CONSTRAINT `fk_tbl_produto_id_cor` FOREIGN KEY (`id_cor`) REFERENCES `tbl_cor` (`id_cor`),
   CONSTRAINT `fk_tbl_produto_id_modelo_produto` FOREIGN KEY (`id_modelo_produto`) REFERENCES `tbl_modelo_produto` (`id_modelo_produto`),
   CONSTRAINT `fk_tbl_produto_id_parceiro` FOREIGN KEY (`id_parceiro`) REFERENCES `tbl_parceiro` (`id_parceiro`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1137,7 +1137,7 @@ CREATE TABLE `tbl_produto` (
 
 LOCK TABLES `tbl_produto` WRITE;
 /*!40000 ALTER TABLE `tbl_produto` DISABLE KEYS */;
-INSERT INTO `tbl_produto` VALUES (3,NULL,1,NULL,2,'Higienizacao',875.00,'','','test',NULL),(4,NULL,1,NULL,2,'Revizão veicular',300.00,'','','',NULL),(5,1,1,1,1,'Pneu Aro 17',300.00,'1 pneu','6 meses','',NULL);
+INSERT INTO `tbl_produto` VALUES (3,NULL,1,NULL,2,'Higienizacao',875.00,'','','test',NULL),(4,NULL,1,NULL,2,'Revizão veicular',300.00,'','','',NULL),(5,1,1,1,4,'Pneu Aro 17',410.00,'1 pneu','6 meses','',NULL),(6,2,1,1,4,'Pneu Aro 14',240.00,'1 pneu','6 meses','',NULL),(7,2,1,1,3,'KingRoad',750800.00,'1 carro BMW','5 anos','',NULL),(8,3,1,1,3,'Ferrari',320800.00,'1 carro Ferrari','2 anos','',NULL);
 /*!40000 ALTER TABLE `tbl_produto` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1350,7 +1350,7 @@ CREATE TABLE `tbl_tipo_combustivel` (
   `id_tipo_combustivel` int(11) NOT NULL AUTO_INCREMENT,
   `combustivel` varchar(120) NOT NULL,
   PRIMARY KEY (`id_tipo_combustivel`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1359,6 +1359,7 @@ CREATE TABLE `tbl_tipo_combustivel` (
 
 LOCK TABLES `tbl_tipo_combustivel` WRITE;
 /*!40000 ALTER TABLE `tbl_tipo_combustivel` DISABLE KEYS */;
+INSERT INTO `tbl_tipo_combustivel` VALUES (1,'Álcool'),(2,'Gasolina'),(3,'Etanol'),(4,'Diesel'),(5,'GNV');
 /*!40000 ALTER TABLE `tbl_tipo_combustivel` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1571,7 +1572,7 @@ CREATE TABLE `tbl_veiculo_cliente` (
   KEY `fk_veiculo_cliente_id_cliente_idx` (`id_cliente`),
   CONSTRAINT `fk_veiculo_cliente_id_cliente` FOREIGN KEY (`id_cliente`) REFERENCES `tbl_cliente` (`id_cliente`),
   CONSTRAINT `fk_veiculo_cliente_id_veiculo` FOREIGN KEY (`id_veiculo`) REFERENCES `tbl_veiculo` (`id_veiculo`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1580,6 +1581,7 @@ CREATE TABLE `tbl_veiculo_cliente` (
 
 LOCK TABLES `tbl_veiculo_cliente` WRITE;
 /*!40000 ALTER TABLE `tbl_veiculo_cliente` DISABLE KEYS */;
+INSERT INTO `tbl_veiculo_cliente` VALUES (1,2,1);
 /*!40000 ALTER TABLE `tbl_veiculo_cliente` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2112,7 +2114,10 @@ SET character_set_client = utf8mb4;
  1 AS `id_produto`,
  1 AS `nome`,
  1 AS `preco`,
- 1 AS `fabricante`*/;
+ 1 AS `fabricante`,
+ 1 AS `imagem`,
+ 1 AS `categoria`,
+ 1 AS `id_categoria_produto`*/;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -2439,7 +2444,7 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `view_produto_min_info` AS select `p`.`id_produto` AS `id_produto`,`p`.`nome` AS `nome`,`p`.`preco` AS `preco`,`f`.`fabricante` AS `fabricante` from ((`tbl_produto` `p` join `tbl_modelo_produto` `m` on((`m`.`id_modelo_produto` = `p`.`id_modelo_produto`))) join `tbl_fabricante_produto` `f` on((`f`.`id_fabricante_produto` = `m`.`id_fabricante_produto`))) */;
+/*!50001 VIEW `view_produto_min_info` AS select `p`.`id_produto` AS `id_produto`,`p`.`nome` AS `nome`,`p`.`preco` AS `preco`,`f`.`fabricante` AS `fabricante`,`i`.`imagem` AS `imagem`,`c`.`categoria` AS `categoria`,`c`.`id_categoria_produto` AS `id_categoria_produto` from ((((`tbl_produto` `p` join `tbl_modelo_produto` `m` on((`m`.`id_modelo_produto` = `p`.`id_modelo_produto`))) join `tbl_fabricante_produto` `f` on((`f`.`id_fabricante_produto` = `m`.`id_fabricante_produto`))) join `tbl_imagem_produto_parceiro` `i` on((`i`.`id_produto` = `p`.`id_produto`))) join `tbl_categoria_produto` `c` on((`c`.`id_categoria_produto` = `p`.`id_categoria_produto`))) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -2507,4 +2512,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-05-26  8:05:12
+-- Dump completed on 2018-05-27 12:08:49

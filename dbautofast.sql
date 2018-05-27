@@ -1572,7 +1572,7 @@ CREATE TABLE `tbl_veiculo_cliente` (
   KEY `fk_veiculo_cliente_id_cliente_idx` (`id_cliente`),
   CONSTRAINT `fk_veiculo_cliente_id_cliente` FOREIGN KEY (`id_cliente`) REFERENCES `tbl_cliente` (`id_cliente`),
   CONSTRAINT `fk_veiculo_cliente_id_veiculo` FOREIGN KEY (`id_veiculo`) REFERENCES `tbl_veiculo` (`id_veiculo`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1581,7 +1581,7 @@ CREATE TABLE `tbl_veiculo_cliente` (
 
 LOCK TABLES `tbl_veiculo_cliente` WRITE;
 /*!40000 ALTER TABLE `tbl_veiculo_cliente` DISABLE KEYS */;
-INSERT INTO `tbl_veiculo_cliente` VALUES (1,2,1);
+INSERT INTO `tbl_veiculo_cliente` VALUES (1,2,1),(2,2,2);
 /*!40000 ALTER TABLE `tbl_veiculo_cliente` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2162,6 +2162,20 @@ SET character_set_client = utf8mb4;
 SET character_set_client = @saved_cs_client;
 
 --
+-- Temporary view structure for view `view_veiculo_cliente`
+--
+
+DROP TABLE IF EXISTS `view_veiculo_cliente`;
+/*!50001 DROP VIEW IF EXISTS `view_veiculo_cliente`*/;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8mb4;
+/*!50001 CREATE VIEW `view_veiculo_cliente` AS SELECT 
+ 1 AS `id_veiculo`,
+ 1 AS `id_cliente`,
+ 1 AS `placa`*/;
+SET character_set_client = @saved_cs_client;
+
+--
 -- Final view structure for view `view_cliente`
 --
 
@@ -2502,6 +2516,24 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `view_veiculo_cliente`
+--
+
+/*!50001 DROP VIEW IF EXISTS `view_veiculo_cliente`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `view_veiculo_cliente` AS select `vc`.`id_veiculo` AS `id_veiculo`,`vc`.`id_cliente` AS `id_cliente`,`v`.`placa` AS `placa` from (`tbl_veiculo_cliente` `vc` join `tbl_veiculo` `v` on((`v`.`id_veiculo` = `vc`.`id_veiculo`))) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -2512,4 +2544,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-05-27 12:08:49
+-- Dump completed on 2018-05-27 15:02:20
