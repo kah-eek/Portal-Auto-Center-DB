@@ -4,6 +4,7 @@ select * from tbl_tipo_combustivel;
 select * from tbl_veiculo_cliente;
 select * from tbl_controle_abastecimento;
 
+
 INSERT INTO tbl_controle_abastecimento 
 (
 	id_tipo_combustivel, 
