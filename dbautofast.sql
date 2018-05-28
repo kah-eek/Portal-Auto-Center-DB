@@ -434,15 +434,15 @@ CREATE TABLE `tbl_controle_abastecimento` (
   `id_tipo_combustivel` int(11) NOT NULL,
   `id_veiculo_cliente` int(11) NOT NULL,
   `valor_abastecimento` decimal(6,2) NOT NULL,
-  `latitude` double DEFAULT NULL,
-  `longitude` double DEFAULT NULL,
-  `log_controle_abastecimento` datetime NOT NULL,
+  `latitude` double DEFAULT '0',
+  `longitude` double DEFAULT '0',
+  `log_controle_abastecimento` date NOT NULL,
   PRIMARY KEY (`id_controle_abastecimento`),
   KEY `fk_tbl_controle_abastecimento_id_veiculo_cliente_id_tipo_co_idx` (`id_tipo_combustivel`),
   KEY `fk_tbl_controle_abastecimento_id_veiculo_cliente_idx` (`id_veiculo_cliente`),
   CONSTRAINT `fk_cont_abat_id_veiculo_clint` FOREIGN KEY (`id_tipo_combustivel`) REFERENCES `tbl_tipo_combustivel` (`id_tipo_combustivel`),
   CONSTRAINT `fk_tbl_cont_abast_id_veiculo_cliente` FOREIGN KEY (`id_veiculo_cliente`) REFERENCES `tbl_veiculo_cliente` (`id_veiculo_cliente`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -451,6 +451,7 @@ CREATE TABLE `tbl_controle_abastecimento` (
 
 LOCK TABLES `tbl_controle_abastecimento` WRITE;
 /*!40000 ALTER TABLE `tbl_controle_abastecimento` DISABLE KEYS */;
+INSERT INTO `tbl_controle_abastecimento` VALUES (1,3,1,280.00,0,0,'2018-05-27'),(2,3,1,80.00,1,1,'2018-05-27'),(3,5,2,200.00,NULL,NULL,'2018-05-27'),(4,5,2,200.00,NULL,NULL,'2018-05-27'),(5,2,1,11.00,NULL,NULL,'2018-05-27'),(6,3,1,80.00,1,1,'2018-05-27'),(7,1,1,44.00,NULL,NULL,'2018-05-27'),(8,1,1,44.00,NULL,NULL,'2018-05-27'),(9,3,1,80.00,1,1,'2018-05-27'),(10,2,1,111.00,NULL,NULL,'2018-05-27'),(11,2,1,66.00,NULL,NULL,'2018-05-27'),(12,3,2,333.00,NULL,NULL,'2018-05-27'),(13,2,2,652.00,NULL,NULL,'2018-05-27'),(14,2,2,652.00,NULL,NULL,'2018-05-27'),(15,1,2,41.00,NULL,NULL,'2018-05-27'),(16,2,2,411.00,NULL,NULL,'2018-05-27'),(17,4,1,22.00,-23.5037041,-46.7725749,'2018-05-27'),(18,4,2,22.00,-23.5037041,-46.7725749,'2018-05-27'),(19,4,2,22.00,-23.5037041,-46.7725749,'2018-05-27'),(20,2,1,66.00,-23.5037041,-46.7725749,'2018-05-27'),(21,3,1,55.00,-23.503699,-46.7726135,'2018-05-27'),(22,4,2,56.00,-23.5036947,-46.7725773,'2018-05-27'),(23,4,2,56.00,-23.5036947,-46.7725773,'2018-05-27');
 /*!40000 ALTER TABLE `tbl_controle_abastecimento` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2544,8 +2545,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
-<<<<<<< HEAD
--- Dump completed on 2018-05-27 19:51:05
-=======
--- Dump completed on 2018-05-27 15:02:20
->>>>>>> 872d7315294c3a6bbdb46fedbf4c4aaf40ccf699
+-- Dump completed on 2018-05-28  0:20:19
