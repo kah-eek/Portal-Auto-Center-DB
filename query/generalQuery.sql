@@ -1,26 +1,9 @@
 USE dbautofast;
 
-select * from tbl_tipo_combustivel;
-select * from tbl_veiculo_cliente;
-select * from tbl_controle_abastecimento;
+select * from tbl_usuario;
+select * from tbl_parceiro;
+select * from tbl_funcionario_pac;
+select * from view_total_despesas_internas;
 
-
-INSERT INTO tbl_controle_abastecimento 
-(
-	id_tipo_combustivel, 
-    id_veiculo_cliente,
-    valor_abastecimento,
-    latitude,
-    longitude,
-    log_controle_abastecimento
-) 
-VALUES
-(
-	3,
-    1,
-    280,
-    0,
-    0,
-    now()
-);
-
+# id_funcionario_pac, nome, cpf, rg, id_endereco, dt_nascimento, id_cargo_funcionario_pac, salario, sexo, celular, email, foto, cnh, pis, certificado_reservista, log_funcionario_pac, id_usuario
+NULL, 'Caique Ferreira Mathias', '22578547965', '108652357', '1', '1998-04-12', '1', '4800', 'M', '11958746589', 'caique.m.oliveira.br@gmail.com', 'path', '65156', '564189+456', '56146', '2018-05-28', '35'
