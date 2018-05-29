@@ -4,7 +4,7 @@ CREATE EVENT event_insert_pagamento_funcionario
 ON SCHEDULE 
 EVERY 1 MONTH
 DO 
-INSERT INTO tbl_pagamento_funcionario_pac (id_funcionario_pac) 
-SELECT id_funcionario_pac FROM tbl_funcionario_pac;
+INSERT INTO tbl_pagamento_funcionario_pac (id_funcionario_pac,mes_pagamento) 
+SELECT id_funcionario_pac,now() FROM tbl_funcionario_pac;
 
-ALTER EVENT event_insert_pagamento_funcionario ON SCHEDULE EVERY 2 MINUTE;
+ALTER EVENT event_insert_pagamento_funcionario ON SCHEDULE EVERY 1 MINUTE;
