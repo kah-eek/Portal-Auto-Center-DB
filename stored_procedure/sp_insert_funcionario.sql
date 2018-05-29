@@ -71,11 +71,12 @@ BEGIN
 		(
 			usuario,
 			senha,
-			id_nivel_usuario
+			id_nivel_usuario,
+            log
 		) 
 		VALUES
 		(
-			_usuario, _senha, _id_nivel_usuario
+			_usuario, _senha, _id_nivel_usuario, now()
 		);
         
         /* ARMAZENA O ID DO USUARIO INSERIDO */
@@ -101,12 +102,13 @@ BEGIN
                 cnh, 
                 pis, 
                 certificado_reservista,
-                id_usuario
+                id_usuario,
+                log_funcionario_pac
 				
 			)
 			VALUES
 			(
-				_nome, _cpf, _rg, id_endereco, _dt_nascimento, _id_cargo_funcionario_pac, _salario, _sexo, _celular, _email, _foto, _cnh, _pis, _certificado_reservista, id_usuario
+				_nome, _cpf, _rg, id_endereco, _dt_nascimento, _id_cargo_funcionario_pac, _salario, _sexo, _celular, _email, _foto, _cnh, _pis, _certificado_reservista, id_usuario, now()
 			);
             
              /* ARMAZENA O ID DO PARCEIRO INSERIDO */
