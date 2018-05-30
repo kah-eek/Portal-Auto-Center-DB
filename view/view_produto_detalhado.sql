@@ -1,7 +1,7 @@
 /*
 	VIEW DE DETALHES DO PRODUTO, POSSIBILITANDO A OBTENÇÃO DE TODOS OS DADOS VINCULADOS AO PRODUTO
 */
-CREATE VIEW view_produto_detalhado AS 
+ALTER VIEW view_produto_detalhado AS 
 
 SELECT 
 /* PRODUTO */
@@ -19,6 +19,7 @@ parc.nome_fantasia,
 parc.razao_social,
 parc.cnpj,
 parc.id_endereco,
+parc.id_usuario,
 parc.ativo,
 parc.socorrista,
 parc.email,
