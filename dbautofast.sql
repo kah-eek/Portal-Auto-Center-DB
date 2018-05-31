@@ -442,7 +442,7 @@ CREATE TABLE `tbl_controle_abastecimento` (
   KEY `fk_tbl_controle_abastecimento_id_veiculo_cliente_idx` (`id_veiculo_cliente`),
   CONSTRAINT `fk_cont_abat_id_veiculo_clint` FOREIGN KEY (`id_tipo_combustivel`) REFERENCES `tbl_tipo_combustivel` (`id_tipo_combustivel`),
   CONSTRAINT `fk_tbl_cont_abast_id_veiculo_cliente` FOREIGN KEY (`id_veiculo_cliente`) REFERENCES `tbl_veiculo_cliente` (`id_veiculo_cliente`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -451,6 +451,7 @@ CREATE TABLE `tbl_controle_abastecimento` (
 
 LOCK TABLES `tbl_controle_abastecimento` WRITE;
 /*!40000 ALTER TABLE `tbl_controle_abastecimento` DISABLE KEYS */;
+INSERT INTO `tbl_controle_abastecimento` VALUES (1,4,1,11.00,0,0,'2021-05-31 00:00:00'),(3,5,1,22.00,0,0,'2019-03-28 00:00:00'),(4,5,1,63.00,0,0,'2018-05-31 00:00:00'),(5,4,1,90.00,0,0,'2018-05-31 00:00:00'),(6,5,1,112.00,0,0,'2018-05-31 00:00:00'),(7,4,3,72.59,NULL,NULL,'2018-05-31 00:00:00'),(8,4,1,78.41,0,0,'2018-05-31 02:41:55'),(9,4,1,78.41,0,0,'2018-05-31 02:42:45'),(10,4,1,78.41,0,0,'2018-05-31 02:43:45');
 /*!40000 ALTER TABLE `tbl_controle_abastecimento` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1552,7 +1553,7 @@ CREATE TABLE `tbl_veiculo` (
 
 LOCK TABLES `tbl_veiculo` WRITE;
 /*!40000 ALTER TABLE `tbl_veiculo` DISABLE KEYS */;
-INSERT INTO `tbl_veiculo` VALUES (1,2018,'DFR-2154',1,1,4,0,1,1),(2,2018,'RFT-2541',1,1,0,0,2,1);
+INSERT INTO `tbl_veiculo` VALUES (1,2018,'DFR-2154',1,1,4,22410,1,1),(2,2018,'RFT-2541',1,1,0,0,2,1);
 /*!40000 ALTER TABLE `tbl_veiculo` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1572,7 +1573,7 @@ CREATE TABLE `tbl_veiculo_cliente` (
   KEY `fk_veiculo_cliente_id_cliente_idx` (`id_cliente`),
   CONSTRAINT `fk_veiculo_cliente_id_cliente` FOREIGN KEY (`id_cliente`) REFERENCES `tbl_cliente` (`id_cliente`),
   CONSTRAINT `fk_veiculo_cliente_id_veiculo` FOREIGN KEY (`id_veiculo`) REFERENCES `tbl_veiculo` (`id_veiculo`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1581,7 +1582,7 @@ CREATE TABLE `tbl_veiculo_cliente` (
 
 LOCK TABLES `tbl_veiculo_cliente` WRITE;
 /*!40000 ALTER TABLE `tbl_veiculo_cliente` DISABLE KEYS */;
-INSERT INTO `tbl_veiculo_cliente` VALUES (1,2,1),(2,2,1);
+INSERT INTO `tbl_veiculo_cliente` VALUES (1,2,1),(3,4,2);
 /*!40000 ALTER TABLE `tbl_veiculo_cliente` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1693,6 +1694,26 @@ SET character_set_client = utf8;
  1 AS `vencimento`,
  1 AS `paga`,
  1 AS `categoria`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary view structure for view `view_controle_abastecimento_formatado`
+--
+
+DROP TABLE IF EXISTS `view_controle_abastecimento_formatado`;
+/*!50001 DROP VIEW IF EXISTS `view_controle_abastecimento_formatado`*/;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+/*!50001 CREATE VIEW `view_controle_abastecimento_formatado` AS SELECT 
+ 1 AS `id_controle_abastecimento`,
+ 1 AS `id_tipo_combustivel`,
+ 1 AS `id_veiculo_cliente`,
+ 1 AS `valor_abastecimento`,
+ 1 AS `latitude`,
+ 1 AS `longitude`,
+ 1 AS `log_controle_abastecimento`,
+ 1 AS `combustivel`,
+ 1 AS `id_cliente`*/;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -2179,6 +2200,24 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET collation_connection      = @saved_col_connection */;
 
 --
+-- Final view structure for view `view_controle_abastecimento_formatado`
+--
+
+/*!50001 DROP VIEW IF EXISTS `view_controle_abastecimento_formatado`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8 */;
+/*!50001 SET character_set_results     = utf8 */;
+/*!50001 SET collation_connection      = utf8_general_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `view_controle_abastecimento_formatado` AS select `ca`.`id_controle_abastecimento` AS `id_controle_abastecimento`,`ca`.`id_tipo_combustivel` AS `id_tipo_combustivel`,`ca`.`id_veiculo_cliente` AS `id_veiculo_cliente`,`ca`.`valor_abastecimento` AS `valor_abastecimento`,`ca`.`latitude` AS `latitude`,`ca`.`longitude` AS `longitude`,date_format(cast(`ca`.`log_controle_abastecimento` as date),'%d/%m/%Y') AS `log_controle_abastecimento`,`tc`.`combustivel` AS `combustivel`,`c`.`id_cliente` AS `id_cliente` from (((`tbl_controle_abastecimento` `ca` join `tbl_tipo_combustivel` `tc` on((`tc`.`id_tipo_combustivel` = `ca`.`id_tipo_combustivel`))) join `tbl_veiculo_cliente` `vc` on((`vc`.`id_veiculo_cliente` = `ca`.`id_veiculo_cliente`))) join `tbl_cliente` `c` on((`c`.`id_cliente` = `vc`.`id_cliente`))) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
 -- Final view structure for view `view_detalhes_produtos`
 --
 
@@ -2493,4 +2532,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-05-31  0:18:36
+-- Dump completed on 2018-05-31  2:44:55
