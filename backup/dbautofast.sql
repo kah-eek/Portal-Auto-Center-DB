@@ -443,7 +443,7 @@ CREATE TABLE `tbl_controle_abastecimento` (
   KEY `fk_tbl_controle_abastecimento_id_veiculo_cliente_idx` (`id_veiculo_cliente`),
   CONSTRAINT `fk_cont_abat_id_veiculo_clint` FOREIGN KEY (`id_tipo_combustivel`) REFERENCES `tbl_tipo_combustivel` (`id_tipo_combustivel`),
   CONSTRAINT `fk_tbl_cont_abast_id_veiculo_cliente` FOREIGN KEY (`id_veiculo_cliente`) REFERENCES `tbl_veiculo_cliente` (`id_veiculo_cliente`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -452,7 +452,7 @@ CREATE TABLE `tbl_controle_abastecimento` (
 
 LOCK TABLES `tbl_controle_abastecimento` WRITE;
 /*!40000 ALTER TABLE `tbl_controle_abastecimento` DISABLE KEYS */;
-INSERT INTO `tbl_controle_abastecimento` VALUES (11,1,1,89.00,-23.5025997,-46.772698,'2018-05-31 03:37:41',24563),(12,2,1,42.00,0,0,'2018-06-01 03:40:47',25600),(13,4,1,120.00,0,0,'2018-05-31 04:12:35',258780),(14,1,1,43.00,-23.5037265,-46.7726394,'2018-05-31 10:06:35',26960);
+INSERT INTO `tbl_controle_abastecimento` VALUES (11,1,1,89.00,-23.5025997,-46.772698,'2018-05-31 03:37:41',24563),(12,2,1,42.00,0,0,'2018-06-01 03:40:47',25600),(13,4,1,120.00,0,0,'2018-05-31 04:12:35',258780),(14,1,1,43.00,-23.5037265,-46.7726394,'2018-05-31 10:06:35',26960),(15,1,1,87.00,-23.5037635,-46.7726612,'2018-05-31 11:16:03',34066),(16,2,1,132.00,-23.5036959,-46.7728459,'2018-05-31 11:19:22',33216),(17,1,1,55.00,-23.5037683,-46.7725915,'2018-05-31 11:20:11',555),(18,3,1,1111.00,NULL,NULL,'2018-05-31 11:22:59',2165),(19,1,1,1111.00,NULL,NULL,'2018-05-31 11:24:33',111111),(20,2,1,111.00,NULL,NULL,'2018-05-31 11:25:16',11111),(21,2,1,1111.00,NULL,NULL,'2018-06-08 00:00:00',11111),(22,3,1,1111.00,-23.5037249,-46.7726032,'2018-05-09 00:00:00',111111);
 /*!40000 ALTER TABLE `tbl_controle_abastecimento` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2123,6 +2123,29 @@ SET character_set_client = utf8;
 SET character_set_client = @saved_cs_client;
 
 --
+-- Temporary view structure for view `view_servico`
+--
+
+DROP TABLE IF EXISTS `view_servico`;
+/*!50001 DROP VIEW IF EXISTS `view_servico`*/;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+/*!50001 CREATE VIEW `view_servico` AS SELECT 
+ 1 AS `id_produto`,
+ 1 AS `id_modelo_produto`,
+ 1 AS `id_parceiro`,
+ 1 AS `id_cor`,
+ 1 AS `id_categoria_produto`,
+ 1 AS `nome`,
+ 1 AS `preco`,
+ 1 AS `conteudo_embalagem`,
+ 1 AS `garantia`,
+ 1 AS `descricao`,
+ 1 AS `observacao`,
+ 1 AS `id_usuario`*/;
+SET character_set_client = @saved_cs_client;
+
+--
 -- Temporary view structure for view `view_servicos_prestados_cliente`
 --
 
@@ -2472,6 +2495,24 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET collation_connection      = @saved_col_connection */;
 
 --
+-- Final view structure for view `view_servico`
+--
+
+/*!50001 DROP VIEW IF EXISTS `view_servico`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8 */;
+/*!50001 SET character_set_results     = utf8 */;
+/*!50001 SET collation_connection      = utf8_general_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `view_servico` AS select `p`.`id_produto` AS `id_produto`,`p`.`id_modelo_produto` AS `id_modelo_produto`,`p`.`id_parceiro` AS `id_parceiro`,`p`.`id_cor` AS `id_cor`,`p`.`id_categoria_produto` AS `id_categoria_produto`,`p`.`nome` AS `nome`,`p`.`preco` AS `preco`,`p`.`conteudo_embalagem` AS `conteudo_embalagem`,`p`.`garantia` AS `garantia`,`p`.`descricao` AS `descricao`,`p`.`observacao` AS `observacao`,`pa`.`id_usuario` AS `id_usuario` from ((`tbl_produto` `p` join `tbl_parceiro` `pa` on((`pa`.`id_parceiro` = `p`.`id_parceiro`))) join `tbl_usuario` `u` on((`u`.`id_usuario` = `pa`.`id_usuario`))) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
 -- Final view structure for view `view_servicos_prestados_cliente`
 --
 
@@ -2534,4 +2575,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-05-31 10:15:59
+-- Dump completed on 2018-05-31 11:50:32
