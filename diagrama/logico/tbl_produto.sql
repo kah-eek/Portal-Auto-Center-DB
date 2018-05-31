@@ -1,0 +1,1 @@
+ALTER TABLE tbl_produto CHANGE COLUMN conteudo_embalagem conteudo_embalagem VARCHAR(4000);

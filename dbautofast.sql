@@ -443,7 +443,7 @@ CREATE TABLE `tbl_controle_abastecimento` (
   KEY `fk_tbl_controle_abastecimento_id_veiculo_cliente_idx` (`id_veiculo_cliente`),
   CONSTRAINT `fk_cont_abat_id_veiculo_clint` FOREIGN KEY (`id_tipo_combustivel`) REFERENCES `tbl_tipo_combustivel` (`id_tipo_combustivel`),
   CONSTRAINT `fk_tbl_cont_abast_id_veiculo_cliente` FOREIGN KEY (`id_veiculo_cliente`) REFERENCES `tbl_veiculo_cliente` (`id_veiculo_cliente`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -452,7 +452,7 @@ CREATE TABLE `tbl_controle_abastecimento` (
 
 LOCK TABLES `tbl_controle_abastecimento` WRITE;
 /*!40000 ALTER TABLE `tbl_controle_abastecimento` DISABLE KEYS */;
-INSERT INTO `tbl_controle_abastecimento` VALUES (11,1,1,89.00,0,0,'2018-05-31 03:37:41',24563),(12,2,1,42.00,0,0,'2018-05-31 03:40:47',24620);
+INSERT INTO `tbl_controle_abastecimento` VALUES (11,1,1,89.00,-23.5025997,-46.772698,'2018-05-31 03:37:41',24563),(12,2,1,42.00,0,0,'2018-06-01 03:40:47',25600),(13,4,1,120.00,0,0,'2018-05-31 04:12:35',258780),(14,1,1,43.00,-23.5037265,-46.7726394,'2018-05-31 10:06:35',26960);
 /*!40000 ALTER TABLE `tbl_controle_abastecimento` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1117,7 +1117,7 @@ CREATE TABLE `tbl_produto` (
   `id_categoria_produto` int(11) NOT NULL,
   `nome` varchar(180) NOT NULL,
   `preco` decimal(8,2) NOT NULL,
-  `conteudo_embalagem` varchar(4000) NOT NULL,
+  `conteudo_embalagem` varchar(4000) DEFAULT NULL,
   `garantia` varchar(1500) NOT NULL,
   `descricao` varchar(5500) NOT NULL,
   `observacao` varchar(5500) DEFAULT NULL,
@@ -1709,13 +1709,13 @@ SET character_set_client = utf8;
  1 AS `id_controle_abastecimento`,
  1 AS `id_tipo_combustivel`,
  1 AS `id_veiculo_cliente`,
+ 1 AS `quilometro_rodado`,
  1 AS `valor_abastecimento`,
  1 AS `latitude`,
  1 AS `longitude`,
  1 AS `log_controle_abastecimento`,
  1 AS `combustivel`,
- 1 AS `id_cliente`,
- 1 AS `quilometro_rodado`*/;
+ 1 AS `id_cliente`*/;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -2214,7 +2214,7 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET collation_connection      = utf8_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `view_controle_abastecimento_formatado` AS select `ca`.`id_controle_abastecimento` AS `id_controle_abastecimento`,`ca`.`id_tipo_combustivel` AS `id_tipo_combustivel`,`ca`.`id_veiculo_cliente` AS `id_veiculo_cliente`,`ca`.`valor_abastecimento` AS `valor_abastecimento`,`ca`.`latitude` AS `latitude`,`ca`.`longitude` AS `longitude`,date_format(cast(`ca`.`log_controle_abastecimento` as date),'%d/%m/%Y') AS `log_controle_abastecimento`,`tc`.`combustivel` AS `combustivel`,`c`.`id_cliente` AS `id_cliente`,`v`.`quilometro_rodado` AS `quilometro_rodado` from ((((`tbl_controle_abastecimento` `ca` join `tbl_tipo_combustivel` `tc` on((`tc`.`id_tipo_combustivel` = `ca`.`id_tipo_combustivel`))) join `tbl_veiculo_cliente` `vc` on((`vc`.`id_veiculo_cliente` = `ca`.`id_veiculo_cliente`))) join `tbl_cliente` `c` on((`c`.`id_cliente` = `vc`.`id_cliente`))) join `tbl_veiculo` `v` on((`v`.`id_veiculo` = `vc`.`id_veiculo`))) */;
+/*!50001 VIEW `view_controle_abastecimento_formatado` AS select `ca`.`id_controle_abastecimento` AS `id_controle_abastecimento`,`ca`.`id_tipo_combustivel` AS `id_tipo_combustivel`,`ca`.`id_veiculo_cliente` AS `id_veiculo_cliente`,`ca`.`quilometro_rodado` AS `quilometro_rodado`,`ca`.`valor_abastecimento` AS `valor_abastecimento`,`ca`.`latitude` AS `latitude`,`ca`.`longitude` AS `longitude`,date_format(cast(`ca`.`log_controle_abastecimento` as date),'%d/%m/%Y') AS `log_controle_abastecimento`,`tc`.`combustivel` AS `combustivel`,`c`.`id_cliente` AS `id_cliente` from (((`tbl_controle_abastecimento` `ca` join `tbl_tipo_combustivel` `tc` on((`tc`.`id_tipo_combustivel` = `ca`.`id_tipo_combustivel`))) join `tbl_veiculo_cliente` `vc` on((`vc`.`id_veiculo_cliente` = `ca`.`id_veiculo_cliente`))) join `tbl_cliente` `c` on((`c`.`id_cliente` = `vc`.`id_cliente`))) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -2534,4 +2534,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-05-31  3:41:48
+-- Dump completed on 2018-05-31 10:15:59
