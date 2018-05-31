@@ -434,8 +434,8 @@ CREATE TABLE `tbl_controle_abastecimento` (
   `id_tipo_combustivel` int(11) NOT NULL,
   `id_veiculo_cliente` int(11) NOT NULL,
   `valor_abastecimento` decimal(6,2) NOT NULL,
-  `latitute` double NOT NULL,
-  `longitude` double NOT NULL,
+  `latitude` double DEFAULT NULL,
+  `longitude` double DEFAULT NULL,
   `log_controle_abastecimento` datetime NOT NULL,
   PRIMARY KEY (`id_controle_abastecimento`),
   KEY `fk_tbl_controle_abastecimento_id_veiculo_cliente_id_tipo_co_idx` (`id_tipo_combustivel`),
@@ -723,7 +723,7 @@ CREATE TABLE `tbl_imagem_produto_parceiro` (
   PRIMARY KEY (`id_imagem_produto_parceiro`),
   KEY `fk_tbl_imagem_produto_parceiro_id_produto_idx` (`id_produto`),
   CONSTRAINT `fk_tbl_imagem_produto_parceiro_id_produto` FOREIGN KEY (`id_produto`) REFERENCES `tbl_produto` (`id_produto`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -732,7 +732,7 @@ CREATE TABLE `tbl_imagem_produto_parceiro` (
 
 LOCK TABLES `tbl_imagem_produto_parceiro` WRITE;
 /*!40000 ALTER TABLE `tbl_imagem_produto_parceiro` DISABLE KEYS */;
-INSERT INTO `tbl_imagem_produto_parceiro` VALUES (2,3,'../pictures/galeria/auto_eletrica.jpg',1),(3,4,'../pictures/galeria/pintura_carro.jpg',1),(5,5,'../pictures/galeria/farol.jpg',1);
+INSERT INTO `tbl_imagem_produto_parceiro` VALUES (2,3,'../pictures/produto/auto_eletrica.jpg',1),(3,4,'../pictures/produto/pintura_carro.jpg',1),(5,5,'../pictures/produto/farol.jpg',1),(6,6,'../pictures/produto/pneu.png',1);
 /*!40000 ALTER TABLE `tbl_imagem_produto_parceiro` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1128,7 +1128,7 @@ CREATE TABLE `tbl_produto` (
   CONSTRAINT `fk_tbl_produto_id_cor` FOREIGN KEY (`id_cor`) REFERENCES `tbl_cor` (`id_cor`),
   CONSTRAINT `fk_tbl_produto_id_modelo_produto` FOREIGN KEY (`id_modelo_produto`) REFERENCES `tbl_modelo_produto` (`id_modelo_produto`),
   CONSTRAINT `fk_tbl_produto_id_parceiro` FOREIGN KEY (`id_parceiro`) REFERENCES `tbl_parceiro` (`id_parceiro`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1137,7 +1137,7 @@ CREATE TABLE `tbl_produto` (
 
 LOCK TABLES `tbl_produto` WRITE;
 /*!40000 ALTER TABLE `tbl_produto` DISABLE KEYS */;
-INSERT INTO `tbl_produto` VALUES (3,NULL,1,NULL,2,'Higienizacao',875.00,'','','test',NULL),(4,NULL,1,NULL,2,'Revizão veicular',300.00,'','','',NULL),(5,1,1,1,1,'Radiador',300.00,'1 pneu','12 meses','',NULL);
+INSERT INTO `tbl_produto` VALUES (3,NULL,1,NULL,2,'Higienizacao',875.00,'','','test',NULL),(4,NULL,1,NULL,2,'Revizão veicular',300.00,'','','',NULL),(5,1,1,1,1,'Radiador',300.00,'1 pneu','12 meses','',NULL),(6,1,26,1,1,'Pne35',300.00,'1','6 meses','Produto da pireli e da melhor qualidade',NULL);
 /*!40000 ALTER TABLE `tbl_produto` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1350,7 +1350,7 @@ CREATE TABLE `tbl_tipo_combustivel` (
   `id_tipo_combustivel` int(11) NOT NULL AUTO_INCREMENT,
   `combustivel` varchar(120) NOT NULL,
   PRIMARY KEY (`id_tipo_combustivel`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1359,6 +1359,7 @@ CREATE TABLE `tbl_tipo_combustivel` (
 
 LOCK TABLES `tbl_tipo_combustivel` WRITE;
 /*!40000 ALTER TABLE `tbl_tipo_combustivel` DISABLE KEYS */;
+INSERT INTO `tbl_tipo_combustivel` VALUES (1,'Gasolina'),(2,'Álcool'),(3,'Etanol'),(4,'GNV'),(5,'Diesel'),(6,'Elétrico');
 /*!40000 ALTER TABLE `tbl_tipo_combustivel` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1571,7 +1572,7 @@ CREATE TABLE `tbl_veiculo_cliente` (
   KEY `fk_veiculo_cliente_id_cliente_idx` (`id_cliente`),
   CONSTRAINT `fk_veiculo_cliente_id_cliente` FOREIGN KEY (`id_cliente`) REFERENCES `tbl_cliente` (`id_cliente`),
   CONSTRAINT `fk_veiculo_cliente_id_veiculo` FOREIGN KEY (`id_veiculo`) REFERENCES `tbl_veiculo` (`id_veiculo`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1580,6 +1581,7 @@ CREATE TABLE `tbl_veiculo_cliente` (
 
 LOCK TABLES `tbl_veiculo_cliente` WRITE;
 /*!40000 ALTER TABLE `tbl_veiculo_cliente` DISABLE KEYS */;
+INSERT INTO `tbl_veiculo_cliente` VALUES (1,2,1),(2,2,1);
 /*!40000 ALTER TABLE `tbl_veiculo_cliente` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2068,6 +2070,24 @@ SET character_set_client = utf8;
 SET character_set_client = @saved_cs_client;
 
 --
+-- Temporary view structure for view `view_produto_min_info`
+--
+
+DROP TABLE IF EXISTS `view_produto_min_info`;
+/*!50001 DROP VIEW IF EXISTS `view_produto_min_info`*/;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+/*!50001 CREATE VIEW `view_produto_min_info` AS SELECT 
+ 1 AS `id_produto`,
+ 1 AS `nome`,
+ 1 AS `preco`,
+ 1 AS `fabricante`,
+ 1 AS `imagem`,
+ 1 AS `categoria`,
+ 1 AS `id_categoria_produto`*/;
+SET character_set_client = @saved_cs_client;
+
+--
 -- Temporary view structure for view `view_receita_plano_contratacao`
 --
 
@@ -2106,6 +2126,20 @@ SET @saved_cs_client     = @@character_set_client;
 SET character_set_client = utf8;
 /*!50001 CREATE VIEW `view_total_despesas_internas` AS SELECT 
  1 AS `total_despesa`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary view structure for view `view_veiculo_cliente`
+--
+
+DROP TABLE IF EXISTS `view_veiculo_cliente`;
+/*!50001 DROP VIEW IF EXISTS `view_veiculo_cliente`*/;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+/*!50001 CREATE VIEW `view_veiculo_cliente` AS SELECT 
+ 1 AS `id_veiculo`,
+ 1 AS `id_cliente`,
+ 1 AS `placa`*/;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -2361,6 +2395,24 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET collation_connection      = @saved_col_connection */;
 
 --
+-- Final view structure for view `view_produto_min_info`
+--
+
+/*!50001 DROP VIEW IF EXISTS `view_produto_min_info`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8 */;
+/*!50001 SET character_set_results     = utf8 */;
+/*!50001 SET collation_connection      = utf8_general_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `view_produto_min_info` AS select `p`.`id_produto` AS `id_produto`,`p`.`nome` AS `nome`,`p`.`preco` AS `preco`,`f`.`fabricante` AS `fabricante`,`i`.`imagem` AS `imagem`,`c`.`categoria` AS `categoria`,`c`.`id_categoria_produto` AS `id_categoria_produto` from ((((`tbl_produto` `p` join `tbl_modelo_produto` `m` on((`m`.`id_modelo_produto` = `p`.`id_modelo_produto`))) join `tbl_fabricante_produto` `f` on((`f`.`id_fabricante_produto` = `m`.`id_fabricante_produto`))) join `tbl_imagem_produto_parceiro` `i` on((`i`.`id_produto` = `p`.`id_produto`))) join `tbl_categoria_produto` `c` on((`c`.`id_categoria_produto` = `p`.`id_categoria_produto`))) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
 -- Final view structure for view `view_receita_plano_contratacao`
 --
 
@@ -2413,6 +2465,24 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `view_veiculo_cliente`
+--
+
+/*!50001 DROP VIEW IF EXISTS `view_veiculo_cliente`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8 */;
+/*!50001 SET character_set_results     = utf8 */;
+/*!50001 SET collation_connection      = utf8_general_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `view_veiculo_cliente` AS select `vc`.`id_veiculo` AS `id_veiculo`,`vc`.`id_cliente` AS `id_cliente`,`v`.`placa` AS `placa` from (`tbl_veiculo_cliente` `vc` join `tbl_veiculo` `v` on((`v`.`id_veiculo` = `vc`.`id_veiculo`))) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -2423,4 +2493,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-05-30 20:40:12
+-- Dump completed on 2018-05-31  0:18:36
