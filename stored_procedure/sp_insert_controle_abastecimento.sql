@@ -7,7 +7,6 @@ CREATE PROCEDURE sp_insert_controle_abastecimento
     IN _valor_abastecimento DECIMAL(6,2), 
     IN _latitude DOUBLE, 
     IN _longitude DOUBLE, 
-    IN _log_controle_abastecimento DATETIME,
     OUT response INT
 )
 BEGIN
