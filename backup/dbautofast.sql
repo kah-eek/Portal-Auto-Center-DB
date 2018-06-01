@@ -2159,6 +2159,29 @@ SET character_set_client = utf8;
 SET character_set_client = @saved_cs_client;
 
 --
+-- Temporary view structure for view `view_servico_detalhado`
+--
+
+DROP TABLE IF EXISTS `view_servico_detalhado`;
+/*!50001 DROP VIEW IF EXISTS `view_servico_detalhado`*/;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+/*!50001 CREATE VIEW `view_servico_detalhado` AS SELECT 
+ 1 AS `id_produto`,
+ 1 AS `id_parceiro`,
+ 1 AS `id_categoria_produto`,
+ 1 AS `nome`,
+ 1 AS `preco`,
+ 1 AS `descricao`,
+ 1 AS `observacao`,
+ 1 AS `email`,
+ 1 AS `logradouro`,
+ 1 AS `numero`,
+ 1 AS `cidade`,
+ 1 AS `estado`*/;
+SET character_set_client = @saved_cs_client;
+
+--
 -- Temporary view structure for view `view_servicos_prestados_cliente`
 --
 
@@ -2544,6 +2567,24 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET collation_connection      = @saved_col_connection */;
 
 --
+-- Final view structure for view `view_servico_detalhado`
+--
+
+/*!50001 DROP VIEW IF EXISTS `view_servico_detalhado`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8 */;
+/*!50001 SET character_set_results     = utf8 */;
+/*!50001 SET collation_connection      = utf8_general_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `view_servico_detalhado` AS select `p`.`id_produto` AS `id_produto`,`p`.`id_parceiro` AS `id_parceiro`,`p`.`id_categoria_produto` AS `id_categoria_produto`,`p`.`nome` AS `nome`,`p`.`preco` AS `preco`,`p`.`descricao` AS `descricao`,`p`.`observacao` AS `observacao`,`pr`.`email` AS `email`,`e`.`logradouro` AS `logradouro`,`e`.`numero` AS `numero`,`e`.`cidade` AS `cidade`,`es`.`estado` AS `estado` from (((`tbl_produto` `p` join `tbl_parceiro` `pr` on((`pr`.`id_parceiro` = `p`.`id_parceiro`))) join `tbl_endereco` `e` on((`e`.`id_endereco` = `pr`.`id_endereco`))) join `tbl_estado` `es` on((`es`.`id_estado` = `e`.`id_estado`))) where (`p`.`id_categoria_produto` = 2) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
 -- Final view structure for view `view_servicos_prestados_cliente`
 --
 
@@ -2606,4 +2647,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-05-31 12:38:50
+-- Dump completed on 2018-05-31 12:49:47
