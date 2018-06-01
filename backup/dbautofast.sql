@@ -983,7 +983,7 @@ CREATE TABLE `tbl_pedido` (
   KEY `fk_tbl_pedido_id_produto_idx` (`id_produto`),
   CONSTRAINT `fk_tbl_pedido_id_cliente` FOREIGN KEY (`id_cliente`) REFERENCES `tbl_cliente` (`id_cliente`),
   CONSTRAINT `fk_tbl_pedido_id_produto` FOREIGN KEY (`id_produto`) REFERENCES `tbl_produto` (`id_produto`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -992,7 +992,7 @@ CREATE TABLE `tbl_pedido` (
 
 LOCK TABLES `tbl_pedido` WRITE;
 /*!40000 ALTER TABLE `tbl_pedido` DISABLE KEYS */;
-INSERT INTO `tbl_pedido` VALUES (1,2,3,'2018-05-21 00:00:00','2018-05-20 11:32:40'),(2,2,5,'2018-02-14 00:00:00','2018-05-21 20:57:03');
+INSERT INTO `tbl_pedido` VALUES (1,2,3,'2018-05-21 00:00:00','2018-05-20 11:32:40'),(2,2,5,'2018-02-14 00:00:00','2018-05-21 20:57:03'),(4,2,4,'2018-02-21 17:21:00','2018-05-31 17:55:57');
 /*!40000 ALTER TABLE `tbl_pedido` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1399,7 +1399,7 @@ CREATE TABLE `tbl_tipo_situacao_pedido` (
   `id_tipo_situacao_pedido` int(11) NOT NULL AUTO_INCREMENT,
   `situacao` varchar(120) NOT NULL,
   PRIMARY KEY (`id_tipo_situacao_pedido`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1408,7 +1408,7 @@ CREATE TABLE `tbl_tipo_situacao_pedido` (
 
 LOCK TABLES `tbl_tipo_situacao_pedido` WRITE;
 /*!40000 ALTER TABLE `tbl_tipo_situacao_pedido` DISABLE KEYS */;
-INSERT INTO `tbl_tipo_situacao_pedido` VALUES (1,'Confirmado'),(2,'Pendente'),(3,'Aguardando pagamento'),(4,'Pago'),(5,'Recebido');
+INSERT INTO `tbl_tipo_situacao_pedido` VALUES (1,'Confirmado'),(2,'Pendente'),(3,'Aguardando pagamento'),(4,'Pago'),(5,'Recebido'),(6,'Recusado');
 /*!40000 ALTER TABLE `tbl_tipo_situacao_pedido` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1602,7 +1602,7 @@ CREATE TABLE `tbl_veiculo_parceiro` (
   KEY `fk_tbl_veiculo_parceiro_id_parceiro_idx` (`id_parceiro`),
   KEY `fk_tbl_veiculo_parceiro_id_veiculo_idx` (`id_veiculo`),
   CONSTRAINT `fk_tbl_veiculo_parceiro_id_parceiro` FOREIGN KEY (`id_parceiro`) REFERENCES `tbl_parceiro` (`id_parceiro`),
-  CONSTRAINT `fk_tbl_veiculo_parceiro_id_veiculo` FOREIGN KEY (`id_veiculo`) REFERENCES `tbl_veiculo` (`id_veiculo`)
+  CONSTRAINT `fk_tbl_veiculo_parceiro_id_veiculo` FOREIGN KEY (`id_veiculo`) REFERENCES `tbl_veiculo` (`id_veiculo`) ON DELETE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -2015,7 +2015,8 @@ SET @saved_cs_client     = @@character_set_client;
 SET character_set_client = utf8;
 /*!50001 CREATE VIEW `view_prestadores_servicos` AS SELECT 
  1 AS `id_parceiro`,
- 1 AS `nome_fantasia`*/;
+ 1 AS `nome_fantasia`,
+ 1 AS `nome`*/;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -2471,7 +2472,7 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET collation_connection      = utf8_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `view_prestadores_servicos` AS select `p`.`id_parceiro` AS `id_parceiro`,`p`.`nome_fantasia` AS `nome_fantasia` from (`tbl_parceiro` `p` join `tbl_produto` `pr` on((`pr`.`id_parceiro` = `p`.`id_parceiro`))) where (`pr`.`id_categoria_produto` = 2) group by `p`.`id_parceiro` */;
+/*!50001 VIEW `view_prestadores_servicos` AS select `p`.`id_parceiro` AS `id_parceiro`,`p`.`nome_fantasia` AS `nome_fantasia`,`pr`.`nome` AS `nome` from (`tbl_parceiro` `p` join `tbl_produto` `pr` on((`pr`.`id_parceiro` = `p`.`id_parceiro`))) where (`pr`.`id_categoria_produto` = 2) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -2647,4 +2648,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-05-31 12:49:47
+-- Dump completed on 2018-06-01 14:53:16
