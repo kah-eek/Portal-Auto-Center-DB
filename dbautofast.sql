@@ -300,7 +300,7 @@ CREATE TABLE `tbl_cliente` (
 
 LOCK TABLES `tbl_cliente` WRITE;
 /*!40000 ALTER TABLE `tbl_cliente` DISABLE KEYS */;
-INSERT INTO `tbl_cliente` VALUES (2,'Carlos','1979-04-18','22578465845','carlos@gmail.com','11458754',1,'M','',33,'https://images.unsplash.com/photo-1493666438817-866a91353ca9?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=8d991e3d780fbd816811b54abf3fb681&dpr=1&auto=format&fit=crop&w=1000&q=80&cs=tinysrgb'),(3,'Paulo Matias de Souza','1980-06-01','85698875489','paulo.souza@outlook.com','11912546587',1,'M','1145875485',34,'https://images.unsplash.com/photo-1482264851290-446b18e3ee9f?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=052be30858afa91142f02f6a3df7f639&dpr=1&auto=format&fit=crop&w=1000&q=80&cs=tinysrgb'),(4,'Katia Medeiros Rocha','1985-05-14','10754852154','kkati85@bestbuy.com','11978542152',126,'F','1127856985',57,'https://images.unsplash.com/photo-1521117177129-ca6b2e68cb26?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=cce4201e8d3a1905d4a5e7a99b2dfd53&dpr=1&auto=format&fit=crop&w=1000&q=80&cs=tinysrgb');
+INSERT INTO `tbl_cliente` VALUES (2,'Carlos','1979-04-18','44315621846','carlos@gmail.com','11458754',1,'M','',33,'https://images.unsplash.com/photo-1493666438817-866a91353ca9?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=8d991e3d780fbd816811b54abf3fb681&dpr=1&auto=format&fit=crop&w=1000&q=80&cs=tinysrgb'),(3,'Paulo Matias de Souza','1980-06-01','85698875489','paulo.souza@outlook.com','11912546587',1,'M','1145875485',34,'https://images.unsplash.com/photo-1482264851290-446b18e3ee9f?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=052be30858afa91142f02f6a3df7f639&dpr=1&auto=format&fit=crop&w=1000&q=80&cs=tinysrgb'),(4,'Katia Medeiros Rocha','1985-05-14','10754852154','kkati85@bestbuy.com','11978542152',126,'F','1127856985',57,'https://images.unsplash.com/photo-1521117177129-ca6b2e68cb26?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=cce4201e8d3a1905d4a5e7a99b2dfd53&dpr=1&auto=format&fit=crop&w=1000&q=80&cs=tinysrgb');
 /*!40000 ALTER TABLE `tbl_cliente` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1139,7 +1139,7 @@ CREATE TABLE `tbl_produto` (
 
 LOCK TABLES `tbl_produto` WRITE;
 /*!40000 ALTER TABLE `tbl_produto` DISABLE KEYS */;
-INSERT INTO `tbl_produto` VALUES (3,NULL,1,NULL,2,'Higienizacao',875.00,'','','test',NULL),(4,NULL,1,NULL,2,'Revizão veicular',300.00,'','','',NULL),(5,1,1,1,1,'Radiador',300.00,'1 pneu','12 meses','',NULL),(6,1,26,1,1,'Pne35',300.00,'1','6 meses','Produto da pireli e da melhor qualidade',NULL);
+INSERT INTO `tbl_produto` VALUES (3,NULL,1,NULL,2,'Higienizacao',10.00,'','','test',NULL),(4,NULL,1,NULL,2,'Revizão veicular',300.00,'','','',NULL),(5,1,1,1,1,'Radiador',300.00,'1 pneu','12 meses','',NULL),(6,1,26,1,1,'Pne35',300.00,'1','6 meses','Produto da pireli e da melhor qualidade',NULL);
 /*!40000 ALTER TABLE `tbl_produto` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1408,7 +1408,7 @@ CREATE TABLE `tbl_tipo_situacao_pedido` (
 
 LOCK TABLES `tbl_tipo_situacao_pedido` WRITE;
 /*!40000 ALTER TABLE `tbl_tipo_situacao_pedido` DISABLE KEYS */;
-INSERT INTO `tbl_tipo_situacao_pedido` VALUES (1,'Confirmado'),(2,'Pendente'),(3,'Aguardando pagamento'),(4,'Pago'),(5,'Recebido'),(6,'Recusado');
+INSERT INTO `tbl_tipo_situacao_pedido` VALUES (1,'Confirmado'),(2,'Aguardando aprovação'),(3,'Aguardando pagamento'),(4,'Pago'),(5,'Recebido'),(6,'Recusado');
 /*!40000 ALTER TABLE `tbl_tipo_situacao_pedido` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2200,6 +2200,22 @@ SET character_set_client = utf8;
 SET character_set_client = @saved_cs_client;
 
 --
+-- Temporary view structure for view `view_status_servico`
+--
+
+DROP TABLE IF EXISTS `view_status_servico`;
+/*!50001 DROP VIEW IF EXISTS `view_status_servico`*/;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+/*!50001 CREATE VIEW `view_status_servico` AS SELECT 
+ 1 AS `nome_servico`,
+ 1 AS `data_agendada`,
+ 1 AS `nome_cliente`,
+ 1 AS `id_situacao_pedido`,
+ 1 AS `situacao`*/;
+SET character_set_client = @saved_cs_client;
+
+--
 -- Temporary view structure for view `view_total_despesas_internas`
 --
 
@@ -2604,6 +2620,24 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET collation_connection      = @saved_col_connection */;
 
 --
+-- Final view structure for view `view_status_servico`
+--
+
+/*!50001 DROP VIEW IF EXISTS `view_status_servico`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8 */;
+/*!50001 SET character_set_results     = utf8 */;
+/*!50001 SET collation_connection      = utf8_general_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `view_status_servico` AS select `p`.`nome` AS `nome_servico`,`pe`.`data_agendada` AS `data_agendada`,`c`.`nome` AS `nome_cliente`,`s`.`id_situacao_pedido` AS `id_situacao_pedido`,`ts`.`situacao` AS `situacao` from ((((`tbl_produto` `p` join `tbl_pedido` `pe` on((`pe`.`id_produto` = `p`.`id_produto`))) join `tbl_cliente` `c` on((`c`.`id_cliente` = `pe`.`id_cliente`))) join `tbl_situacao_pedido` `s` on((`s`.`id_pedido` = `pe`.`id_pedido`))) join `tbl_tipo_situacao_pedido` `ts` on((`ts`.`id_tipo_situacao_pedido` = `s`.`id_tipo_situacao_pedido`))) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
 -- Final view structure for view `view_total_despesas_internas`
 --
 
@@ -2648,4 +2682,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-06-01 15:06:28
+-- Dump completed on 2018-06-01 17:29:25
