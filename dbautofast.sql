@@ -2631,7 +2631,7 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET collation_connection      = utf8_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `view_servico_prestado` AS select `p`.`nome` AS `servico`,`p`.`preco` AS `preco`,`pa`.`nome_fantasia` AS `nome_fantasia`,`pe`.`data_agendada` AS `data_agendada`,`sp`.`id_tipo_situacao_pedido` AS `id_tipo_situacao_pedido`,`c`.`id_cliente` AS `id_cliente` from ((((`tbl_produto` `p` join `tbl_parceiro` `pa` on((`pa`.`id_parceiro` = `p`.`id_parceiro`))) join `tbl_pedido` `pe` on((`pe`.`id_produto` = `p`.`id_produto`))) join `tbl_situacao_pedido` `sp` on((`sp`.`id_pedido` = `pe`.`id_pedido`))) join `tbl_cliente` `c` on((`c`.`id_cliente` = `pe`.`id_cliente`))) */;
+/*!50001 VIEW `view_servico_prestado` AS select `p`.`nome` AS `servico`,`p`.`preco` AS `preco`,`pa`.`nome_fantasia` AS `nome_fantasia`,date_format(cast(`pe`.`data_agendada` as date),'%d/%m/%Y') AS `data_agendada`,`sp`.`id_tipo_situacao_pedido` AS `id_tipo_situacao_pedido`,`c`.`id_cliente` AS `id_cliente` from ((((`tbl_produto` `p` join `tbl_parceiro` `pa` on((`pa`.`id_parceiro` = `p`.`id_parceiro`))) join `tbl_pedido` `pe` on((`pe`.`id_produto` = `p`.`id_produto`))) join `tbl_situacao_pedido` `sp` on((`sp`.`id_pedido` = `pe`.`id_pedido`))) join `tbl_cliente` `c` on((`c`.`id_cliente` = `pe`.`id_cliente`))) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -2717,4 +2717,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-06-01 21:46:21
+-- Dump completed on 2018-06-01 22:39:33

@@ -983,7 +983,7 @@ CREATE TABLE `tbl_pedido` (
   KEY `fk_tbl_pedido_id_produto_idx` (`id_produto`),
   CONSTRAINT `fk_tbl_pedido_id_cliente` FOREIGN KEY (`id_cliente`) REFERENCES `tbl_cliente` (`id_cliente`),
   CONSTRAINT `fk_tbl_pedido_id_produto` FOREIGN KEY (`id_produto`) REFERENCES `tbl_produto` (`id_produto`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -992,7 +992,7 @@ CREATE TABLE `tbl_pedido` (
 
 LOCK TABLES `tbl_pedido` WRITE;
 /*!40000 ALTER TABLE `tbl_pedido` DISABLE KEYS */;
-INSERT INTO `tbl_pedido` VALUES (1,2,3,'2018-05-21 00:00:00','2018-05-20 11:32:40'),(2,2,5,'2018-02-14 00:00:00','2018-05-21 20:57:03'),(4,2,4,'2018-02-21 17:21:00','2018-05-31 17:55:57');
+INSERT INTO `tbl_pedido` VALUES (1,2,3,'2018-05-21 00:00:00','2018-05-20 11:32:40'),(2,2,5,'2018-02-14 00:00:00','2018-05-21 20:57:03'),(4,2,4,'2018-02-21 17:21:00','2018-05-31 17:55:57'),(5,4,4,'2018-06-02 12:40:00','2018-06-01 20:28:43'),(6,3,4,'2018-06-02 18:00:00','2018-06-01 20:53:40'),(7,3,4,'2018-06-02 18:00:00','2018-06-01 20:54:10'),(8,3,4,'2018-06-02 18:00:00','2018-06-01 20:54:56'),(9,3,4,'2018-06-02 18:00:00','2018-06-01 20:55:09'),(10,3,4,'2018-06-02 18:00:00','2018-06-01 20:55:29'),(11,3,4,'2018-06-02 18:00:00','2018-06-01 20:55:52'),(12,2,3,'2018-01-28 17:21:00','2018-06-01 21:10:28'),(13,2,3,'2019-06-05 15:00:00','2018-06-01 21:14:43'),(14,2,3,'2019-05-23 14:00:00','2018-06-01 21:16:56');
 /*!40000 ALTER TABLE `tbl_pedido` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1139,7 +1139,7 @@ CREATE TABLE `tbl_produto` (
 
 LOCK TABLES `tbl_produto` WRITE;
 /*!40000 ALTER TABLE `tbl_produto` DISABLE KEYS */;
-INSERT INTO `tbl_produto` VALUES (3,NULL,1,NULL,2,'Higienizacao',10.00,'','','test',NULL),(4,NULL,1,NULL,2,'Revizão veicular',300.00,'','','',NULL),(5,1,1,1,1,'Radiador',300.00,'1 pneu','12 meses','',NULL),(6,1,26,1,1,'Pne35',300.00,'1','6 meses','Produto da pireli e da melhor qualidade',NULL);
+INSERT INTO `tbl_produto` VALUES (3,NULL,1,NULL,2,'Higienizacao',89.99,'','','test',NULL),(4,NULL,1,NULL,2,'Revizão veicular',300.00,'','','',NULL),(5,1,1,1,1,'Radiador',300.00,'1 pneu','12 meses','',NULL),(6,1,26,1,1,'Pne35',300.00,'1','6 meses','Produto da pireli e da melhor qualidade',NULL);
 /*!40000 ALTER TABLE `tbl_produto` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1212,7 +1212,7 @@ CREATE TABLE `tbl_situacao_pedido` (
   KEY `fk_tbl_situacao_pedido_id_tipo_situacao_pedido_idx` (`id_tipo_situacao_pedido`),
   CONSTRAINT `fk_tbl_situacao_pedido_id_pedido` FOREIGN KEY (`id_pedido`) REFERENCES `tbl_pedido` (`id_pedido`),
   CONSTRAINT `fk_tbl_situacao_pedido_id_tipo_situacao_pedido` FOREIGN KEY (`id_tipo_situacao_pedido`) REFERENCES `tbl_tipo_situacao_pedido` (`id_tipo_situacao_pedido`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1221,7 +1221,7 @@ CREATE TABLE `tbl_situacao_pedido` (
 
 LOCK TABLES `tbl_situacao_pedido` WRITE;
 /*!40000 ALTER TABLE `tbl_situacao_pedido` DISABLE KEYS */;
-INSERT INTO `tbl_situacao_pedido` VALUES (1,1,3,'2018-05-20 11:34:15'),(2,1,1,'2018-05-20 12:48:35');
+INSERT INTO `tbl_situacao_pedido` VALUES (1,1,3,'2018-05-20 11:34:15'),(2,1,1,'2018-05-20 12:48:35'),(3,1,1,'2018-06-01 20:20:38'),(4,5,3,'2018-06-01 20:28:43'),(5,6,3,'2018-06-01 20:53:40'),(6,7,3,'2018-06-01 20:54:10'),(7,8,3,'2018-06-01 20:54:56'),(8,9,3,'2018-06-01 20:55:09'),(9,10,3,'2018-06-01 20:55:29'),(10,11,3,'2018-06-01 20:55:52'),(11,12,3,'2018-06-01 21:10:28'),(12,13,3,'2018-06-01 21:14:43'),(13,14,3,'2018-06-01 21:16:56');
 /*!40000 ALTER TABLE `tbl_situacao_pedido` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1408,7 +1408,7 @@ CREATE TABLE `tbl_tipo_situacao_pedido` (
 
 LOCK TABLES `tbl_tipo_situacao_pedido` WRITE;
 /*!40000 ALTER TABLE `tbl_tipo_situacao_pedido` DISABLE KEYS */;
-INSERT INTO `tbl_tipo_situacao_pedido` VALUES (1,'Confirmado'),(2,'Aguardando aprovação'),(3,'Aguardando pagamento'),(4,'Pago'),(5,'Recebido'),(6,'Recusado');
+INSERT INTO `tbl_tipo_situacao_pedido` VALUES (1,'Confirmado'),(2,'Pendente'),(3,'Aguardando pagamento'),(4,'Pago'),(5,'Recebido'),(6,'Recusado');
 /*!40000 ALTER TABLE `tbl_tipo_situacao_pedido` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2183,6 +2183,23 @@ SET character_set_client = utf8;
 SET character_set_client = @saved_cs_client;
 
 --
+-- Temporary view structure for view `view_servico_prestado`
+--
+
+DROP TABLE IF EXISTS `view_servico_prestado`;
+/*!50001 DROP VIEW IF EXISTS `view_servico_prestado`*/;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+/*!50001 CREATE VIEW `view_servico_prestado` AS SELECT 
+ 1 AS `servico`,
+ 1 AS `preco`,
+ 1 AS `nome_fantasia`,
+ 1 AS `data_agendada`,
+ 1 AS `id_tipo_situacao_pedido`,
+ 1 AS `id_cliente`*/;
+SET character_set_client = @saved_cs_client;
+
+--
 -- Temporary view structure for view `view_servicos_prestados_cliente`
 --
 
@@ -2602,6 +2619,24 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET collation_connection      = @saved_col_connection */;
 
 --
+-- Final view structure for view `view_servico_prestado`
+--
+
+/*!50001 DROP VIEW IF EXISTS `view_servico_prestado`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8 */;
+/*!50001 SET character_set_results     = utf8 */;
+/*!50001 SET collation_connection      = utf8_general_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `view_servico_prestado` AS select `p`.`nome` AS `servico`,`p`.`preco` AS `preco`,`pa`.`nome_fantasia` AS `nome_fantasia`,`pe`.`data_agendada` AS `data_agendada`,`sp`.`id_tipo_situacao_pedido` AS `id_tipo_situacao_pedido`,`c`.`id_cliente` AS `id_cliente` from ((((`tbl_produto` `p` join `tbl_parceiro` `pa` on((`pa`.`id_parceiro` = `p`.`id_parceiro`))) join `tbl_pedido` `pe` on((`pe`.`id_produto` = `p`.`id_produto`))) join `tbl_situacao_pedido` `sp` on((`sp`.`id_pedido` = `pe`.`id_pedido`))) join `tbl_cliente` `c` on((`c`.`id_cliente` = `pe`.`id_cliente`))) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
 -- Final view structure for view `view_servicos_prestados_cliente`
 --
 
@@ -2682,4 +2717,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-06-01 17:32:24
+-- Dump completed on 2018-06-01 21:46:21

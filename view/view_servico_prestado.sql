@@ -19,7 +19,7 @@ p.preco,
 pa.nome_fantasia,
  
 /*tbl_pedido*/
-pe.data_agendada,
+DATE_FORMAT(DATE(pe.data_agendada),"%d/%m/%Y") AS data_agendada,
 
 /* tbl_situacao_pedido */
 sp.id_tipo_situacao_pedido,
