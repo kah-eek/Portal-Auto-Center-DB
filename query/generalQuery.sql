@@ -1,6 +1,7 @@
 USE dbautofast;
+USE caiqueoliveira;
 
-select * from tbl_imagem_produto_parceiro;
+select * from tbl_categoria_produto;
 
 
 

@@ -724,8 +724,8 @@ CREATE TABLE `tbl_imagem_produto_parceiro` (
   `ativo` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id_imagem_produto_parceiro`),
   KEY `fk_tbl_imagem_produto_parceiro_id_produto_idx` (`id_produto`),
-  CONSTRAINT `fk_tbl_imagem_produto_parceiro_id_produto` FOREIGN KEY (`id_produto`) REFERENCES `tbl_produto` (`id_produto`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+  CONSTRAINT `fk_tbl_imagem_produto_parceiro_id_produto` FOREIGN KEY (`id_produto`) REFERENCES `tbl_produto` (`id_produto`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -734,7 +734,7 @@ CREATE TABLE `tbl_imagem_produto_parceiro` (
 
 LOCK TABLES `tbl_imagem_produto_parceiro` WRITE;
 /*!40000 ALTER TABLE `tbl_imagem_produto_parceiro` DISABLE KEYS */;
-INSERT INTO `tbl_imagem_produto_parceiro` VALUES (2,3,'../pictures/produto/auto_eletrica.jpg',1),(3,4,'../pictures/produto/pintura_carro.jpg',1),(5,5,'../pictures/produto/farol.jpg',1),(6,6,'../pictures/produto/pneu.png',1),(10,3,'../pictures/produto/d0be999f465e46c277c980fbce2d3697.jpg',1),(11,6,'../pictures/produto/71b226f58175350dc7a6895e36b97f5b.png',1);
+INSERT INTO `tbl_imagem_produto_parceiro` VALUES (2,3,'../pictures/produto/auto_eletrica.jpg',1),(3,4,'../pictures/produto/pintura_carro.jpg',1),(5,5,'../pictures/produto/farol.jpg',1),(6,6,'../pictures/produto/pneu.png',1),(10,3,'../pictures/produto/d0be999f465e46c277c980fbce2d3697.jpg',1),(11,6,'../pictures/produto/71b226f58175350dc7a6895e36b97f5b.png',1),(12,11,'../pictures/produto/d0be999f465e46c277c980fbce2d3697.jpg',1);
 /*!40000 ALTER TABLE `tbl_imagem_produto_parceiro` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1131,7 +1131,7 @@ CREATE TABLE `tbl_produto` (
   CONSTRAINT `fk_tbl_produto_id_cor` FOREIGN KEY (`id_cor`) REFERENCES `tbl_cor` (`id_cor`),
   CONSTRAINT `fk_tbl_produto_id_modelo_produto` FOREIGN KEY (`id_modelo_produto`) REFERENCES `tbl_modelo_produto` (`id_modelo_produto`),
   CONSTRAINT `fk_tbl_produto_id_parceiro` FOREIGN KEY (`id_parceiro`) REFERENCES `tbl_parceiro` (`id_parceiro`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1140,7 +1140,7 @@ CREATE TABLE `tbl_produto` (
 
 LOCK TABLES `tbl_produto` WRITE;
 /*!40000 ALTER TABLE `tbl_produto` DISABLE KEYS */;
-INSERT INTO `tbl_produto` VALUES (3,NULL,1,NULL,2,'Higienizacao',89.99,'','','test',NULL),(4,NULL,1,NULL,2,'Revizão veicular',300.00,'','','',NULL),(5,1,1,1,1,'Radiador',300.00,'1 pneu','12 meses','',NULL),(6,1,26,1,1,'Pne35',300.00,'1','6 meses','Produto da pireli e da melhor qualidade',NULL),(7,NULL,15,NULL,2,'Troca de pneu',150.00,NULL,'3 Meses','Troque seu pneu furado muito mais barato',NULL);
+INSERT INTO `tbl_produto` VALUES (3,NULL,1,NULL,2,'Higienizacao',89.99,'','','test',NULL),(4,NULL,1,NULL,2,'Revizão veicular',300.00,'','','',NULL),(5,1,1,1,1,'Radiador',300.00,'1 pneu','12 meses','',NULL),(6,1,26,1,1,'Pne35',300.00,'1','6 meses','Produto da pireli e da melhor qualidade',NULL),(7,NULL,15,NULL,2,'Troca de pneu',150.00,NULL,'3 Meses','Troque seu pneu furado muito mais barato',NULL),(11,1,15,1,1,'CAIQUE11',29.90,'1 CAIQUE','12 Meses','CAIQUE, ELE PROGRAMA MUITO BEM','observacao');
 /*!40000 ALTER TABLE `tbl_produto` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1520,7 +1520,7 @@ CREATE TABLE `tbl_usuario` (
 
 LOCK TABLES `tbl_usuario` WRITE;
 /*!40000 ALTER TABLE `tbl_usuario` DISABLE KEYS */;
-INSERT INTO `tbl_usuario` VALUES (1,'leticia','lele','2018-04-12 09:45:06',1,1),(33,'carlos','123','2018-04-21 03:56:44',3,1),(34,'paulo','123','2018-04-21 03:57:19',3,1),(35,'aaaaaaaa','csda','2018-04-21 03:59:00',3,1),(36,'aaaaaassDSDDsss','aaaaaaa','2018-04-21 03:59:09',2,1),(37,'aaaaaasadasdasdasdas','aaaaaaa','2018-04-21 04:00:43',2,1),(38,'aaaaaa\\xd\\sdsadasds','aaaaaaa','2018-04-21 04:01:06',2,1),(39,'aaaaaacdasdfasdasdas','aaaaaaa','2018-04-21 04:01:38',2,1),(40,'aaaaaaadcasdas','aaaaaaa','2018-04-21 04:08:22',2,1),(41,'aaaaaaasdasdsad','aaaaaaa','2018-04-21 14:17:06',2,1),(42,'aaaaaaczxcvdacaxdca','aaaaaaa','2018-04-21 14:18:01',2,1),(43,'aaaaaa\\xc\\szxd\\s','aaaaaaa','2018-04-21 14:19:59',2,1),(44,'aaaasasa','asdasd','2018-04-21 16:07:22',2,1),(45,'nAdm','1','2018-04-21 16:10:04',2,1),(46,'asd','asdas','2018-04-21 16:13:21',2,1),(47,'ssssdd','sadas','2018-04-21 17:07:37',2,1),(48,'das','dsad','2018-04-21 17:10:28',2,1),(49,'t','t','2018-04-21 17:11:49',2,1),(50,'asddfas','sdvsd','2018-04-21 17:47:15',2,1),(51,'sdfgsdfg','asdas','2018-04-21 17:48:26',2,1),(52,'sd','sdfvsd','2018-04-21 17:49:03',2,1),(53,'sdvgfsda','asdfawe','2018-04-21 17:49:48',2,1),(54,'dsad','fdsf','2018-04-21 17:51:40',2,1),(55,'sddff','sdffae','2018-04-21 20:18:27',2,1),(56,'afasddfas','dvfda','2018-04-22 11:36:45',2,1),(57,'otremba','123','2018-05-24 09:12:31',2,1);
+INSERT INTO `tbl_usuario` VALUES (1,'leticia','lele','2018-04-12 09:45:06',1,1),(33,'carlos','123','2018-04-21 03:56:44',3,1),(34,'paulo','123','2018-04-21 03:57:19',2,1),(35,'aaaaaaaa','csda','2018-04-21 03:59:00',3,1),(36,'aaaaaassDSDDsss','aaaaaaa','2018-04-21 03:59:09',2,1),(37,'aaaaaasadasdasdasdas','aaaaaaa','2018-04-21 04:00:43',2,1),(38,'aaaaaa\\xd\\sdsadasds','aaaaaaa','2018-04-21 04:01:06',2,1),(39,'aaaaaacdasdfasdasdas','aaaaaaa','2018-04-21 04:01:38',2,1),(40,'aaaaaaadcasdas','aaaaaaa','2018-04-21 04:08:22',2,1),(41,'aaaaaaasdasdsad','aaaaaaa','2018-04-21 14:17:06',2,1),(42,'aaaaaaczxcvdacaxdca','aaaaaaa','2018-04-21 14:18:01',2,1),(43,'aaaaaa\\xc\\szxd\\s','aaaaaaa','2018-04-21 14:19:59',2,1),(44,'aaaasasa','asdasd','2018-04-21 16:07:22',2,1),(45,'nAdm','1','2018-04-21 16:10:04',2,1),(46,'asd','asdas','2018-04-21 16:13:21',2,1),(47,'ssssdd','sadas','2018-04-21 17:07:37',2,1),(48,'das','dsad','2018-04-21 17:10:28',2,1),(49,'t','t','2018-04-21 17:11:49',2,1),(50,'asddfas','sdvsd','2018-04-21 17:47:15',2,1),(51,'sdfgsdfg','asdas','2018-04-21 17:48:26',2,1),(52,'sd','sdfvsd','2018-04-21 17:49:03',2,1),(53,'sdvgfsda','asdfawe','2018-04-21 17:49:48',2,1),(54,'dsad','fdsf','2018-04-21 17:51:40',2,1),(55,'sddff','sdffae','2018-04-21 20:18:27',2,1),(56,'afasddfas','dvfda','2018-04-22 11:36:45',2,1),(57,'otremba','123','2018-05-24 09:12:31',2,1);
 /*!40000 ALTER TABLE `tbl_usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1546,7 +1546,7 @@ CREATE TABLE `tbl_veiculo` (
   KEY `fk_tbl_veiculo_id_modelo_veiculo_idx` (`id_modelo_veiculo`),
   CONSTRAINT `fk_tbl_veiculo_id_cor` FOREIGN KEY (`id_cor`) REFERENCES `tbl_cor` (`id_cor`),
   CONSTRAINT `fk_tbl_veiculo_id_modelo_veiculo` FOREIGN KEY (`id_modelo_veiculo`) REFERENCES `tbl_modelo_veiculo` (`id_modelo_veiculo`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1555,7 +1555,7 @@ CREATE TABLE `tbl_veiculo` (
 
 LOCK TABLES `tbl_veiculo` WRITE;
 /*!40000 ALTER TABLE `tbl_veiculo` DISABLE KEYS */;
-INSERT INTO `tbl_veiculo` VALUES (1,2018,'DFR-2154',1,1,4,22410,1,1),(2,2018,'RFT-2541',1,1,0,0,2,1),(3,2019,'cai-4002',1,1,2,40028922,1,1);
+INSERT INTO `tbl_veiculo` VALUES (1,2018,'DFR-2154',1,1,4,22410,1,1),(2,2018,'RFT-2541',1,1,0,0,2,1),(3,2019,'cai-4002',1,1,2,40028922,1,1),(4,0000,'RFT-2541',1,1,2,1,1,1);
 /*!40000 ALTER TABLE `tbl_veiculo` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1604,7 +1604,7 @@ CREATE TABLE `tbl_veiculo_parceiro` (
   KEY `fk_tbl_veiculo_parceiro_id_veiculo_idx` (`id_veiculo`),
   CONSTRAINT `fk_tbl_veiculo_parceiro_id_parceiro` FOREIGN KEY (`id_parceiro`) REFERENCES `tbl_parceiro` (`id_parceiro`),
   CONSTRAINT `fk_tbl_veiculo_parceiro_id_veiculo` FOREIGN KEY (`id_veiculo`) REFERENCES `tbl_veiculo` (`id_veiculo`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1613,7 +1613,7 @@ CREATE TABLE `tbl_veiculo_parceiro` (
 
 LOCK TABLES `tbl_veiculo_parceiro` WRITE;
 /*!40000 ALTER TABLE `tbl_veiculo_parceiro` DISABLE KEYS */;
-INSERT INTO `tbl_veiculo_parceiro` VALUES (1,1,1),(2,1,2),(3,15,3);
+INSERT INTO `tbl_veiculo_parceiro` VALUES (1,1,1),(2,1,2),(3,15,3),(4,16,4);
 /*!40000 ALTER TABLE `tbl_veiculo_parceiro` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1633,7 +1633,7 @@ CREATE TABLE `tbl_veiculo_tipo_combustivel` (
   KEY `fk_tbl_veiculo_tipo_combustivel_id_tipo_combustivel_idx` (`id_tipo_combustivel`),
   CONSTRAINT `fk_tbl_veiculo_tipo_combustivel_id_tipo_combustivel` FOREIGN KEY (`id_tipo_combustivel`) REFERENCES `tbl_tipo_combustivel` (`id_tipo_combustivel`),
   CONSTRAINT `fk_tbl_veiculo_tipo_combustivel_id_veiculo` FOREIGN KEY (`id_veiculo`) REFERENCES `tbl_veiculo` (`id_veiculo`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1642,7 +1642,7 @@ CREATE TABLE `tbl_veiculo_tipo_combustivel` (
 
 LOCK TABLES `tbl_veiculo_tipo_combustivel` WRITE;
 /*!40000 ALTER TABLE `tbl_veiculo_tipo_combustivel` DISABLE KEYS */;
-INSERT INTO `tbl_veiculo_tipo_combustivel` VALUES (1,3,1);
+INSERT INTO `tbl_veiculo_tipo_combustivel` VALUES (1,3,1),(2,4,1);
 /*!40000 ALTER TABLE `tbl_veiculo_tipo_combustivel` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2807,4 +2807,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-06-02  0:44:39
+-- Dump completed on 2018-06-02 12:43:20

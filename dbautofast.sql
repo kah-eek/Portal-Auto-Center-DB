@@ -215,7 +215,7 @@ CREATE TABLE `tbl_categoria_produto` (
 
 LOCK TABLES `tbl_categoria_produto` WRITE;
 /*!40000 ALTER TABLE `tbl_categoria_produto` DISABLE KEYS */;
-INSERT INTO `tbl_categoria_produto` VALUES (1,'Higienização'),(2,'Serviço');
+INSERT INTO `tbl_categoria_produto` VALUES (1,'Peças'),(2,'Serviços');
 /*!40000 ALTER TABLE `tbl_categoria_produto` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -230,7 +230,7 @@ CREATE TABLE `tbl_categoria_topico_forum` (
   `id_categoria_topico_forum` int(11) NOT NULL AUTO_INCREMENT,
   `categoria` varchar(80) NOT NULL,
   PRIMARY KEY (`id_categoria_topico_forum`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -725,7 +725,7 @@ CREATE TABLE `tbl_imagem_produto_parceiro` (
   PRIMARY KEY (`id_imagem_produto_parceiro`),
   KEY `fk_tbl_imagem_produto_parceiro_id_produto_idx` (`id_produto`),
   CONSTRAINT `fk_tbl_imagem_produto_parceiro_id_produto` FOREIGN KEY (`id_produto`) REFERENCES `tbl_produto` (`id_produto`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -734,7 +734,7 @@ CREATE TABLE `tbl_imagem_produto_parceiro` (
 
 LOCK TABLES `tbl_imagem_produto_parceiro` WRITE;
 /*!40000 ALTER TABLE `tbl_imagem_produto_parceiro` DISABLE KEYS */;
-INSERT INTO `tbl_imagem_produto_parceiro` VALUES (2,3,'../pictures/produto/auto_eletrica.jpg',1),(3,4,'../pictures/produto/pintura_carro.jpg',1),(5,5,'../pictures/produto/farol.jpg',1),(6,6,'../pictures/produto/pneu.png',1),(10,3,'../pictures/produto/d0be999f465e46c277c980fbce2d3697.jpg',1),(11,6,'../pictures/produto/71b226f58175350dc7a6895e36b97f5b.png',1),(12,11,'../pictures/produto/d0be999f465e46c277c980fbce2d3697.jpg',1);
+INSERT INTO `tbl_imagem_produto_parceiro` VALUES (2,3,'../pictures/produto/auto_eletrica.jpg',1),(3,4,'../pictures/produto/pintura_carro.jpg',1),(5,5,'../pictures/produto/farol.jpg',1),(6,6,'../pictures/produto/pneu.png',1),(10,3,'../pictures/produto/d0be999f465e46c277c980fbce2d3697.jpg',1),(11,6,'../pictures/produto/71b226f58175350dc7a6895e36b97f5b.png',1),(13,13,'../pictures/produto/d0be999f465e46c277c980fbce2d3697.jpg',1);
 /*!40000 ALTER TABLE `tbl_imagem_produto_parceiro` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -984,7 +984,7 @@ CREATE TABLE `tbl_pedido` (
   KEY `fk_tbl_pedido_id_produto_idx` (`id_produto`),
   CONSTRAINT `fk_tbl_pedido_id_cliente` FOREIGN KEY (`id_cliente`) REFERENCES `tbl_cliente` (`id_cliente`),
   CONSTRAINT `fk_tbl_pedido_id_produto` FOREIGN KEY (`id_produto`) REFERENCES `tbl_produto` (`id_produto`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -993,7 +993,7 @@ CREATE TABLE `tbl_pedido` (
 
 LOCK TABLES `tbl_pedido` WRITE;
 /*!40000 ALTER TABLE `tbl_pedido` DISABLE KEYS */;
-INSERT INTO `tbl_pedido` VALUES (1,2,3,'2018-05-21 00:00:00','2018-05-20 11:32:40'),(2,2,5,'2018-02-14 00:00:00','2018-05-21 20:57:03'),(4,2,4,'2018-02-21 17:21:00','2018-05-31 17:55:57'),(5,4,4,'2018-06-02 12:40:00','2018-06-01 20:28:43'),(6,3,4,'2018-06-02 18:00:00','2018-06-01 20:53:40'),(7,3,4,'2018-06-02 18:00:00','2018-06-01 20:54:10'),(8,3,4,'2018-06-02 18:00:00','2018-06-01 20:54:56'),(9,3,4,'2018-06-02 18:00:00','2018-06-01 20:55:09'),(10,3,4,'2018-06-02 18:00:00','2018-06-01 20:55:29'),(11,3,4,'2018-06-02 18:00:00','2018-06-01 20:55:52'),(12,2,3,'2018-01-28 17:21:00','2018-06-01 21:10:28'),(13,2,3,'2019-06-05 15:00:00','2018-06-01 21:14:43'),(14,2,3,'2019-05-23 14:00:00','2018-06-01 21:16:56'),(15,2,4,'2018-07-23 11:30:00','2018-06-01 22:41:13'),(16,2,4,'2018-01-28 09:20:00','2018-06-01 22:46:01'),(17,2,4,'2019-01-01 01:00:00','2018-06-01 22:49:04'),(18,2,3,'2018-06-02 13:33:00','2018-06-01 23:59:26'),(19,2,3,'2020-06-07 10:00:00','2018-06-02 00:04:37'),(20,2,7,'2018-06-05 16:00:00','2018-06-02 00:12:05');
+INSERT INTO `tbl_pedido` VALUES (1,2,3,'2018-05-21 00:00:00','2018-05-20 11:32:40'),(2,2,5,'2018-02-14 00:00:00','2018-05-21 20:57:03'),(4,2,4,'2018-02-21 17:21:00','2018-05-31 17:55:57'),(5,4,4,'2018-06-02 12:40:00','2018-06-01 20:28:43'),(6,3,4,'2018-06-02 18:00:00','2018-06-01 20:53:40'),(7,3,4,'2018-06-02 18:00:00','2018-06-01 20:54:10'),(8,3,4,'2018-06-02 18:00:00','2018-06-01 20:54:56'),(9,3,4,'2018-06-02 18:00:00','2018-06-01 20:55:09'),(10,3,4,'2018-06-02 18:00:00','2018-06-01 20:55:29'),(11,3,4,'2018-06-02 18:00:00','2018-06-01 20:55:52'),(12,2,3,'2018-01-28 17:21:00','2018-06-01 21:10:28'),(13,2,3,'2019-06-05 15:00:00','2018-06-01 21:14:43'),(14,2,3,'2019-05-23 14:00:00','2018-06-01 21:16:56'),(15,2,4,'2018-07-23 11:30:00','2018-06-01 22:41:13'),(16,2,4,'2018-01-28 09:20:00','2018-06-01 22:46:01'),(17,2,4,'2019-01-01 01:00:00','2018-06-01 22:49:04'),(18,2,3,'2018-06-02 13:33:00','2018-06-01 23:59:26'),(19,2,3,'2020-06-07 10:00:00','2018-06-02 00:04:37'),(20,2,7,'2018-06-05 16:00:00','2018-06-02 00:12:05'),(21,2,7,'2026-06-26 13:00:00','2018-06-02 14:46:06'),(22,2,4,'2018-01-28 12:10:00','2018-06-02 18:21:16'),(23,2,7,'2019-04-29 21:30:00','2018-06-02 18:22:49');
 /*!40000 ALTER TABLE `tbl_pedido` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1131,7 +1131,7 @@ CREATE TABLE `tbl_produto` (
   CONSTRAINT `fk_tbl_produto_id_cor` FOREIGN KEY (`id_cor`) REFERENCES `tbl_cor` (`id_cor`),
   CONSTRAINT `fk_tbl_produto_id_modelo_produto` FOREIGN KEY (`id_modelo_produto`) REFERENCES `tbl_modelo_produto` (`id_modelo_produto`),
   CONSTRAINT `fk_tbl_produto_id_parceiro` FOREIGN KEY (`id_parceiro`) REFERENCES `tbl_parceiro` (`id_parceiro`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1140,7 +1140,7 @@ CREATE TABLE `tbl_produto` (
 
 LOCK TABLES `tbl_produto` WRITE;
 /*!40000 ALTER TABLE `tbl_produto` DISABLE KEYS */;
-INSERT INTO `tbl_produto` VALUES (3,NULL,1,NULL,2,'Higienizacao',89.99,'','','test',NULL),(4,NULL,1,NULL,2,'Revizão veicular',300.00,'','','',NULL),(5,1,1,1,1,'Radiador',300.00,'1 pneu','12 meses','',NULL),(6,1,26,1,1,'Pne35',300.00,'1','6 meses','Produto da pireli e da melhor qualidade',NULL),(7,NULL,15,NULL,2,'Troca de pneu',150.00,NULL,'3 Meses','Troque seu pneu furado muito mais barato',NULL),(11,1,15,1,1,'CAIQUE11',29.90,'1 CAIQUE','12 Meses','CAIQUE, ELE PROGRAMA MUITO BEM','observacao');
+INSERT INTO `tbl_produto` VALUES (3,NULL,1,NULL,2,'Higienizacao',89.99,'','','test',NULL),(4,NULL,1,NULL,2,'Revizão veicular',300.00,'','','',NULL),(5,1,1,1,1,'Radiador',300.00,'1 pneu','12 meses','',NULL),(6,1,26,1,1,'Pne35',300.00,'1','6 meses','Produto da pireli e da melhor qualidade',NULL),(7,NULL,15,NULL,2,'Troca de pneu',150.00,NULL,'3 Meses','Troque seu pneu furado muito mais barato',NULL),(13,1,15,1,1,'Lavagem a seco',300.00,'1','3 Meses','Lavagem feita rapida','E grande');
 /*!40000 ALTER TABLE `tbl_produto` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1213,7 +1213,7 @@ CREATE TABLE `tbl_situacao_pedido` (
   KEY `fk_tbl_situacao_pedido_id_tipo_situacao_pedido_idx` (`id_tipo_situacao_pedido`),
   CONSTRAINT `fk_tbl_situacao_pedido_id_pedido` FOREIGN KEY (`id_pedido`) REFERENCES `tbl_pedido` (`id_pedido`),
   CONSTRAINT `fk_tbl_situacao_pedido_id_tipo_situacao_pedido` FOREIGN KEY (`id_tipo_situacao_pedido`) REFERENCES `tbl_tipo_situacao_pedido` (`id_tipo_situacao_pedido`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1222,7 +1222,7 @@ CREATE TABLE `tbl_situacao_pedido` (
 
 LOCK TABLES `tbl_situacao_pedido` WRITE;
 /*!40000 ALTER TABLE `tbl_situacao_pedido` DISABLE KEYS */;
-INSERT INTO `tbl_situacao_pedido` VALUES (1,1,6,'2018-05-20 11:34:15'),(2,1,1,'2018-05-20 12:48:35'),(3,1,1,'2018-06-01 20:20:38'),(4,5,1,'2018-06-01 20:28:43'),(5,6,1,'2018-06-01 20:53:40'),(6,7,1,'2018-06-01 20:54:10'),(7,8,1,'2018-06-01 20:54:56'),(8,9,1,'2018-06-01 20:55:09'),(9,10,1,'2018-06-01 20:55:29'),(10,11,1,'2018-06-01 20:55:52'),(11,12,6,'2018-06-01 21:10:28'),(12,13,6,'2018-06-01 21:14:43'),(13,14,6,'2018-06-01 21:16:56'),(14,15,1,'2018-06-01 22:41:13'),(15,16,6,'2018-06-01 22:46:01'),(16,17,1,'2018-06-01 22:49:04'),(17,18,6,'2018-06-01 23:59:26'),(18,19,1,'2018-06-02 00:04:37'),(19,20,1,'2018-06-02 00:12:05');
+INSERT INTO `tbl_situacao_pedido` VALUES (1,1,6,'2018-05-20 11:34:15'),(2,1,1,'2018-05-20 12:48:35'),(3,1,1,'2018-06-01 20:20:38'),(4,5,1,'2018-06-01 20:28:43'),(5,6,1,'2018-06-01 20:53:40'),(6,7,1,'2018-06-01 20:54:10'),(7,8,1,'2018-06-01 20:54:56'),(8,9,1,'2018-06-01 20:55:09'),(9,10,1,'2018-06-01 20:55:29'),(10,11,1,'2018-06-01 20:55:52'),(11,12,6,'2018-06-01 21:10:28'),(12,13,6,'2018-06-01 21:14:43'),(13,14,6,'2018-06-01 21:16:56'),(14,15,1,'2018-06-01 22:41:13'),(15,16,6,'2018-06-01 22:46:01'),(16,17,1,'2018-06-01 22:49:04'),(17,18,6,'2018-06-01 23:59:26'),(18,19,1,'2018-06-02 00:04:37'),(19,20,1,'2018-06-02 00:12:05'),(20,21,2,'2018-06-02 14:46:06'),(21,22,2,'2018-06-02 18:21:16'),(22,23,2,'2018-06-02 18:22:49');
 /*!40000 ALTER TABLE `tbl_situacao_pedido` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1400,7 +1400,7 @@ CREATE TABLE `tbl_tipo_situacao_pedido` (
   `id_tipo_situacao_pedido` int(11) NOT NULL AUTO_INCREMENT,
   `situacao` varchar(120) NOT NULL,
   PRIMARY KEY (`id_tipo_situacao_pedido`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1409,7 +1409,7 @@ CREATE TABLE `tbl_tipo_situacao_pedido` (
 
 LOCK TABLES `tbl_tipo_situacao_pedido` WRITE;
 /*!40000 ALTER TABLE `tbl_tipo_situacao_pedido` DISABLE KEYS */;
-INSERT INTO `tbl_tipo_situacao_pedido` VALUES (1,'Confirmado'),(2,'Pendente'),(3,'Aguardando pagamento'),(4,'Pago'),(5,'Recebido'),(6,'Recusado');
+INSERT INTO `tbl_tipo_situacao_pedido` VALUES (1,'Confirmado'),(2,'Pendente'),(3,'Aguardando pagamento'),(4,'Pago'),(5,'Recebido'),(6,'Recusado'),(7,'Enviado'),(8,'Aguardando envio');
 /*!40000 ALTER TABLE `tbl_tipo_situacao_pedido` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2807,4 +2807,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-06-02 12:43:20
+-- Dump completed on 2018-06-02 18:51:51
