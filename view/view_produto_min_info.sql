@@ -21,10 +21,10 @@ c.id_categoria_produto
 FROM tbl_produto AS p
 
 /* tbl_modelo_produto */
-INNER JOIN tbl_modelo_produto AS m ON m.id_modelo_produto = p.id_modelo_produto
+LEFT JOIN tbl_modelo_produto AS m ON m.id_modelo_produto = p.id_modelo_produto
 
 /* tbl_fabricante_produto */
-INNER JOIN tbl_fabricante_produto AS f ON f.id_fabricante_produto = m.id_fabricante_produto
+LEFT JOIN tbl_fabricante_produto AS f ON f.id_fabricante_produto = m.id_fabricante_produto
 
 /* tbl_imagem_produto_parceiro */
 INNER JOIN tbl_imagem_produto_parceiro AS i ON i.id_produto = p.id_produto

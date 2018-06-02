@@ -725,7 +725,7 @@ CREATE TABLE `tbl_imagem_produto_parceiro` (
   PRIMARY KEY (`id_imagem_produto_parceiro`),
   KEY `fk_tbl_imagem_produto_parceiro_id_produto_idx` (`id_produto`),
   CONSTRAINT `fk_tbl_imagem_produto_parceiro_id_produto` FOREIGN KEY (`id_produto`) REFERENCES `tbl_produto` (`id_produto`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -734,7 +734,7 @@ CREATE TABLE `tbl_imagem_produto_parceiro` (
 
 LOCK TABLES `tbl_imagem_produto_parceiro` WRITE;
 /*!40000 ALTER TABLE `tbl_imagem_produto_parceiro` DISABLE KEYS */;
-INSERT INTO `tbl_imagem_produto_parceiro` VALUES (2,3,'../pictures/produto/auto_eletrica.jpg',1),(3,4,'../pictures/produto/pintura_carro.jpg',1),(5,5,'../pictures/produto/farol.jpg',1),(6,6,'../pictures/produto/pneu.png',1);
+INSERT INTO `tbl_imagem_produto_parceiro` VALUES (2,3,'../pictures/produto/auto_eletrica.jpg',1),(3,4,'../pictures/produto/pintura_carro.jpg',1),(5,5,'../pictures/produto/farol.jpg',1),(6,6,'../pictures/produto/pneu.png',1),(10,3,'../pictures/produto/d0be999f465e46c277c980fbce2d3697.jpg',1),(11,6,'../pictures/produto/71b226f58175350dc7a6895e36b97f5b.png',1);
 /*!40000 ALTER TABLE `tbl_imagem_produto_parceiro` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2649,7 +2649,7 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET collation_connection      = utf8_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`caiqueoliveira`@`%%` SQL SECURITY DEFINER */
-/*!50001 VIEW `view_produto_min_info` AS select `p`.`id_produto` AS `id_produto`,`p`.`nome` AS `nome`,`p`.`preco` AS `preco`,`f`.`fabricante` AS `fabricante`,`i`.`imagem` AS `imagem`,`c`.`categoria` AS `categoria`,`c`.`id_categoria_produto` AS `id_categoria_produto` from ((((`tbl_produto` `p` join `tbl_modelo_produto` `m` on((`m`.`id_modelo_produto` = `p`.`id_modelo_produto`))) join `tbl_fabricante_produto` `f` on((`f`.`id_fabricante_produto` = `m`.`id_fabricante_produto`))) join `tbl_imagem_produto_parceiro` `i` on((`i`.`id_produto` = `p`.`id_produto`))) join `tbl_categoria_produto` `c` on((`c`.`id_categoria_produto` = `p`.`id_categoria_produto`))) */;
+/*!50001 VIEW `view_produto_min_info` AS select `p`.`id_produto` AS `id_produto`,`p`.`nome` AS `nome`,`p`.`preco` AS `preco`,`f`.`fabricante` AS `fabricante`,`i`.`imagem` AS `imagem`,`c`.`categoria` AS `categoria`,`c`.`id_categoria_produto` AS `id_categoria_produto` from ((((`tbl_produto` `p` left join `tbl_modelo_produto` `m` on((`m`.`id_modelo_produto` = `p`.`id_modelo_produto`))) left join `tbl_fabricante_produto` `f` on((`f`.`id_fabricante_produto` = `m`.`id_fabricante_produto`))) join `tbl_imagem_produto_parceiro` `i` on((`i`.`id_produto` = `p`.`id_produto`))) join `tbl_categoria_produto` `c` on((`c`.`id_categoria_produto` = `p`.`id_categoria_produto`))) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -2807,4 +2807,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-06-02  0:20:20
+-- Dump completed on 2018-06-02  0:44:39

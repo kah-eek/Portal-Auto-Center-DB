@@ -1,8 +1,8 @@
 -- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
--- Host: localhost    Database: dbautofast
+-- Host: caiqueoliveira.mysql.dbaas.com.br    Database: caiqueoliveira
 -- ------------------------------------------------------
--- Server version	8.0.11
+-- Server version	5.6.35-81.0-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -907,7 +907,8 @@ CREATE TABLE `tbl_pagamento_funcionario_pac` (
   `id_pagamento_funcionario_pac` int(11) NOT NULL AUTO_INCREMENT,
   `id_funcionario_pac` int(11) NOT NULL,
   `pago` tinyint(1) NOT NULL DEFAULT '0',
-  `log_pagamento_funcionario_pac` datetime NOT NULL,
+  `mes_pagamento` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `data_pagamento_realizado` datetime DEFAULT NULL,
   PRIMARY KEY (`id_pagamento_funcionario_pac`),
   KEY `fk_tbl_pagamento_funcionario_pac_id_funcionario_pac_idx` (`id_funcionario_pac`),
   CONSTRAINT `fk_tbl_pagamento_funcionario_pac_id_funcionario_pac` FOREIGN KEY (`id_funcionario_pac`) REFERENCES `tbl_funcionario_pac` (`id_funcionario_pac`)
@@ -961,7 +962,7 @@ CREATE TABLE `tbl_parceiro` (
 
 LOCK TABLES `tbl_parceiro` WRITE;
 /*!40000 ALTER TABLE `tbl_parceiro` DISABLE KEYS */;
-INSERT INTO `tbl_parceiro` VALUES (1,'Fast & Run','Fast & Run Importados LTDA','4656516565',1,0,1,'fast&run@fastrun.com.br','1145228475','','1142158745','2018-04-12 09:47:39',1,1),(15,'asdas','asdasd','12561265',96,1,1,'asdasd','5156','','4561','2018-04-21 03:56:44',33,1),(16,'asdas','asdasd','56165',97,0,1,'asdas','156156','','561256.','2018-04-21 03:57:19',34,1),(17,'sadasd','asdf','4514561',99,0,1,'asdd','156165','','56165','2018-04-21 03:59:00',35,1),(18,'sadasd','asdf','4514561',101,0,1,'asdd','156165','','56165','2018-04-21 03:59:09',36,1),(19,'asdasd','asdasd','56156',102,0,1,'asd','15665','','56165','2018-04-21 04:00:43',37,1),(20,'asdas','asds','56156',103,0,1,'xdaf','51656','','56.1256','2018-04-21 04:01:06',38,1),(21,'asdas','asd','561256',104,0,1,'asd','156165','','56156','2018-04-21 04:01:38',39,1),(22,'asdas','asd','564156',105,0,1,'asd','156156','','5616','2018-04-21 04:08:22',40,1),(23,'sadas','asdfas','1556',106,0,1,'asd','5616','','561','2018-04-21 14:17:06',41,1),(24,'adfasdas','asdas','1456156',107,0,1,'asdas','56165','','51561','2018-04-21 14:18:01',42,1),(25,'dfsdf','sdafasd','561456',108,0,1,'asd','15656','','5616','2018-04-21 14:19:59',43,1),(26,'asdas','asd','651256',113,0,0,'as','56.1256.','','26.','2018-04-21 17:10:28',48,2),(27,'t','t','1',114,0,0,'t','1','','1','2018-04-21 17:11:49',49,2),(28,'asdas','dasd','456165',120,0,0,'asds','56156','view/pictures/parceiro/cb8dd5855b1f2a8d0f1ecab00063da9f.png','561','2018-04-21 20:18:27',55,1),(29,'','','',123,0,0,'','','view/pictures/parceiro/9ff4d4e3c57397dea7bac86d1f9bad42.png','','2018-04-22 11:36:45',56,2);
+INSERT INTO `tbl_parceiro` VALUES (1,'Fast & Run','Fast & Run Importados LTDA','4656516565',1,0,1,'fast&run@fastrun.com.br','1145228475','','1142158745','2018-04-12 09:47:39',1,1),(15,'asdas','asdasd','12561265',96,1,1,'asdasd','5156','','4561','2018-04-21 03:56:44',57,1),(16,'asdas','asdasd','56165',97,0,1,'asdas','156156','','561256.','2018-04-21 03:57:19',34,1),(17,'sadasd','asdf','4514561',99,0,1,'asdd','156165','','56165','2018-04-21 03:59:00',35,1),(18,'sadasd','asdf','4514561',101,0,1,'asdd','156165','','56165','2018-04-21 03:59:09',36,1),(19,'asdasd','asdasd','56156',102,0,1,'asd','15665','','56165','2018-04-21 04:00:43',37,1),(20,'asdas','asds','56156',103,0,1,'xdaf','51656','','56.1256','2018-04-21 04:01:06',38,1),(21,'asdas','asd','561256',104,0,1,'asd','156165','','56156','2018-04-21 04:01:38',39,1),(22,'asdas','asd','564156',105,0,1,'asd','156156','','5616','2018-04-21 04:08:22',40,1),(23,'sadas','asdfas','1556',106,0,1,'asd','5616','','561','2018-04-21 14:17:06',41,1),(24,'adfasdas','asdas','1456156',107,0,1,'asdas','56165','','51561','2018-04-21 14:18:01',42,1),(25,'dfsdf','sdafasd','561456',108,0,1,'asd','15656','','5616','2018-04-21 14:19:59',43,1),(26,'asdas','asd','651256',113,0,0,'as','56.1256.','','26.','2018-04-21 17:10:28',48,2),(27,'t','t','1',114,0,0,'t','1','','1','2018-04-21 17:11:49',49,2),(28,'asdas','dasd','456165',120,0,0,'asds','56156','view/pictures/parceiro/cb8dd5855b1f2a8d0f1ecab00063da9f.png','561','2018-04-21 20:18:27',55,1),(29,'','','',123,0,0,'','','view/pictures/parceiro/9ff4d4e3c57397dea7bac86d1f9bad42.png','','2018-04-22 11:36:45',56,2);
 /*!40000 ALTER TABLE `tbl_parceiro` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -983,7 +984,7 @@ CREATE TABLE `tbl_pedido` (
   KEY `fk_tbl_pedido_id_produto_idx` (`id_produto`),
   CONSTRAINT `fk_tbl_pedido_id_cliente` FOREIGN KEY (`id_cliente`) REFERENCES `tbl_cliente` (`id_cliente`),
   CONSTRAINT `fk_tbl_pedido_id_produto` FOREIGN KEY (`id_produto`) REFERENCES `tbl_produto` (`id_produto`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -992,7 +993,7 @@ CREATE TABLE `tbl_pedido` (
 
 LOCK TABLES `tbl_pedido` WRITE;
 /*!40000 ALTER TABLE `tbl_pedido` DISABLE KEYS */;
-INSERT INTO `tbl_pedido` VALUES (1,2,3,'2018-05-21 00:00:00','2018-05-20 11:32:40'),(2,2,5,'2018-02-14 00:00:00','2018-05-21 20:57:03'),(4,2,4,'2018-02-21 17:21:00','2018-05-31 17:55:57'),(5,4,4,'2018-06-02 12:40:00','2018-06-01 20:28:43'),(6,3,4,'2018-06-02 18:00:00','2018-06-01 20:53:40'),(7,3,4,'2018-06-02 18:00:00','2018-06-01 20:54:10'),(8,3,4,'2018-06-02 18:00:00','2018-06-01 20:54:56'),(9,3,4,'2018-06-02 18:00:00','2018-06-01 20:55:09'),(10,3,4,'2018-06-02 18:00:00','2018-06-01 20:55:29'),(11,3,4,'2018-06-02 18:00:00','2018-06-01 20:55:52'),(12,2,3,'2018-01-28 17:21:00','2018-06-01 21:10:28'),(13,2,3,'2019-06-05 15:00:00','2018-06-01 21:14:43'),(14,2,3,'2019-05-23 14:00:00','2018-06-01 21:16:56'),(15,2,4,'2018-07-23 11:30:00','2018-06-01 22:41:13'),(16,2,4,'2018-01-28 09:20:00','2018-06-01 22:46:01'),(17,2,4,'2019-01-01 01:00:00','2018-06-01 22:49:04');
+INSERT INTO `tbl_pedido` VALUES (1,2,3,'2018-05-21 00:00:00','2018-05-20 11:32:40'),(2,2,5,'2018-02-14 00:00:00','2018-05-21 20:57:03'),(4,2,4,'2018-02-21 17:21:00','2018-05-31 17:55:57'),(5,4,4,'2018-06-02 12:40:00','2018-06-01 20:28:43'),(6,3,4,'2018-06-02 18:00:00','2018-06-01 20:53:40'),(7,3,4,'2018-06-02 18:00:00','2018-06-01 20:54:10'),(8,3,4,'2018-06-02 18:00:00','2018-06-01 20:54:56'),(9,3,4,'2018-06-02 18:00:00','2018-06-01 20:55:09'),(10,3,4,'2018-06-02 18:00:00','2018-06-01 20:55:29'),(11,3,4,'2018-06-02 18:00:00','2018-06-01 20:55:52'),(12,2,3,'2018-01-28 17:21:00','2018-06-01 21:10:28'),(13,2,3,'2019-06-05 15:00:00','2018-06-01 21:14:43'),(14,2,3,'2019-05-23 14:00:00','2018-06-01 21:16:56'),(15,2,4,'2018-07-23 11:30:00','2018-06-01 22:41:13'),(16,2,4,'2018-01-28 09:20:00','2018-06-01 22:46:01'),(17,2,4,'2019-01-01 01:00:00','2018-06-01 22:49:04'),(18,2,3,'2018-06-02 13:33:00','2018-06-01 23:59:26'),(19,2,3,'2020-06-07 10:00:00','2018-06-02 00:04:37'),(20,2,7,'2018-06-05 16:00:00','2018-06-02 00:12:05');
 /*!40000 ALTER TABLE `tbl_pedido` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1130,7 +1131,7 @@ CREATE TABLE `tbl_produto` (
   CONSTRAINT `fk_tbl_produto_id_cor` FOREIGN KEY (`id_cor`) REFERENCES `tbl_cor` (`id_cor`),
   CONSTRAINT `fk_tbl_produto_id_modelo_produto` FOREIGN KEY (`id_modelo_produto`) REFERENCES `tbl_modelo_produto` (`id_modelo_produto`),
   CONSTRAINT `fk_tbl_produto_id_parceiro` FOREIGN KEY (`id_parceiro`) REFERENCES `tbl_parceiro` (`id_parceiro`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1139,7 +1140,7 @@ CREATE TABLE `tbl_produto` (
 
 LOCK TABLES `tbl_produto` WRITE;
 /*!40000 ALTER TABLE `tbl_produto` DISABLE KEYS */;
-INSERT INTO `tbl_produto` VALUES (3,NULL,1,NULL,2,'Higienizacao',89.99,'','','test',NULL),(4,NULL,1,NULL,2,'Revizão veicular',300.00,'','','',NULL),(5,1,1,1,1,'Radiador',300.00,'1 pneu','12 meses','',NULL),(6,1,26,1,1,'Pne35',300.00,'1','6 meses','Produto da pireli e da melhor qualidade',NULL);
+INSERT INTO `tbl_produto` VALUES (3,NULL,1,NULL,2,'Higienizacao',89.99,'','','test',NULL),(4,NULL,1,NULL,2,'Revizão veicular',300.00,'','','',NULL),(5,1,1,1,1,'Radiador',300.00,'1 pneu','12 meses','',NULL),(6,1,26,1,1,'Pne35',300.00,'1','6 meses','Produto da pireli e da melhor qualidade',NULL),(7,NULL,15,NULL,2,'Troca de pneu',150.00,NULL,'3 Meses','Troque seu pneu furado muito mais barato',NULL);
 /*!40000 ALTER TABLE `tbl_produto` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1212,7 +1213,7 @@ CREATE TABLE `tbl_situacao_pedido` (
   KEY `fk_tbl_situacao_pedido_id_tipo_situacao_pedido_idx` (`id_tipo_situacao_pedido`),
   CONSTRAINT `fk_tbl_situacao_pedido_id_pedido` FOREIGN KEY (`id_pedido`) REFERENCES `tbl_pedido` (`id_pedido`),
   CONSTRAINT `fk_tbl_situacao_pedido_id_tipo_situacao_pedido` FOREIGN KEY (`id_tipo_situacao_pedido`) REFERENCES `tbl_tipo_situacao_pedido` (`id_tipo_situacao_pedido`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1221,7 +1222,7 @@ CREATE TABLE `tbl_situacao_pedido` (
 
 LOCK TABLES `tbl_situacao_pedido` WRITE;
 /*!40000 ALTER TABLE `tbl_situacao_pedido` DISABLE KEYS */;
-INSERT INTO `tbl_situacao_pedido` VALUES (1,1,2,'2018-05-20 11:34:15'),(2,1,1,'2018-05-20 12:48:35'),(3,1,1,'2018-06-01 20:20:38'),(4,5,2,'2018-06-01 20:28:43'),(5,6,2,'2018-06-01 20:53:40'),(6,7,2,'2018-06-01 20:54:10'),(7,8,2,'2018-06-01 20:54:56'),(8,9,2,'2018-06-01 20:55:09'),(9,10,2,'2018-06-01 20:55:29'),(10,11,2,'2018-06-01 20:55:52'),(11,12,2,'2018-06-01 21:10:28'),(12,13,2,'2018-06-01 21:14:43'),(13,14,2,'2018-06-01 21:16:56'),(14,15,1,'2018-06-01 22:41:13'),(15,16,2,'2018-06-01 22:46:01'),(16,17,2,'2018-06-01 22:49:04');
+INSERT INTO `tbl_situacao_pedido` VALUES (1,1,6,'2018-05-20 11:34:15'),(2,1,1,'2018-05-20 12:48:35'),(3,1,1,'2018-06-01 20:20:38'),(4,5,1,'2018-06-01 20:28:43'),(5,6,1,'2018-06-01 20:53:40'),(6,7,1,'2018-06-01 20:54:10'),(7,8,1,'2018-06-01 20:54:56'),(8,9,1,'2018-06-01 20:55:09'),(9,10,1,'2018-06-01 20:55:29'),(10,11,1,'2018-06-01 20:55:52'),(11,12,6,'2018-06-01 21:10:28'),(12,13,6,'2018-06-01 21:14:43'),(13,14,6,'2018-06-01 21:16:56'),(14,15,1,'2018-06-01 22:41:13'),(15,16,6,'2018-06-01 22:46:01'),(16,17,1,'2018-06-01 22:49:04'),(17,18,6,'2018-06-01 23:59:26'),(18,19,1,'2018-06-02 00:04:37'),(19,20,1,'2018-06-02 00:12:05');
 /*!40000 ALTER TABLE `tbl_situacao_pedido` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1510,7 +1511,7 @@ CREATE TABLE `tbl_usuario` (
   PRIMARY KEY (`id_usuario`),
   KEY `fk_tbl_usuario_id_nivel_usuario_idx` (`id_nivel_usuario`),
   CONSTRAINT `fk_tbl_usuario_id_nivel_usuario` FOREIGN KEY (`id_nivel_usuario`) REFERENCES `tbl_nivel_usuario` (`id_nivel_usuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=58 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=62 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1519,7 +1520,7 @@ CREATE TABLE `tbl_usuario` (
 
 LOCK TABLES `tbl_usuario` WRITE;
 /*!40000 ALTER TABLE `tbl_usuario` DISABLE KEYS */;
-INSERT INTO `tbl_usuario` VALUES (1,'leticia','lele','2018-04-12 09:45:06',1,1),(33,'carlos','123','2018-04-21 03:56:44',3,1),(34,'paulo','123','2018-04-21 03:57:19',3,1),(35,'aaaaaaaa','csda','2018-04-21 03:59:00',3,1),(36,'aaaaaassDSDDsss','aaaaaaa','2018-04-21 03:59:09',2,1),(37,'aaaaaasadasdasdasdas','aaaaaaa','2018-04-21 04:00:43',2,1),(38,'aaaaaa\\xd\\sdsadasds','aaaaaaa','2018-04-21 04:01:06',2,1),(39,'aaaaaacdasdfasdasdas','aaaaaaa','2018-04-21 04:01:38',2,1),(40,'aaaaaaadcasdas','aaaaaaa','2018-04-21 04:08:22',2,1),(41,'aaaaaaasdasdsad','aaaaaaa','2018-04-21 14:17:06',2,1),(42,'aaaaaaczxcvdacaxdca','aaaaaaa','2018-04-21 14:18:01',2,1),(43,'aaaaaa\\xc\\szxd\\s','aaaaaaa','2018-04-21 14:19:59',2,1),(44,'aaaasasa','asdasd','2018-04-21 16:07:22',2,1),(45,'nAdm','1','2018-04-21 16:10:04',2,1),(46,'asd','asdas','2018-04-21 16:13:21',2,1),(47,'ssssdd','sadas','2018-04-21 17:07:37',2,1),(48,'das','dsad','2018-04-21 17:10:28',2,1),(49,'t','t','2018-04-21 17:11:49',2,1),(50,'asddfas','sdvsd','2018-04-21 17:47:15',2,1),(51,'sdfgsdfg','asdas','2018-04-21 17:48:26',2,1),(52,'sd','sdfvsd','2018-04-21 17:49:03',2,1),(53,'sdvgfsda','asdfawe','2018-04-21 17:49:48',2,1),(54,'dsad','fdsf','2018-04-21 17:51:40',2,1),(55,'sddff','sdffae','2018-04-21 20:18:27',2,1),(56,'afasddfas','dvfda','2018-04-22 11:36:45',2,1),(57,'katia','123','2018-05-24 09:12:31',3,1);
+INSERT INTO `tbl_usuario` VALUES (1,'leticia','lele','2018-04-12 09:45:06',1,1),(33,'carlos','123','2018-04-21 03:56:44',3,1),(34,'paulo','123','2018-04-21 03:57:19',3,1),(35,'aaaaaaaa','csda','2018-04-21 03:59:00',3,1),(36,'aaaaaassDSDDsss','aaaaaaa','2018-04-21 03:59:09',2,1),(37,'aaaaaasadasdasdasdas','aaaaaaa','2018-04-21 04:00:43',2,1),(38,'aaaaaa\\xd\\sdsadasds','aaaaaaa','2018-04-21 04:01:06',2,1),(39,'aaaaaacdasdfasdasdas','aaaaaaa','2018-04-21 04:01:38',2,1),(40,'aaaaaaadcasdas','aaaaaaa','2018-04-21 04:08:22',2,1),(41,'aaaaaaasdasdsad','aaaaaaa','2018-04-21 14:17:06',2,1),(42,'aaaaaaczxcvdacaxdca','aaaaaaa','2018-04-21 14:18:01',2,1),(43,'aaaaaa\\xc\\szxd\\s','aaaaaaa','2018-04-21 14:19:59',2,1),(44,'aaaasasa','asdasd','2018-04-21 16:07:22',2,1),(45,'nAdm','1','2018-04-21 16:10:04',2,1),(46,'asd','asdas','2018-04-21 16:13:21',2,1),(47,'ssssdd','sadas','2018-04-21 17:07:37',2,1),(48,'das','dsad','2018-04-21 17:10:28',2,1),(49,'t','t','2018-04-21 17:11:49',2,1),(50,'asddfas','sdvsd','2018-04-21 17:47:15',2,1),(51,'sdfgsdfg','asdas','2018-04-21 17:48:26',2,1),(52,'sd','sdfvsd','2018-04-21 17:49:03',2,1),(53,'sdvgfsda','asdfawe','2018-04-21 17:49:48',2,1),(54,'dsad','fdsf','2018-04-21 17:51:40',2,1),(55,'sddff','sdffae','2018-04-21 20:18:27',2,1),(56,'afasddfas','dvfda','2018-04-22 11:36:45',2,1),(57,'otremba','123','2018-05-24 09:12:31',2,1);
 /*!40000 ALTER TABLE `tbl_usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1545,7 +1546,7 @@ CREATE TABLE `tbl_veiculo` (
   KEY `fk_tbl_veiculo_id_modelo_veiculo_idx` (`id_modelo_veiculo`),
   CONSTRAINT `fk_tbl_veiculo_id_cor` FOREIGN KEY (`id_cor`) REFERENCES `tbl_cor` (`id_cor`),
   CONSTRAINT `fk_tbl_veiculo_id_modelo_veiculo` FOREIGN KEY (`id_modelo_veiculo`) REFERENCES `tbl_modelo_veiculo` (`id_modelo_veiculo`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1554,7 +1555,7 @@ CREATE TABLE `tbl_veiculo` (
 
 LOCK TABLES `tbl_veiculo` WRITE;
 /*!40000 ALTER TABLE `tbl_veiculo` DISABLE KEYS */;
-INSERT INTO `tbl_veiculo` VALUES (1,2018,'DFR-2154',1,1,4,22410,1,1),(2,2018,'RFT-2541',1,1,0,0,2,1);
+INSERT INTO `tbl_veiculo` VALUES (1,2018,'DFR-2154',1,1,4,22410,1,1),(2,2018,'RFT-2541',1,1,0,0,2,1),(3,2019,'cai-4002',1,1,2,40028922,1,1);
 /*!40000 ALTER TABLE `tbl_veiculo` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1603,7 +1604,7 @@ CREATE TABLE `tbl_veiculo_parceiro` (
   KEY `fk_tbl_veiculo_parceiro_id_veiculo_idx` (`id_veiculo`),
   CONSTRAINT `fk_tbl_veiculo_parceiro_id_parceiro` FOREIGN KEY (`id_parceiro`) REFERENCES `tbl_parceiro` (`id_parceiro`),
   CONSTRAINT `fk_tbl_veiculo_parceiro_id_veiculo` FOREIGN KEY (`id_veiculo`) REFERENCES `tbl_veiculo` (`id_veiculo`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1612,7 +1613,7 @@ CREATE TABLE `tbl_veiculo_parceiro` (
 
 LOCK TABLES `tbl_veiculo_parceiro` WRITE;
 /*!40000 ALTER TABLE `tbl_veiculo_parceiro` DISABLE KEYS */;
-INSERT INTO `tbl_veiculo_parceiro` VALUES (1,1,1),(2,1,2);
+INSERT INTO `tbl_veiculo_parceiro` VALUES (1,1,1),(2,1,2),(3,15,3);
 /*!40000 ALTER TABLE `tbl_veiculo_parceiro` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1632,7 +1633,7 @@ CREATE TABLE `tbl_veiculo_tipo_combustivel` (
   KEY `fk_tbl_veiculo_tipo_combustivel_id_tipo_combustivel_idx` (`id_tipo_combustivel`),
   CONSTRAINT `fk_tbl_veiculo_tipo_combustivel_id_tipo_combustivel` FOREIGN KEY (`id_tipo_combustivel`) REFERENCES `tbl_tipo_combustivel` (`id_tipo_combustivel`),
   CONSTRAINT `fk_tbl_veiculo_tipo_combustivel_id_veiculo` FOREIGN KEY (`id_veiculo`) REFERENCES `tbl_veiculo` (`id_veiculo`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1641,6 +1642,7 @@ CREATE TABLE `tbl_veiculo_tipo_combustivel` (
 
 LOCK TABLES `tbl_veiculo_tipo_combustivel` WRITE;
 /*!40000 ALTER TABLE `tbl_veiculo_tipo_combustivel` DISABLE KEYS */;
+INSERT INTO `tbl_veiculo_tipo_combustivel` VALUES (1,3,1);
 /*!40000 ALTER TABLE `tbl_veiculo_tipo_combustivel` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1674,6 +1676,39 @@ SET character_set_client = utf8;
  1 AS `numero`,
  1 AS `cidade`,
  1 AS `id_estado`,
+ 1 AS `cep`,
+ 1 AS `bairro`,
+ 1 AS `complemento`,
+ 1 AS `estado`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary view structure for view `view_cliente_formatado`
+--
+
+DROP TABLE IF EXISTS `view_cliente_formatado`;
+/*!50001 DROP VIEW IF EXISTS `view_cliente_formatado`*/;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+/*!50001 CREATE VIEW `view_cliente_formatado` AS SELECT 
+ 1 AS `id_usuario`,
+ 1 AS `usuario`,
+ 1 AS `senha`,
+ 1 AS `log`,
+ 1 AS `ativo`,
+ 1 AS `id_cliente`,
+ 1 AS `nome`,
+ 1 AS `dataNascimento`,
+ 1 AS `cpf`,
+ 1 AS `email`,
+ 1 AS `celular`,
+ 1 AS `id_endereco`,
+ 1 AS `sexo`,
+ 1 AS `telefone`,
+ 1 AS `fotoPerfil`,
+ 1 AS `logradouro`,
+ 1 AS `numeroResidencial`,
+ 1 AS `cidade`,
  1 AS `cep`,
  1 AS `bairro`,
  1 AS `complemento`,
@@ -1837,6 +1872,24 @@ SET character_set_client = utf8;
  1 AS `id_tipo_veiculo`,
  1 AS `nome_fantasia`,
  1 AS `razao_social`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary view structure for view `view_pagamento_funcionario_detalhado_formatado`
+--
+
+DROP TABLE IF EXISTS `view_pagamento_funcionario_detalhado_formatado`;
+/*!50001 DROP VIEW IF EXISTS `view_pagamento_funcionario_detalhado_formatado`*/;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+/*!50001 CREATE VIEW `view_pagamento_funcionario_detalhado_formatado` AS SELECT 
+ 1 AS `id_pagamento_funcionario_pac`,
+ 1 AS `id_funcionario_pac`,
+ 1 AS `pago`,
+ 1 AS `mes_pagamento`,
+ 1 AS `data_pagamento_realizado`,
+ 1 AS `nome`,
+ 1 AS `salario`*/;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -2016,6 +2069,7 @@ SET character_set_client = utf8;
 /*!50001 CREATE VIEW `view_prestadores_servicos` AS SELECT 
  1 AS `id_parceiro`,
  1 AS `nome_fantasia`,
+ 1 AS `id_produto`,
  1 AS `nome`*/;
 SET character_set_client = @saved_cs_client;
 
@@ -2270,8 +2324,26 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET character_set_results     = utf8 */;
 /*!50001 SET collation_connection      = utf8_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `view_cliente` AS select `cln`.`id_cliente` AS `id_cliente`,`cln`.`nome` AS `nome`,`cln`.`dtNasc` AS `dtNasc`,`cln`.`cpf` AS `cpf`,`cln`.`email` AS `email`,`cln`.`celular` AS `celular`,`cln`.`id_endereco` AS `id_endereco`,`cln`.`sexo` AS `sexo`,`cln`.`telefone` AS `telefone`,`cln`.`id_usuario` AS `id_usuario`,`cln`.`foto_perfil` AS `foto_perfil`,`usr`.`usuario` AS `usuario`,`usr`.`senha` AS `senha`,`usr`.`log` AS `log`,`usr`.`ativo` AS `ativo`,`usr`.`id_nivel_usuario` AS `id_nivel_usuario`,`nvl`.`nivel` AS `nivel`,`endrc`.`logradouro` AS `logradouro`,`endrc`.`numero` AS `numero`,`endrc`.`cidade` AS `cidade`,`endrc`.`id_estado` AS `id_estado`,`endrc`.`cep` AS `cep`,`endrc`.`bairro` AS `bairro`,`endrc`.`complemento` AS `complemento`,`estd`.`estado` AS `estado` from ((((`tbl_cliente` `cln` join `tbl_usuario` `usr` on((`usr`.`id_usuario` = `cln`.`id_usuario`))) join `tbl_nivel_usuario` `nvl` on((`nvl`.`id_nivel_usuario` = `usr`.`id_nivel_usuario`))) join `tbl_endereco` `endrc` on((`endrc`.`id_endereco` = `cln`.`id_endereco`))) join `tbl_estado` `estd` on((`estd`.`id_estado` = `endrc`.`id_estado`))) */;
+/*!50013 DEFINER=`caiqueoliveira`@`%%` SQL SECURITY DEFINER */
+/*!50001 VIEW `view_cliente` AS select `cln`.`id_cliente` AS `id_cliente`,`cln`.`nome` AS `nome`,date_format(`cln`.`dtNasc`,'%d/%m/%Y') AS `dtNasc`,`cln`.`cpf` AS `cpf`,`cln`.`email` AS `email`,`cln`.`celular` AS `celular`,`cln`.`id_endereco` AS `id_endereco`,`cln`.`sexo` AS `sexo`,`cln`.`telefone` AS `telefone`,`cln`.`id_usuario` AS `id_usuario`,`cln`.`foto_perfil` AS `foto_perfil`,`usr`.`usuario` AS `usuario`,`usr`.`senha` AS `senha`,`usr`.`log` AS `log`,`usr`.`ativo` AS `ativo`,`usr`.`id_nivel_usuario` AS `id_nivel_usuario`,`nvl`.`nivel` AS `nivel`,`endrc`.`logradouro` AS `logradouro`,`endrc`.`numero` AS `numero`,`endrc`.`cidade` AS `cidade`,`endrc`.`id_estado` AS `id_estado`,`endrc`.`cep` AS `cep`,`endrc`.`bairro` AS `bairro`,`endrc`.`complemento` AS `complemento`,`estd`.`estado` AS `estado` from ((((`tbl_cliente` `cln` join `tbl_usuario` `usr` on((`usr`.`id_usuario` = `cln`.`id_usuario`))) join `tbl_nivel_usuario` `nvl` on((`nvl`.`id_nivel_usuario` = `usr`.`id_nivel_usuario`))) join `tbl_endereco` `endrc` on((`endrc`.`id_endereco` = `cln`.`id_endereco`))) join `tbl_estado` `estd` on((`estd`.`id_estado` = `endrc`.`id_estado`))) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `view_cliente_formatado`
+--
+
+/*!50001 DROP VIEW IF EXISTS `view_cliente_formatado`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8 */;
+/*!50001 SET character_set_results     = utf8 */;
+/*!50001 SET collation_connection      = utf8_general_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`caiqueoliveira`@`%%` SQL SECURITY DEFINER */
+/*!50001 VIEW `view_cliente_formatado` AS select `u`.`id_usuario` AS `id_usuario`,`u`.`usuario` AS `usuario`,`u`.`senha` AS `senha`,date_format(cast(`u`.`log` as date),'%d/%m/%Y') AS `log`,`u`.`ativo` AS `ativo`,`c`.`id_cliente` AS `id_cliente`,`c`.`nome` AS `nome`,date_format(`c`.`dtNasc`,'%d/%m/%Y') AS `dataNascimento`,`c`.`cpf` AS `cpf`,`c`.`email` AS `email`,`c`.`celular` AS `celular`,`c`.`id_endereco` AS `id_endereco`,`c`.`sexo` AS `sexo`,`c`.`telefone` AS `telefone`,`c`.`foto_perfil` AS `fotoPerfil`,`e`.`logradouro` AS `logradouro`,`e`.`numero` AS `numeroResidencial`,`e`.`cidade` AS `cidade`,`e`.`cep` AS `cep`,`e`.`bairro` AS `bairro`,`e`.`complemento` AS `complemento`,`es`.`estado` AS `estado` from (((`tbl_usuario` `u` join `tbl_cliente` `c` on((`c`.`id_usuario` = `u`.`id_usuario`))) join `tbl_endereco` `e` on((`e`.`id_endereco` = `c`.`id_endereco`))) join `tbl_estado` `es` on((`es`.`id_estado` = `e`.`id_estado`))) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -2288,7 +2360,7 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET character_set_results     = utf8 */;
 /*!50001 SET collation_connection      = utf8_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50013 DEFINER=`caiqueoliveira`@`%%` SQL SECURITY DEFINER */
 /*!50001 VIEW `view_conta_pac_formatado` AS select `cnt`.`id_conta_pac` AS `id_conta_pac`,`cnt`.`id_categoria_conta_pac` AS `id_categoria_conta_pac`,`cnt`.`valor` AS `valor`,date_format(cast(`cnt`.`vencimento` as date),'%d/%m/%Y') AS `vencimento`,if((`cnt`.`paga` = 1),'Sim','Não') AS `paga`,`ctg_cnt`.`categoria` AS `categoria` from (`tbl_conta_pac` `cnt` join `tbl_categoria_conta_pac` `ctg_cnt` on((`ctg_cnt`.`id_categoria_conta_pac` = `cnt`.`id_categoria_conta_pac`))) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
@@ -2306,7 +2378,7 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET character_set_results     = utf8 */;
 /*!50001 SET collation_connection      = utf8_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50013 DEFINER=`caiqueoliveira`@`%%` SQL SECURITY DEFINER */
 /*!50001 VIEW `view_controle_abastecimento_formatado` AS select `ca`.`id_controle_abastecimento` AS `id_controle_abastecimento`,`ca`.`id_tipo_combustivel` AS `id_tipo_combustivel`,`ca`.`id_veiculo_cliente` AS `id_veiculo_cliente`,`ca`.`quilometro_rodado` AS `quilometro_rodado`,`ca`.`valor_abastecimento` AS `valor_abastecimento`,`ca`.`latitude` AS `latitude`,`ca`.`longitude` AS `longitude`,date_format(cast(`ca`.`log_controle_abastecimento` as date),'%d/%m/%Y') AS `log_controle_abastecimento`,`tc`.`combustivel` AS `combustivel`,`c`.`id_cliente` AS `id_cliente` from (((`tbl_controle_abastecimento` `ca` join `tbl_tipo_combustivel` `tc` on((`tc`.`id_tipo_combustivel` = `ca`.`id_tipo_combustivel`))) join `tbl_veiculo_cliente` `vc` on((`vc`.`id_veiculo_cliente` = `ca`.`id_veiculo_cliente`))) join `tbl_cliente` `c` on((`c`.`id_cliente` = `vc`.`id_cliente`))) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
@@ -2320,11 +2392,11 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET @saved_cs_client          = @@character_set_client */;
 /*!50001 SET @saved_cs_results         = @@character_set_results */;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
-/*!50001 SET character_set_client      = utf8mb4 */;
-/*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 SET character_set_client      = utf8 */;
+/*!50001 SET character_set_results     = utf8 */;
+/*!50001 SET collation_connection      = utf8_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50013 DEFINER=`caiqueoliveira`@`%%` SQL SECURITY DEFINER */
 /*!50001 VIEW `view_detalhes_produtos` AS select `p`.`id_produto` AS `id_produto`,`p`.`nome` AS `nome`,`p`.`preco` AS `preco`,`p`.`descricao` AS `descricao`,`p`.`observacao` AS `observacao`,`p`.`garantia` AS `garantia`,`mp`.`modelo` AS `modelo`,`cp`.`id_categoria_produto` AS `id_categoria_produto`,`cp`.`categoria` AS `categoria`,`f`.`fabricante` AS `fabricante` from (((`tbl_produto` `p` join `tbl_modelo_produto` `mp` on((`mp`.`id_modelo_produto` = `p`.`id_modelo_produto`))) join `tbl_categoria_produto` `cp` on((`cp`.`id_categoria_produto` = `p`.`id_categoria_produto`))) join `tbl_fabricante_produto` `f` on((`f`.`id_fabricante_produto` = `mp`.`id_fabricante_produto`))) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
@@ -2338,12 +2410,12 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET @saved_cs_client          = @@character_set_client */;
 /*!50001 SET @saved_cs_results         = @@character_set_results */;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
-/*!50001 SET character_set_client      = utf8mb4 */;
-/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET character_set_client      = utf8 */;
+/*!50001 SET character_set_results     = utf8 */;
 /*!50001 SET collation_connection      = utf8_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `view_funcionario_detalhado` AS select 1 AS `id_funcionario_pac`,1 AS `nome`,1 AS `cpf`,1 AS `rg`,1 AS `id_endereco`,1 AS `dt_nascimento`,1 AS `id_cargo_funcionario_pac`,1 AS `salario`,1 AS `sexo`,1 AS `celular`,1 AS `email`,1 AS `foto`,1 AS `cnh`,1 AS `pis`,1 AS `certificado_reservista`,1 AS `log_funcionario_pac`,1 AS `id_usuario`,1 AS `cargo`,1 AS `logradouro`,1 AS `numero`,1 AS `cidade`,1 AS `id_estado`,1 AS `cep`,1 AS `bairro`,1 AS `complemento`,1 AS `estado`,1 AS `usuario`,1 AS `senha`,1 AS `id_nivel_usuario`,1 AS `log`,1 AS `usuario_ativo`,1 AS `nivel` */;
+/*!50013 DEFINER=`caiqueoliveira`@`%%` SQL SECURITY DEFINER */
+/*!50001 VIEW `view_funcionario_detalhado` AS select `func`.`id_funcionario_pac` AS `id_funcionario_pac`,`func`.`nome` AS `nome`,`func`.`cpf` AS `cpf`,`func`.`rg` AS `rg`,`func`.`id_endereco` AS `id_endereco`,`func`.`dt_nascimento` AS `dt_nascimento`,`func`.`id_cargo_funcionario_pac` AS `id_cargo_funcionario_pac`,`func`.`salario` AS `salario`,`func`.`sexo` AS `sexo`,`func`.`celular` AS `celular`,`func`.`email` AS `email`,`func`.`foto` AS `foto`,`func`.`cnh` AS `cnh`,`func`.`pis` AS `pis`,`func`.`certificado_reservista` AS `certificado_reservista`,`func`.`log_funcionario_pac` AS `log_funcionario_pac`,`func`.`id_usuario` AS `id_usuario`,`carg_func`.`cargo` AS `cargo`,`endr`.`logradouro` AS `logradouro`,`endr`.`numero` AS `numero`,`endr`.`cidade` AS `cidade`,`endr`.`id_estado` AS `id_estado`,`endr`.`cep` AS `cep`,`endr`.`bairro` AS `bairro`,`endr`.`complemento` AS `complemento`,`estd`.`estado` AS `estado`,`usr`.`usuario` AS `usuario`,`usr`.`senha` AS `senha`,`usr`.`id_nivel_usuario` AS `id_nivel_usuario`,`usr`.`log` AS `log`,`usr`.`ativo` AS `usuario_ativo`,`usr_nvl`.`nivel` AS `nivel` from (((((`tbl_funcionario_pac` `func` join `tbl_cargo_funcionario_pac` `carg_func` on((`carg_func`.`id_cargo_funcionario_pac` = `func`.`id_cargo_funcionario_pac`))) join `tbl_endereco` `endr` on((`endr`.`id_endereco` = `func`.`id_endereco`))) join `tbl_estado` `estd` on((`estd`.`id_estado` = `endr`.`id_estado`))) join `tbl_usuario` `usr` on((`usr`.`id_usuario` = `func`.`id_usuario`))) join `tbl_nivel_usuario` `usr_nvl` on((`usr_nvl`.`id_nivel_usuario` = `usr`.`id_nivel_usuario`))) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -2356,12 +2428,12 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET @saved_cs_client          = @@character_set_client */;
 /*!50001 SET @saved_cs_results         = @@character_set_results */;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
-/*!50001 SET character_set_client      = utf8mb4 */;
-/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET character_set_client      = utf8 */;
+/*!50001 SET character_set_results     = utf8 */;
 /*!50001 SET collation_connection      = utf8_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `view_funcionario_simples_formatado` AS select 1 AS `id_funcionario_pac`,1 AS `nome`,1 AS `id_cargo_funcionario_pac`,1 AS `data_adimissao`,1 AS `email`,1 AS `celular`,1 AS `cargo` */;
+/*!50013 DEFINER=`caiqueoliveira`@`%%` SQL SECURITY DEFINER */
+/*!50001 VIEW `view_funcionario_simples_formatado` AS select `func`.`id_funcionario_pac` AS `id_funcionario_pac`,`func`.`nome` AS `nome`,`func`.`id_cargo_funcionario_pac` AS `id_cargo_funcionario_pac`,date_format(cast(`func`.`log_funcionario_pac` as date),'%d/%m/%Y') AS `data_adimissao`,`func`.`email` AS `email`,`func`.`celular` AS `celular`,`carg_func`.`cargo` AS `cargo` from (`tbl_funcionario_pac` `func` join `tbl_cargo_funcionario_pac` `carg_func` on((`carg_func`.`id_cargo_funcionario_pac` = `func`.`id_cargo_funcionario_pac`))) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -2374,12 +2446,12 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET @saved_cs_client          = @@character_set_client */;
 /*!50001 SET @saved_cs_results         = @@character_set_results */;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
-/*!50001 SET character_set_client      = utf8mb4 */;
-/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET character_set_client      = utf8 */;
+/*!50001 SET character_set_results     = utf8 */;
 /*!50001 SET collation_connection      = utf8_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `view_imagem_produto_parceiro` AS select 1 AS `id_imagem_produto_parceiro`,1 AS `id_produto`,1 AS `imagem`,1 AS `ativo`,1 AS `categoria`,1 AS `id_categoria_produto`,1 AS `razao_social`,1 AS `nome_fantasia` */;
+/*!50013 DEFINER=`caiqueoliveira`@`%%` SQL SECURITY DEFINER */
+/*!50001 VIEW `view_imagem_produto_parceiro` AS select `img_prdt_parc`.`id_imagem_produto_parceiro` AS `id_imagem_produto_parceiro`,`img_prdt_parc`.`id_produto` AS `id_produto`,`img_prdt_parc`.`imagem` AS `imagem`,`img_prdt_parc`.`ativo` AS `ativo`,`ctg_prdt`.`categoria` AS `categoria`,`prdt`.`id_categoria_produto` AS `id_categoria_produto`,`parc`.`razao_social` AS `razao_social`,`parc`.`nome_fantasia` AS `nome_fantasia` from (((`tbl_imagem_produto_parceiro` `img_prdt_parc` join `tbl_produto` `prdt` on((`prdt`.`id_produto` = `img_prdt_parc`.`id_produto`))) join `tbl_parceiro` `parc` on((`parc`.`id_parceiro` = `prdt`.`id_parceiro`))) join `tbl_categoria_produto` `ctg_prdt` on((`ctg_prdt`.`id_categoria_produto` = `prdt`.`id_categoria_produto`))) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -2392,12 +2464,30 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET @saved_cs_client          = @@character_set_client */;
 /*!50001 SET @saved_cs_results         = @@character_set_results */;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
-/*!50001 SET character_set_client      = utf8mb4 */;
-/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET character_set_client      = utf8 */;
+/*!50001 SET character_set_results     = utf8 */;
 /*!50001 SET collation_connection      = utf8_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `view_imagem_veiculo_parceiro` AS select 1 AS `id_imagem_veiculo_parceiro`,1 AS `id_veiculo_parceiro`,1 AS `imagem`,1 AS `ativo`,1 AS `id_parceiro`,1 AS `tipo`,1 AS `id_tipo_veiculo`,1 AS `nome_fantasia`,1 AS `razao_social` */;
+/*!50013 DEFINER=`caiqueoliveira`@`%%` SQL SECURITY DEFINER */
+/*!50001 VIEW `view_imagem_veiculo_parceiro` AS select `img_vei_parc`.`id_imagem_veiculo_parceiro` AS `id_imagem_veiculo_parceiro`,`img_vei_parc`.`id_veiculo_parceiro` AS `id_veiculo_parceiro`,`img_vei_parc`.`imagem` AS `imagem`,`img_vei_parc`.`ativo` AS `ativo`,`vei_parc`.`id_parceiro` AS `id_parceiro`,`tp_veic`.`tipo` AS `tipo`,`tp_veic`.`id_tipo_veiculo` AS `id_tipo_veiculo`,`parc`.`nome_fantasia` AS `nome_fantasia`,`parc`.`razao_social` AS `razao_social` from ((((`tbl_imagem_veiculo_parceiro` `img_vei_parc` join `tbl_veiculo_parceiro` `vei_parc` on((`vei_parc`.`id_veiculo_parceiro` = `img_vei_parc`.`id_veiculo_parceiro`))) join `tbl_parceiro` `parc` on((`parc`.`id_parceiro` = `vei_parc`.`id_parceiro`))) join `tbl_veiculo` `veic` on((`veic`.`id_veiculo` = `vei_parc`.`id_veiculo`))) join `tbl_tipo_veiculo` `tp_veic` on((`tp_veic`.`id_tipo_veiculo` = `veic`.`id_tipo_veiculo`))) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `view_pagamento_funcionario_detalhado_formatado`
+--
+
+/*!50001 DROP VIEW IF EXISTS `view_pagamento_funcionario_detalhado_formatado`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8 */;
+/*!50001 SET character_set_results     = utf8 */;
+/*!50001 SET collation_connection      = utf8_general_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`caiqueoliveira`@`%%` SQL SECURITY DEFINER */
+/*!50001 VIEW `view_pagamento_funcionario_detalhado_formatado` AS select `pgm_func`.`id_pagamento_funcionario_pac` AS `id_pagamento_funcionario_pac`,`pgm_func`.`id_funcionario_pac` AS `id_funcionario_pac`,if((`pgm_func`.`pago` = 0),'Não','Sim') AS `pago`,date_format(cast(`pgm_func`.`mes_pagamento` as date),'%m/%Y') AS `mes_pagamento`,date_format(cast(`pgm_func`.`data_pagamento_realizado` as date),'%d/%m/%Y') AS `data_pagamento_realizado`,`func`.`nome` AS `nome`,`func`.`salario` AS `salario` from (`tbl_pagamento_funcionario_pac` `pgm_func` join `tbl_funcionario_pac` `func` on((`func`.`id_funcionario_pac` = `pgm_func`.`id_funcionario_pac`))) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -2410,12 +2500,12 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET @saved_cs_client          = @@character_set_client */;
 /*!50001 SET @saved_cs_results         = @@character_set_results */;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
-/*!50001 SET character_set_client      = utf8mb4 */;
-/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET character_set_client      = utf8 */;
+/*!50001 SET character_set_results     = utf8 */;
 /*!50001 SET collation_connection      = utf8_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `view_parceiro` AS select 1 AS `id_parceiro`,1 AS `nome_fantasia`,1 AS `cnpj`,1 AS `razao_social`,1 AS `id_endereco`,1 AS `parceiro_ativo`,1 AS `foto_perfil`,1 AS `email`,1 AS `socorrista`,1 AS `telefone`,1 AS `celular`,1 AS `log_parceiro`,1 AS `id_usuario`,1 AS `id_plano_contratacao`,1 AS `usuario`,1 AS `senha`,1 AS `log`,1 AS `ativo`,1 AS `id_nivel_usuario`,1 AS `nivel`,1 AS `logradouro`,1 AS `numero`,1 AS `cidade`,1 AS `id_estado`,1 AS `cep`,1 AS `bairro`,1 AS `complemento`,1 AS `estado` */;
+/*!50013 DEFINER=`caiqueoliveira`@`%%` SQL SECURITY DEFINER */
+/*!50001 VIEW `view_parceiro` AS select `prc`.`id_parceiro` AS `id_parceiro`,`prc`.`nome_fantasia` AS `nome_fantasia`,`prc`.`cnpj` AS `cnpj`,`prc`.`razao_social` AS `razao_social`,`prc`.`id_endereco` AS `id_endereco`,`prc`.`ativo` AS `parceiro_ativo`,`prc`.`foto_perfil` AS `foto_perfil`,`prc`.`email` AS `email`,`prc`.`socorrista` AS `socorrista`,`prc`.`telefone` AS `telefone`,`prc`.`celular` AS `celular`,`prc`.`log_parceiro` AS `log_parceiro`,`prc`.`id_usuario` AS `id_usuario`,`prc`.`id_plano_contratacao` AS `id_plano_contratacao`,`usr`.`usuario` AS `usuario`,`usr`.`senha` AS `senha`,`usr`.`log` AS `log`,`usr`.`ativo` AS `ativo`,`usr`.`id_nivel_usuario` AS `id_nivel_usuario`,`nvl`.`nivel` AS `nivel`,`endrc`.`logradouro` AS `logradouro`,`endrc`.`numero` AS `numero`,`endrc`.`cidade` AS `cidade`,`endrc`.`id_estado` AS `id_estado`,`endrc`.`cep` AS `cep`,`endrc`.`bairro` AS `bairro`,`endrc`.`complemento` AS `complemento`,`estd`.`estado` AS `estado` from ((((`tbl_parceiro` `prc` join `tbl_usuario` `usr` on((`usr`.`id_usuario` = `prc`.`id_usuario`))) join `tbl_nivel_usuario` `nvl` on((`nvl`.`id_nivel_usuario` = `usr`.`id_nivel_usuario`))) join `tbl_endereco` `endrc` on((`endrc`.`id_endereco` = `prc`.`id_endereco`))) join `tbl_estado` `estd` on((`estd`.`id_estado` = `endrc`.`id_estado`))) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -2428,12 +2518,12 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET @saved_cs_client          = @@character_set_client */;
 /*!50001 SET @saved_cs_results         = @@character_set_results */;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
-/*!50001 SET character_set_client      = utf8mb4 */;
-/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET character_set_client      = utf8 */;
+/*!50001 SET character_set_results     = utf8 */;
 /*!50001 SET collation_connection      = utf8_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `view_parceiro_detalhado` AS select 1 AS `id_parceiro`,1 AS `nome_fantasia`,1 AS `cnpj`,1 AS `razao_social`,1 AS `id_endereco`,1 AS `parceiro_ativo`,1 AS `foto_perfil`,1 AS `email`,1 AS `socorrista`,1 AS `telefone`,1 AS `celular`,1 AS `log_parceiro`,1 AS `id_usuario`,1 AS `id_plano_contratacao`,1 AS `usuario`,1 AS `senha`,1 AS `log`,1 AS `ativo`,1 AS `id_nivel_usuario`,1 AS `nivel`,1 AS `logradouro`,1 AS `numero`,1 AS `cidade`,1 AS `id_estado`,1 AS `cep`,1 AS `bairro`,1 AS `complemento`,1 AS `estado` */;
+/*!50013 DEFINER=`caiqueoliveira`@`%%` SQL SECURITY DEFINER */
+/*!50001 VIEW `view_parceiro_detalhado` AS select `prc`.`id_parceiro` AS `id_parceiro`,`prc`.`nome_fantasia` AS `nome_fantasia`,`prc`.`cnpj` AS `cnpj`,`prc`.`razao_social` AS `razao_social`,`prc`.`id_endereco` AS `id_endereco`,`prc`.`ativo` AS `parceiro_ativo`,`prc`.`foto_perfil` AS `foto_perfil`,`prc`.`email` AS `email`,`prc`.`socorrista` AS `socorrista`,`prc`.`telefone` AS `telefone`,`prc`.`celular` AS `celular`,`prc`.`log_parceiro` AS `log_parceiro`,`prc`.`id_usuario` AS `id_usuario`,`prc`.`id_plano_contratacao` AS `id_plano_contratacao`,`usr`.`usuario` AS `usuario`,`usr`.`senha` AS `senha`,`usr`.`log` AS `log`,`usr`.`ativo` AS `ativo`,`usr`.`id_nivel_usuario` AS `id_nivel_usuario`,`nvl`.`nivel` AS `nivel`,`endrc`.`logradouro` AS `logradouro`,`endrc`.`numero` AS `numero`,`endrc`.`cidade` AS `cidade`,`endrc`.`id_estado` AS `id_estado`,`endrc`.`cep` AS `cep`,`endrc`.`bairro` AS `bairro`,`endrc`.`complemento` AS `complemento`,`estd`.`estado` AS `estado` from ((((`tbl_parceiro` `prc` join `tbl_usuario` `usr` on((`usr`.`id_usuario` = `prc`.`id_usuario`))) join `tbl_nivel_usuario` `nvl` on((`nvl`.`id_nivel_usuario` = `usr`.`id_nivel_usuario`))) join `tbl_endereco` `endrc` on((`endrc`.`id_endereco` = `prc`.`id_endereco`))) join `tbl_estado` `estd` on((`estd`.`id_estado` = `endrc`.`id_estado`))) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -2446,11 +2536,11 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET @saved_cs_client          = @@character_set_client */;
 /*!50001 SET @saved_cs_results         = @@character_set_results */;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
-/*!50001 SET character_set_client      = utf8mb4 */;
-/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET character_set_client      = utf8 */;
+/*!50001 SET character_set_results     = utf8 */;
 /*!50001 SET collation_connection      = utf8_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50013 DEFINER=`caiqueoliveira`@`%%` SQL SECURITY DEFINER */
 /*!50001 VIEW `view_parceiro_formatado` AS select 1 AS `id_parceiro`,1 AS `nome_fantasia`,1 AS `razao_social`,1 AS `cnpj`,1 AS `id_endereco`,1 AS `ativo`,1 AS `socorrista`,1 AS `email`,1 AS `telefone`,1 AS `foto_perfil`,1 AS `celular`,1 AS `log_parceiro`,1 AS `id_usuario`,1 AS `plano`,1 AS `logradouro`,1 AS `cep`,1 AS `bairro`,1 AS `cidade`,1 AS `complemento`,1 AS `numero`,1 AS `estado`,1 AS `usuario`,1 AS `senha`,1 AS `id_nivel_usuario`,1 AS `nivel` */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
@@ -2464,12 +2554,12 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET @saved_cs_client          = @@character_set_client */;
 /*!50001 SET @saved_cs_results         = @@character_set_results */;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
-/*!50001 SET character_set_client      = utf8mb4 */;
-/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET character_set_client      = utf8 */;
+/*!50001 SET character_set_results     = utf8 */;
 /*!50001 SET collation_connection      = utf8_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `view_parceiro_simples` AS select 1 AS `id_parceiro`,1 AS `nome_fantasia`,1 AS `razao_social`,1 AS `cnpj`,1 AS `id_endereco`,1 AS `ativo`,1 AS `socorrista`,1 AS `email`,1 AS `telefone`,1 AS `foto_perfil`,1 AS `celular`,1 AS `log_parceiro`,1 AS `id_usuario`,1 AS `plano`,1 AS `id_plano_contratacao` */;
+/*!50013 DEFINER=`caiqueoliveira`@`%%` SQL SECURITY DEFINER */
+/*!50001 VIEW `view_parceiro_simples` AS select `parc`.`id_parceiro` AS `id_parceiro`,`parc`.`nome_fantasia` AS `nome_fantasia`,`parc`.`razao_social` AS `razao_social`,`parc`.`cnpj` AS `cnpj`,`parc`.`id_endereco` AS `id_endereco`,`parc`.`ativo` AS `ativo`,`parc`.`socorrista` AS `socorrista`,`parc`.`email` AS `email`,`parc`.`telefone` AS `telefone`,`parc`.`foto_perfil` AS `foto_perfil`,`parc`.`celular` AS `celular`,date_format(cast(`parc`.`log_parceiro` as date),'%d/%m/%Y') AS `log_parceiro`,`parc`.`id_usuario` AS `id_usuario`,`pln_contr`.`plano` AS `plano`,`pln_contr`.`id_plano_contratacao` AS `id_plano_contratacao` from (`tbl_parceiro` `parc` join `tbl_plano_contratacao` `pln_contr` on((`pln_contr`.`id_plano_contratacao` = `parc`.`id_plano_contratacao`))) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -2482,12 +2572,12 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET @saved_cs_client          = @@character_set_client */;
 /*!50001 SET @saved_cs_results         = @@character_set_results */;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
-/*!50001 SET character_set_client      = utf8mb4 */;
-/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET character_set_client      = utf8 */;
+/*!50001 SET character_set_results     = utf8 */;
 /*!50001 SET collation_connection      = utf8_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `view_parceiro_simples_formatado` AS select 1 AS `id_parceiro`,1 AS `nome_fantasia`,1 AS `razao_social`,1 AS `cnpj`,1 AS `id_endereco`,1 AS `ativo`,1 AS `socorrista`,1 AS `email`,1 AS `telefone`,1 AS `foto_perfil`,1 AS `celular`,1 AS `log_parceiro`,1 AS `id_usuario`,1 AS `plano`,1 AS `id_plano_contratacao` */;
+/*!50013 DEFINER=`caiqueoliveira`@`%%` SQL SECURITY DEFINER */
+/*!50001 VIEW `view_parceiro_simples_formatado` AS select `parc`.`id_parceiro` AS `id_parceiro`,`parc`.`nome_fantasia` AS `nome_fantasia`,`parc`.`razao_social` AS `razao_social`,`parc`.`cnpj` AS `cnpj`,`parc`.`id_endereco` AS `id_endereco`,if((`parc`.`ativo` = 1),'Sim','Não') AS `ativo`,if((`parc`.`socorrista` = 1),'Sim','Não') AS `socorrista`,`parc`.`email` AS `email`,`parc`.`telefone` AS `telefone`,`parc`.`foto_perfil` AS `foto_perfil`,`parc`.`celular` AS `celular`,date_format(cast(`parc`.`log_parceiro` as date),'%d/%m/%Y') AS `log_parceiro`,`parc`.`id_usuario` AS `id_usuario`,`pln_contr`.`plano` AS `plano`,`pln_contr`.`id_plano_contratacao` AS `id_plano_contratacao` from (`tbl_parceiro` `parc` join `tbl_plano_contratacao` `pln_contr` on((`pln_contr`.`id_plano_contratacao` = `parc`.`id_plano_contratacao`))) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -2504,8 +2594,8 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET character_set_results     = utf8 */;
 /*!50001 SET collation_connection      = utf8_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `view_prestadores_servicos` AS select `p`.`id_parceiro` AS `id_parceiro`,`p`.`nome_fantasia` AS `nome_fantasia`,`pr`.`nome` AS `nome` from (`tbl_parceiro` `p` join `tbl_produto` `pr` on((`pr`.`id_parceiro` = `p`.`id_parceiro`))) where (`pr`.`id_categoria_produto` = 2) */;
+/*!50013 DEFINER=`caiqueoliveira`@`%%` SQL SECURITY DEFINER */
+/*!50001 VIEW `view_prestadores_servicos` AS select `p`.`id_parceiro` AS `id_parceiro`,`p`.`nome_fantasia` AS `nome_fantasia`,`pr`.`id_produto` AS `id_produto`,`pr`.`nome` AS `nome` from (`tbl_parceiro` `p` join `tbl_produto` `pr` on((`pr`.`id_parceiro` = `p`.`id_parceiro`))) where (`pr`.`id_categoria_produto` = 2) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -2522,7 +2612,7 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET character_set_results     = utf8 */;
 /*!50001 SET collation_connection      = utf8_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50013 DEFINER=`caiqueoliveira`@`%%` SQL SECURITY DEFINER */
 /*!50001 VIEW `view_produto` AS select `prdt`.`id_produto` AS `id_produto`,`prdt`.`nome` AS `nome`,`prdt`.`conteudo_embalagem` AS `conteudo_embalagem`,`prdt`.`garantia` AS `garantia`,`prdt`.`observacao` AS `observacao`,`prdt`.`preco` AS `preco`,`prdt`.`descricao` AS `descricao`,`fp`.`fabricante` AS `fabricante`,`fp`.`id_fabricante_produto` AS `id_fabricante_produto`,`img_prdt_parc`.`imagem` AS `imagem`,`mdl_prdt`.`modelo` AS `modelo`,`parc`.`id_parceiro` AS `id_parceiro`,`parc`.`nome_fantasia` AS `nome_fantasia`,`parc`.`id_endereco` AS `id_endereco`,`parc`.`telefone` AS `telefone`,`parc`.`celular` AS `celular`,`endrc`.`logradouro` AS `logradouro`,`endrc`.`numero` AS `numero`,`endrc`.`cidade` AS `cidade`,`endrc`.`id_estado` AS `id_estado`,`endrc`.`cep` AS `cep`,`endrc`.`bairro` AS `bairro`,`endrc`.`complemento` AS `complemento`,`estd`.`estado` AS `estado`,`ctg_prdt`.`categoria` AS `categoria`,`ctg_prdt`.`id_categoria_produto` AS `id_categoria_produto` from (((((((`tbl_produto` `prdt` join `tbl_imagem_produto_parceiro` `img_prdt_parc` on((`img_prdt_parc`.`id_produto` = `prdt`.`id_produto`))) join `tbl_modelo_produto` `mdl_prdt` on((`mdl_prdt`.`id_modelo_produto` = `prdt`.`id_modelo_produto`))) join `tbl_parceiro` `parc` on((`parc`.`id_parceiro` = `prdt`.`id_parceiro`))) join `tbl_endereco` `endrc` on((`endrc`.`id_endereco` = `parc`.`id_endereco`))) join `tbl_estado` `estd` on((`estd`.`id_estado` = `endrc`.`id_estado`))) join `tbl_categoria_produto` `ctg_prdt` on((`ctg_prdt`.`id_categoria_produto` = `prdt`.`id_categoria_produto`))) join `tbl_fabricante_produto` `fp` on((`fp`.`id_fabricante_produto` = `mdl_prdt`.`id_fabricante_produto`))) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
@@ -2540,7 +2630,7 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET character_set_results     = utf8 */;
 /*!50001 SET collation_connection      = utf8_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50013 DEFINER=`caiqueoliveira`@`%%` SQL SECURITY DEFINER */
 /*!50001 VIEW `view_produto_detalhado` AS select `pdrt`.`id_produto` AS `id_produto`,`pdrt`.`id_modelo_produto` AS `id_modelo_produto`,`pdrt`.`id_parceiro` AS `id_parceiro`,`pdrt`.`id_cor` AS `id_cor`,`pdrt`.`id_categoria_produto` AS `id_categoria_produto`,`pdrt`.`nome` AS `nome`,`pdrt`.`preco` AS `preco`,`pdrt`.`conteudo_embalagem` AS `conteudo_embalagem`,`pdrt`.`garantia` AS `garantia`,`pdrt`.`descricao` AS `descricao`,`pdrt`.`observacao` AS `observacao`,`mdl_pdrt`.`modelo` AS `modelo`,`mdl_pdrt`.`id_fabricante_produto` AS `id_fabricante_produto`,`mdl_pdrt`.`peso` AS `peso`,`mdl_pdrt`.`altura` AS `altura`,`mdl_pdrt`.`comprimento` AS `comprimento`,`fbcnt_pdrt`.`fabricante` AS `fabricante`,`parc`.`nome_fantasia` AS `nome_fantasia`,`parc`.`razao_social` AS `razao_social`,`parc`.`cnpj` AS `cnpj`,`parc`.`id_endereco` AS `id_endereco`,`parc`.`id_usuario` AS `id_usuario`,`parc`.`ativo` AS `ativo`,`parc`.`socorrista` AS `socorrista`,`parc`.`email` AS `email`,`parc`.`telefone` AS `telefone`,`parc`.`foto_perfil` AS `foto_perfil`,`parc`.`celular` AS `celular`,`parc`.`log_parceiro` AS `log_parceiro`,`endrc`.`logradouro` AS `logradouro`,`endrc`.`numero` AS `numero`,`endrc`.`cidade` AS `cidade`,`endrc`.`id_estado` AS `id_estado`,`endrc`.`cep` AS `cep`,`endrc`.`bairro` AS `bairro`,`endrc`.`complemento` AS `complemento`,`estd`.`estado` AS `estado`,`cor`.`cor` AS `cor`,`ctg_pdrt`.`categoria` AS `categoria` from (((((((`tbl_produto` `pdrt` join `tbl_modelo_produto` `mdl_pdrt` on((`mdl_pdrt`.`id_modelo_produto` = `pdrt`.`id_modelo_produto`))) join `tbl_fabricante_produto` `fbcnt_pdrt` on((`fbcnt_pdrt`.`id_fabricante_produto` = `mdl_pdrt`.`id_fabricante_produto`))) join `tbl_parceiro` `parc` on((`parc`.`id_parceiro` = `pdrt`.`id_parceiro`))) join `tbl_endereco` `endrc` on((`endrc`.`id_endereco` = `parc`.`id_endereco`))) join `tbl_estado` `estd` on((`estd`.`id_estado` = `endrc`.`id_estado`))) join `tbl_cor` `cor` on((`cor`.`id_cor` = `pdrt`.`id_cor`))) join `tbl_categoria_produto` `ctg_pdrt` on((`ctg_pdrt`.`id_categoria_produto` = `pdrt`.`id_categoria_produto`))) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
@@ -2558,7 +2648,7 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET character_set_results     = utf8 */;
 /*!50001 SET collation_connection      = utf8_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50013 DEFINER=`caiqueoliveira`@`%%` SQL SECURITY DEFINER */
 /*!50001 VIEW `view_produto_min_info` AS select `p`.`id_produto` AS `id_produto`,`p`.`nome` AS `nome`,`p`.`preco` AS `preco`,`f`.`fabricante` AS `fabricante`,`i`.`imagem` AS `imagem`,`c`.`categoria` AS `categoria`,`c`.`id_categoria_produto` AS `id_categoria_produto` from ((((`tbl_produto` `p` join `tbl_modelo_produto` `m` on((`m`.`id_modelo_produto` = `p`.`id_modelo_produto`))) join `tbl_fabricante_produto` `f` on((`f`.`id_fabricante_produto` = `m`.`id_fabricante_produto`))) join `tbl_imagem_produto_parceiro` `i` on((`i`.`id_produto` = `p`.`id_produto`))) join `tbl_categoria_produto` `c` on((`c`.`id_categoria_produto` = `p`.`id_categoria_produto`))) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
@@ -2572,12 +2662,12 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET @saved_cs_client          = @@character_set_client */;
 /*!50001 SET @saved_cs_results         = @@character_set_results */;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
-/*!50001 SET character_set_client      = utf8mb4 */;
-/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET character_set_client      = utf8 */;
+/*!50001 SET character_set_results     = utf8 */;
 /*!50001 SET collation_connection      = utf8_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `view_receita_plano_contratacao` AS select 1 AS `receita` */;
+/*!50013 DEFINER=`caiqueoliveira`@`%%` SQL SECURITY DEFINER */
+/*!50001 VIEW `view_receita_plano_contratacao` AS select sum(`pln_contr`.`valor`) AS `receita` from (`tbl_plano_contratacao` `pln_contr` join `tbl_parceiro` `parc` on((`parc`.`id_plano_contratacao` = `pln_contr`.`id_plano_contratacao`))) where (`parc`.`ativo` = 1) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -2594,7 +2684,7 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET character_set_results     = utf8 */;
 /*!50001 SET collation_connection      = utf8_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50013 DEFINER=`caiqueoliveira`@`%%` SQL SECURITY DEFINER */
 /*!50001 VIEW `view_servico` AS select `p`.`id_produto` AS `id_produto`,`p`.`id_modelo_produto` AS `id_modelo_produto`,`p`.`id_parceiro` AS `id_parceiro`,`p`.`id_cor` AS `id_cor`,`p`.`id_categoria_produto` AS `id_categoria_produto`,`p`.`nome` AS `nome`,`p`.`preco` AS `preco`,`p`.`conteudo_embalagem` AS `conteudo_embalagem`,`p`.`garantia` AS `garantia`,`p`.`descricao` AS `descricao`,`p`.`observacao` AS `observacao`,`pa`.`id_usuario` AS `id_usuario` from ((`tbl_produto` `p` join `tbl_parceiro` `pa` on((`pa`.`id_parceiro` = `p`.`id_parceiro`))) join `tbl_usuario` `u` on((`u`.`id_usuario` = `pa`.`id_usuario`))) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
@@ -2612,7 +2702,7 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET character_set_results     = utf8 */;
 /*!50001 SET collation_connection      = utf8_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50013 DEFINER=`caiqueoliveira`@`%%` SQL SECURITY DEFINER */
 /*!50001 VIEW `view_servico_detalhado` AS select `p`.`id_produto` AS `id_produto`,`p`.`id_parceiro` AS `id_parceiro`,`p`.`id_categoria_produto` AS `id_categoria_produto`,`p`.`nome` AS `nome`,`p`.`preco` AS `preco`,`p`.`descricao` AS `descricao`,`p`.`observacao` AS `observacao`,`pr`.`email` AS `email`,`e`.`logradouro` AS `logradouro`,`e`.`numero` AS `numero`,`e`.`cidade` AS `cidade`,`es`.`estado` AS `estado` from (((`tbl_produto` `p` join `tbl_parceiro` `pr` on((`pr`.`id_parceiro` = `p`.`id_parceiro`))) join `tbl_endereco` `e` on((`e`.`id_endereco` = `pr`.`id_endereco`))) join `tbl_estado` `es` on((`es`.`id_estado` = `e`.`id_estado`))) where (`p`.`id_categoria_produto` = 2) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
@@ -2630,7 +2720,7 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET character_set_results     = utf8 */;
 /*!50001 SET collation_connection      = utf8_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50013 DEFINER=`caiqueoliveira`@`%%` SQL SECURITY DEFINER */
 /*!50001 VIEW `view_servico_prestado` AS select `p`.`nome` AS `servico`,`p`.`preco` AS `preco`,`pa`.`nome_fantasia` AS `nome_fantasia`,date_format(cast(`pe`.`data_agendada` as date),'%d/%m/%Y') AS `data_agendada`,`sp`.`id_tipo_situacao_pedido` AS `id_tipo_situacao_pedido`,`c`.`id_cliente` AS `id_cliente` from ((((`tbl_produto` `p` join `tbl_parceiro` `pa` on((`pa`.`id_parceiro` = `p`.`id_parceiro`))) join `tbl_pedido` `pe` on((`pe`.`id_produto` = `p`.`id_produto`))) join `tbl_situacao_pedido` `sp` on((`sp`.`id_pedido` = `pe`.`id_pedido`))) join `tbl_cliente` `c` on((`c`.`id_cliente` = `pe`.`id_cliente`))) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
@@ -2648,7 +2738,7 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET character_set_results     = utf8 */;
 /*!50001 SET collation_connection      = utf8_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50013 DEFINER=`caiqueoliveira`@`%%` SQL SECURITY DEFINER */
 /*!50001 VIEW `view_servicos_prestados_cliente` AS select `p`.`nome` AS `nome`,`p`.`preco` AS `preco`,`pa`.`nome_fantasia` AS `nome_fantasia`,`sp`.`log_situacao_pedido` AS `log_situacao_pedido`,`tsp`.`id_tipo_situacao_pedido` AS `id_tipo_situacao_pedido`,`pe`.`id_cliente` AS `id_cliente` from ((((((`tbl_produto` `p` join `tbl_categoria_produto` `cp` on((`cp`.`id_categoria_produto` = `p`.`id_categoria_produto`))) left join `tbl_modelo_produto` `mp` on((`mp`.`id_modelo_produto` = `p`.`id_modelo_produto`))) join `tbl_parceiro` `pa` on((`pa`.`id_parceiro` = `p`.`id_parceiro`))) join `tbl_pedido` `pe` on((`pe`.`id_produto` = `p`.`id_produto`))) join `tbl_situacao_pedido` `sp` on((`sp`.`id_pedido` = `pe`.`id_pedido`))) join `tbl_tipo_situacao_pedido` `tsp` on((`tsp`.`id_tipo_situacao_pedido` = `sp`.`id_tipo_situacao_pedido`))) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
@@ -2666,7 +2756,7 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET character_set_results     = utf8 */;
 /*!50001 SET collation_connection      = utf8_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50013 DEFINER=`caiqueoliveira`@`%%` SQL SECURITY DEFINER */
 /*!50001 VIEW `view_status_servico` AS select `p`.`nome` AS `nome_servico`,date_format(cast(`pe`.`data_agendada` as date),'%d/%m/%Y') AS `data_agendada`,`c`.`nome` AS `nome_cliente`,`s`.`id_situacao_pedido` AS `id_situacao_pedido`,`ts`.`situacao` AS `situacao` from ((((`tbl_produto` `p` join `tbl_pedido` `pe` on((`pe`.`id_produto` = `p`.`id_produto`))) join `tbl_cliente` `c` on((`c`.`id_cliente` = `pe`.`id_cliente`))) join `tbl_situacao_pedido` `s` on((`s`.`id_pedido` = `pe`.`id_pedido`))) join `tbl_tipo_situacao_pedido` `ts` on((`ts`.`id_tipo_situacao_pedido` = `s`.`id_tipo_situacao_pedido`))) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
@@ -2680,12 +2770,12 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET @saved_cs_client          = @@character_set_client */;
 /*!50001 SET @saved_cs_results         = @@character_set_results */;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
-/*!50001 SET character_set_client      = utf8mb4 */;
-/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET character_set_client      = utf8 */;
+/*!50001 SET character_set_results     = utf8 */;
 /*!50001 SET collation_connection      = utf8_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `view_total_despesas_internas` AS select 1 AS `total_despesa` */;
+/*!50013 DEFINER=`caiqueoliveira`@`%%` SQL SECURITY DEFINER */
+/*!50001 VIEW `view_total_despesas_internas` AS select (sum(`contas`.`valor`) + sum(`func`.`salario`)) AS `total_despesa` from (`tbl_conta_pac` `contas` join `tbl_funcionario_pac` `func`) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -2702,7 +2792,7 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET character_set_results     = utf8 */;
 /*!50001 SET collation_connection      = utf8_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50013 DEFINER=`caiqueoliveira`@`%%` SQL SECURITY DEFINER */
 /*!50001 VIEW `view_veiculo_cliente` AS select `vc`.`id_veiculo` AS `id_veiculo`,`vc`.`id_cliente` AS `id_cliente`,`v`.`placa` AS `placa` from (`tbl_veiculo_cliente` `vc` join `tbl_veiculo` `v` on((`v`.`id_veiculo` = `vc`.`id_veiculo`))) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
@@ -2717,4 +2807,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-06-01 22:57:12
+-- Dump completed on 2018-06-02  0:20:20
