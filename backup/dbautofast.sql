@@ -2283,6 +2283,7 @@ SET character_set_client = utf8;
  1 AS `preco`,
  1 AS `modelo`,
  1 AS `categoria`,
+ 1 AS `data_pedido`,
  1 AS `situacao`,
  1 AS `id_tipo_situacao_pedido`*/;
 SET character_set_client = @saved_cs_client;
@@ -2774,7 +2775,7 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET collation_connection      = utf8_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`caiqueoliveira`@`%%` SQL SECURITY DEFINER */
-/*!50001 VIEW `view_status_produto` AS select `p`.`nome` AS `nome_produto`,`p`.`preco` AS `preco`,`m`.`modelo` AS `modelo`,`c`.`categoria` AS `categoria`,`tsp`.`situacao` AS `situacao`,`tsp`.`id_tipo_situacao_pedido` AS `id_tipo_situacao_pedido` from (((((`tbl_produto` `p` join `tbl_modelo_produto` `m` on((`m`.`id_modelo_produto` = `p`.`id_modelo_produto`))) join `tbl_categoria_produto` `c` on((`c`.`id_categoria_produto` = `p`.`id_categoria_produto`))) join `tbl_pedido` `ped` on((`ped`.`id_produto` = `p`.`id_produto`))) join `tbl_situacao_pedido` `s` on((`s`.`id_pedido` = `ped`.`id_pedido`))) join `tbl_tipo_situacao_pedido` `tsp` on((`tsp`.`id_tipo_situacao_pedido` = `s`.`id_tipo_situacao_pedido`))) where (`c`.`id_categoria_produto` <> 2) */;
+/*!50001 VIEW `view_status_produto` AS select `p`.`nome` AS `nome_produto`,`p`.`preco` AS `preco`,`m`.`modelo` AS `modelo`,`c`.`categoria` AS `categoria`,date_format(cast(`s`.`log_situacao_pedido` as date),'%d/%m/%Y') AS `data_pedido`,`tsp`.`situacao` AS `situacao`,`tsp`.`id_tipo_situacao_pedido` AS `id_tipo_situacao_pedido` from (((((`tbl_produto` `p` join `tbl_modelo_produto` `m` on((`m`.`id_modelo_produto` = `p`.`id_modelo_produto`))) join `tbl_categoria_produto` `c` on((`c`.`id_categoria_produto` = `p`.`id_categoria_produto`))) join `tbl_pedido` `ped` on((`ped`.`id_produto` = `p`.`id_produto`))) join `tbl_situacao_pedido` `s` on((`s`.`id_pedido` = `ped`.`id_pedido`))) join `tbl_tipo_situacao_pedido` `tsp` on((`tsp`.`id_tipo_situacao_pedido` = `s`.`id_tipo_situacao_pedido`))) where (`c`.`id_categoria_produto` <> 2) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -2792,7 +2793,7 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET collation_connection      = utf8_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`caiqueoliveira`@`%%` SQL SECURITY DEFINER */
-/*!50001 VIEW `view_status_servico` AS select `p`.`nome` AS `nome_servico`,date_format(cast(`pe`.`data_agendada` as date),'%d/%m/%Y') AS `data_agendada`,`c`.`nome` AS `nome_cliente`,`s`.`id_situacao_pedido` AS `id_situacao_pedido`,`ts`.`situacao` AS `situacao` from ((((`tbl_produto` `p` join `tbl_pedido` `pe` on((`pe`.`id_produto` = `p`.`id_produto`))) join `tbl_cliente` `c` on((`c`.`id_cliente` = `pe`.`id_cliente`))) join `tbl_situacao_pedido` `s` on((`s`.`id_pedido` = `pe`.`id_pedido`))) join `tbl_tipo_situacao_pedido` `ts` on((`ts`.`id_tipo_situacao_pedido` = `s`.`id_tipo_situacao_pedido`))) */;
+/*!50001 VIEW `view_status_servico` AS select `p`.`nome` AS `nome_servico`,date_format(cast(`pe`.`data_agendada` as date),'%d/%m/%Y') AS `data_agendada`,`c`.`nome` AS `nome_cliente`,`s`.`id_situacao_pedido` AS `id_situacao_pedido`,`ts`.`situacao` AS `situacao` from (((((`tbl_produto` `p` join `tbl_pedido` `pe` on((`pe`.`id_produto` = `p`.`id_produto`))) join `tbl_cliente` `c` on((`c`.`id_cliente` = `pe`.`id_cliente`))) join `tbl_situacao_pedido` `s` on((`s`.`id_pedido` = `pe`.`id_pedido`))) join `tbl_tipo_situacao_pedido` `ts` on((`ts`.`id_tipo_situacao_pedido` = `s`.`id_tipo_situacao_pedido`))) join `tbl_categoria_produto` `ctg` on((`ctg`.`id_categoria_produto` = `p`.`id_categoria_produto`))) where (`ctg`.`id_categoria_produto` = 2) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -2842,4 +2843,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-06-02 21:17:21
+-- Dump completed on 2018-06-02 21:25:45
