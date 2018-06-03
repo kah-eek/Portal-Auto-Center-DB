@@ -21,6 +21,9 @@ m.modelo,
 /* tbl_categoria_produto */
 c.categoria,
 
+/* tbl_situacao_pedido */
+DATE_FORMAT(DATE(s.log_situacao_pedido),"%d/%m/%Y") AS data_pedido,
+
 /* tbl_tipo_situacao_pedido */
 tsp.situacao,
 tsp.id_tipo_situacao_pedido
