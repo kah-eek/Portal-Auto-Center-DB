@@ -8,4 +8,5 @@ select * from tbl_categoria_produto;
 select * from tbl_tipo_situacao_pedido;
 
 select * from view_status_servico;
+select * from view_status_produto;
 

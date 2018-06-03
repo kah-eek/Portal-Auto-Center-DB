@@ -26,7 +26,9 @@ DATE_FORMAT(DATE(s.log_situacao_pedido),"%d/%m/%Y") AS data_pedido,
 
 /* tbl_tipo_situacao_pedido */
 tsp.situacao,
-tsp.id_tipo_situacao_pedido
+
+/* tbl_situacao_pedido */
+s.id_situacao_pedido
 
 FROM tbl_produto AS p
 
