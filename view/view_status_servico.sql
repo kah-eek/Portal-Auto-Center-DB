@@ -25,6 +25,10 @@ INNER JOIN tbl_cliente AS c ON c.id_cliente = pe.id_cliente
 
 INNER JOIN tbl_situacao_pedido AS s ON s.id_pedido = pe.id_pedido
 
-INNER JOIN tbl_tipo_situacao_pedido AS ts ON ts.id_tipo_situacao_pedido = s.id_tipo_situacao_pedido;
+INNER JOIN tbl_tipo_situacao_pedido AS ts ON ts.id_tipo_situacao_pedido = s.id_tipo_situacao_pedido
+
+INNER JOIN tbl_categoria_produto AS ctg ON ctg.id_categoria_produto = p.id_categoria_produto
+
+WHERE ctg.id_categoria_produto = 2;
 
 SELECT * FROM view_status_servico;
