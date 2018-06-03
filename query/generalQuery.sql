@@ -7,4 +7,5 @@ select * from tbl_situacao_pedido;
 select * from tbl_categoria_produto;
 select * from tbl_tipo_situacao_pedido;
 
-status_produto1
+select * from view_status_servico;
+
