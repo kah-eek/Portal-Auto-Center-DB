@@ -206,7 +206,7 @@ CREATE TABLE `tbl_categoria_produto` (
   `id_categoria_produto` int(11) NOT NULL AUTO_INCREMENT,
   `categoria` varchar(380) NOT NULL,
   PRIMARY KEY (`id_categoria_produto`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -215,7 +215,7 @@ CREATE TABLE `tbl_categoria_produto` (
 
 LOCK TABLES `tbl_categoria_produto` WRITE;
 /*!40000 ALTER TABLE `tbl_categoria_produto` DISABLE KEYS */;
-INSERT INTO `tbl_categoria_produto` VALUES (1,'Peças'),(2,'Serviços');
+INSERT INTO `tbl_categoria_produto` VALUES (1,'Farol'),(2,'Serviços'),(3,'Alicate'),(4,'Pneu'),(5,'Peça'),(6,'Roda');
 /*!40000 ALTER TABLE `tbl_categoria_produto` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1131,7 +1131,7 @@ CREATE TABLE `tbl_produto` (
   CONSTRAINT `fk_tbl_produto_id_cor` FOREIGN KEY (`id_cor`) REFERENCES `tbl_cor` (`id_cor`),
   CONSTRAINT `fk_tbl_produto_id_modelo_produto` FOREIGN KEY (`id_modelo_produto`) REFERENCES `tbl_modelo_produto` (`id_modelo_produto`),
   CONSTRAINT `fk_tbl_produto_id_parceiro` FOREIGN KEY (`id_parceiro`) REFERENCES `tbl_parceiro` (`id_parceiro`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1140,7 +1140,7 @@ CREATE TABLE `tbl_produto` (
 
 LOCK TABLES `tbl_produto` WRITE;
 /*!40000 ALTER TABLE `tbl_produto` DISABLE KEYS */;
-INSERT INTO `tbl_produto` VALUES (3,NULL,1,NULL,2,'Higienizacao',89.99,'','','test',NULL),(4,NULL,1,NULL,2,'Revizão veicular',300.00,'','','',NULL),(5,1,1,1,1,'Radiador',300.00,'1 pneu','12 meses','',NULL),(6,1,26,1,1,'Pne35',300.00,'1','6 meses','Produto da pireli e da melhor qualidade',NULL),(7,NULL,15,NULL,2,'Troca de pneu',150.00,NULL,'3 Meses','Troque seu pneu furado por um preÃ§o muito mais barato',NULL),(16,12,15,6,1,'Macaco Jacarï¿½ 2T',569.00,'Um macaco tipo Jacarï¿½ 2T Longo','1 mes','Macaco longo tipo jacarï¿½ com capacidade de 2 toneladas conta com cabo de alta resistï¿½ncia e 4 rodas de ferro. Possui prato de apoio produzido em aï¿½o, com garras que impedem o escorregamento, oferecendo eficiï¿½ncia durante o uso. ','De otima qualidade'),(17,NULL,15,NULL,2,'Balanceamento',69.90,NULL,'12 Meses','AtÃ© aro 18',NULL);
+INSERT INTO `tbl_produto` VALUES (3,NULL,1,NULL,2,'Higienizacao',89.99,'','','test',NULL),(4,NULL,1,NULL,2,'Revizão veicular',300.00,'','','',NULL),(5,1,1,1,1,'Radiador',300.00,'1 pneu','12 meses','',NULL),(6,1,26,1,1,'Pne35',300.00,'1','6 meses','Produto da pireli e da melhor qualidade',NULL),(7,NULL,15,NULL,2,'Troca de pneu',150.00,NULL,'3 Meses','Troque seu pneu furado por um preÃ§o muito mais barato',NULL),(16,12,15,6,1,'Macaco Jacarï¿½ 2T',569.00,'Um macaco tipo Jacarï¿½ 2T Longo','1 mes','Macaco longo tipo jacarï¿½ com capacidade de 2 toneladas conta com cabo de alta resistï¿½ncia e 4 rodas de ferro. Possui prato de apoio produzido em aï¿½o, com garras que impedem o escorregamento, oferecendo eficiï¿½ncia durante o uso. ','De otima qualidade'),(17,NULL,15,NULL,2,'Balanceamento',69.90,NULL,'12 Meses','AtÃ© aro 18',NULL),(18,4,15,8,1,'Homocinetica',500.00,'1','6 Meses','Homocinetica para veiculos volkswagem','Produto de otima qualidade fabricado para ser o melhor do mercado.'),(19,NULL,15,NULL,2,'LubrificaÃ§Ã£o de eixos',249.99,NULL,'3 Meses','Seus eixos com a melhor lubrificaÃ§Ã£o do mercado',NULL);
 /*!40000 ALTER TABLE `tbl_produto` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1547,7 +1547,7 @@ CREATE TABLE `tbl_veiculo` (
   KEY `fk_tbl_veiculo_id_modelo_veiculo_idx` (`id_modelo_veiculo`),
   CONSTRAINT `fk_tbl_veiculo_id_cor` FOREIGN KEY (`id_cor`) REFERENCES `tbl_cor` (`id_cor`),
   CONSTRAINT `fk_tbl_veiculo_id_modelo_veiculo` FOREIGN KEY (`id_modelo_veiculo`) REFERENCES `tbl_modelo_veiculo` (`id_modelo_veiculo`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1556,7 +1556,7 @@ CREATE TABLE `tbl_veiculo` (
 
 LOCK TABLES `tbl_veiculo` WRITE;
 /*!40000 ALTER TABLE `tbl_veiculo` DISABLE KEYS */;
-INSERT INTO `tbl_veiculo` VALUES (1,2018,'DFR-2154',1,1,4,22410,1,1),(2,2018,'RFT-2541',1,1,0,0,2,1),(4,0000,'RFT-2541',1,1,2,1,1,1),(5,2022,'BCD-2465',70,1,2,26000,2,1);
+INSERT INTO `tbl_veiculo` VALUES (1,2018,'DFR-2154',1,-1,4,22410,1,1),(2,2018,'RFT-2541',1,-1,0,0,2,1),(4,2017,'RFT-2541',68,-1,4,0,1,15),(5,2016,'BCD-2465',70,-1,2,26000,1,12),(12,2012,'btr-0423',70,-1,4,450000,2,7),(13,2020,'btr-0423',70,-1,4,25400,2,7);
 /*!40000 ALTER TABLE `tbl_veiculo` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1605,7 +1605,7 @@ CREATE TABLE `tbl_veiculo_parceiro` (
   KEY `fk_tbl_veiculo_parceiro_id_veiculo_idx` (`id_veiculo`),
   CONSTRAINT `fk_tbl_veiculo_parceiro_id_parceiro` FOREIGN KEY (`id_parceiro`) REFERENCES `tbl_parceiro` (`id_parceiro`),
   CONSTRAINT `fk_tbl_veiculo_parceiro_id_veiculo` FOREIGN KEY (`id_veiculo`) REFERENCES `tbl_veiculo` (`id_veiculo`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1614,7 +1614,7 @@ CREATE TABLE `tbl_veiculo_parceiro` (
 
 LOCK TABLES `tbl_veiculo_parceiro` WRITE;
 /*!40000 ALTER TABLE `tbl_veiculo_parceiro` DISABLE KEYS */;
-INSERT INTO `tbl_veiculo_parceiro` VALUES (1,1,1),(2,1,2),(4,16,4),(5,15,5);
+INSERT INTO `tbl_veiculo_parceiro` VALUES (1,1,1),(2,1,2),(4,15,4),(5,15,5),(11,15,12),(12,15,13);
 /*!40000 ALTER TABLE `tbl_veiculo_parceiro` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1634,7 +1634,7 @@ CREATE TABLE `tbl_veiculo_tipo_combustivel` (
   KEY `fk_tbl_veiculo_tipo_combustivel_id_tipo_combustivel_idx` (`id_tipo_combustivel`),
   CONSTRAINT `fk_tbl_veiculo_tipo_combustivel_id_tipo_combustivel` FOREIGN KEY (`id_tipo_combustivel`) REFERENCES `tbl_tipo_combustivel` (`id_tipo_combustivel`),
   CONSTRAINT `fk_tbl_veiculo_tipo_combustivel_id_veiculo` FOREIGN KEY (`id_veiculo`) REFERENCES `tbl_veiculo` (`id_veiculo`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1643,7 +1643,7 @@ CREATE TABLE `tbl_veiculo_tipo_combustivel` (
 
 LOCK TABLES `tbl_veiculo_tipo_combustivel` WRITE;
 /*!40000 ALTER TABLE `tbl_veiculo_tipo_combustivel` DISABLE KEYS */;
-INSERT INTO `tbl_veiculo_tipo_combustivel` VALUES (2,4,1),(3,5,4);
+INSERT INTO `tbl_veiculo_tipo_combustivel` VALUES (2,4,1),(3,5,4),(10,12,1),(11,13,3);
 /*!40000 ALTER TABLE `tbl_veiculo_tipo_combustivel` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2306,6 +2306,24 @@ SET character_set_client = utf8;
 SET character_set_client = @saved_cs_client;
 
 --
+-- Temporary view structure for view `view_status_servico_por_parceiro`
+--
+
+DROP TABLE IF EXISTS `view_status_servico_por_parceiro`;
+/*!50001 DROP VIEW IF EXISTS `view_status_servico_por_parceiro`*/;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+/*!50001 CREATE VIEW `view_status_servico_por_parceiro` AS SELECT 
+ 1 AS `nome_servico`,
+ 1 AS `data_agendada`,
+ 1 AS `nome_cliente`,
+ 1 AS `id_parceiro`,
+ 1 AS `nome_fantasia`,
+ 1 AS `id_situacao_pedido`,
+ 1 AS `situacao`*/;
+SET character_set_client = @saved_cs_client;
+
+--
 -- Temporary view structure for view `view_total_despesas_internas`
 --
 
@@ -2800,6 +2818,24 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET collation_connection      = @saved_col_connection */;
 
 --
+-- Final view structure for view `view_status_servico_por_parceiro`
+--
+
+/*!50001 DROP VIEW IF EXISTS `view_status_servico_por_parceiro`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8 */;
+/*!50001 SET character_set_results     = utf8 */;
+/*!50001 SET collation_connection      = utf8_general_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`caiqueoliveira`@`%%` SQL SECURITY DEFINER */
+/*!50001 VIEW `view_status_servico_por_parceiro` AS select `p`.`nome` AS `nome_servico`,date_format(cast(`pe`.`data_agendada` as date),'%d/%m/%Y') AS `data_agendada`,`c`.`nome` AS `nome_cliente`,`parc`.`id_parceiro` AS `id_parceiro`,`parc`.`nome_fantasia` AS `nome_fantasia`,`s`.`id_situacao_pedido` AS `id_situacao_pedido`,`ts`.`situacao` AS `situacao` from (((((((`tbl_produto` `p` join `tbl_pedido` `pe` on((`pe`.`id_produto` = `p`.`id_produto`))) join `tbl_cliente` `c` on((`c`.`id_cliente` = `pe`.`id_cliente`))) join `tbl_produto` `prd` on((`prd`.`id_produto` = `pe`.`id_produto`))) join `tbl_parceiro` `parc` on((`parc`.`id_parceiro` = `prd`.`id_parceiro`))) join `tbl_situacao_pedido` `s` on((`s`.`id_pedido` = `pe`.`id_pedido`))) join `tbl_tipo_situacao_pedido` `ts` on((`ts`.`id_tipo_situacao_pedido` = `s`.`id_tipo_situacao_pedido`))) join `tbl_categoria_produto` `ctg` on((`ctg`.`id_categoria_produto` = `p`.`id_categoria_produto`))) where (`ctg`.`id_categoria_produto` = 2) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
 -- Final view structure for view `view_total_despesas_internas`
 --
 
@@ -2844,4 +2880,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-06-04  1:04:59
+-- Dump completed on 2018-06-04  1:52:43
