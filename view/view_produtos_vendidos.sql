@@ -7,19 +7,16 @@ data agendada para a realizacacao do servico
 obs: os servcicos so irao aparecer se o status deles forem de confirmados 
 */
 
-CREATE VIEW view_produtos_vendidos AS
+ALTER VIEW view_produtos_vendidos AS
 
 SELECT 
 
 /* tbl_produto */
-p.nome AS servico,
+p.nome AS produto,
 p.preco,
 
 /*tbl_parceiro*/
 pa.nome_fantasia,
- 
-/*tbl_pedido*/
-DATE_FORMAT(DATE(pe.data_agendada),"%d/%m/%Y") AS data_agendada,
 
 /* tbl_situacao_pedido */
 sp.id_tipo_situacao_pedido,
