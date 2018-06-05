@@ -7,7 +7,7 @@ data agendada para a realizacacao do servico
 obs: os servcicos so irao aparecer se o status deles forem de confirmados 
 */
 
-ALTER VIEW view_produtos_vendidos AS
+CREATE VIEW view_produtos_vendidos AS
 
 SELECT 
 
@@ -20,7 +20,7 @@ pa.nome_fantasia,
 
 /* tbl_situacao_pedido */
 sp.id_tipo_situacao_pedido,
-sp.log_situacao_pedido,
+DATE_FORMAT(DATE(sp.log_situacao_pedido),"%d/%m/%Y") AS log_situacao_pedido,
 
 /* tbl_cliente */
 c.id_cliente
