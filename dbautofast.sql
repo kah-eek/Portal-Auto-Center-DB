@@ -292,7 +292,7 @@ CREATE TABLE `tbl_cliente` (
   PRIMARY KEY (`id_cliente`),
   KEY `fk_tbl_cliente_id_usuario_idx` (`id_usuario`),
   CONSTRAINT `fk_tbl_cliente_id_usuario` FOREIGN KEY (`id_usuario`) REFERENCES `tbl_usuario` (`id_usuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -301,7 +301,7 @@ CREATE TABLE `tbl_cliente` (
 
 LOCK TABLES `tbl_cliente` WRITE;
 /*!40000 ALTER TABLE `tbl_cliente` DISABLE KEYS */;
-INSERT INTO `tbl_cliente` VALUES (2,'Carlos','1979-04-18','44315621846','carlos@gmail.com','11458754',1,'M','',33,'https://images.unsplash.com/photo-1493666438817-866a91353ca9?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=8d991e3d780fbd816811b54abf3fb681&dpr=1&auto=format&fit=crop&w=1000&q=80&cs=tinysrgb'),(3,'Paulo Matias de Souza','1980-06-01','85698875489','paulo.souza@outlook.com','11912546587',1,'M','1145875485',34,'https://images.unsplash.com/photo-1482264851290-446b18e3ee9f?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=052be30858afa91142f02f6a3df7f639&dpr=1&auto=format&fit=crop&w=1000&q=80&cs=tinysrgb'),(4,'Henrique Otremba dos Santos','1998-12-29','46474926805','henrique-otrembal@outlook.com','11998084331',126,'M','1147732808',57,'https://images.unsplash.com/photo-1521117177129-ca6b2e68cb26?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=cce4201e8d3a1905d4a5e7a99b2dfd53&dpr=1&auto=format&fit=crop&w=1000&q=80&cs=tinysrgb');
+INSERT INTO `tbl_cliente` VALUES (2,'Caique M. Oliveira','2000-03-08','44315621846','caique.m.o@gmail.com','11989981030',1,'M','',33,'../pictures/perfil/myProfile.png'),(3,'Paulo Matias de Souza','1980-06-01','85698875489','paulo.souza@outlook.com','11912546587',1,'M','1145875485',34,'https://images.unsplash.com/photo-1482264851290-446b18e3ee9f?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=052be30858afa91142f02f6a3df7f639&dpr=1&auto=format&fit=crop&w=1000&q=80&cs=tinysrgb'),(4,'Henrique Otremba dos Santos','1998-12-29','46474926805','henrique-otrembal@outlook.com','11998084331',126,'M','1147732808',57,'https://images.unsplash.com/photo-1521117177129-ca6b2e68cb26?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=cce4201e8d3a1905d4a5e7a99b2dfd53&dpr=1&auto=format&fit=crop&w=1000&q=80&cs=tinysrgb'),(5,'Henrique','1998-12-29','46474926805','Henrique-otrembal@outlook.com','11998084331',127,'','11477',62,'1'),(6,'otremba','2018-06-13','46474926805','Henrique-otrembal@outlook.com','11998084331',128,'','11477',63,'1');
 /*!40000 ALTER TABLE `tbl_cliente` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -530,7 +530,7 @@ CREATE TABLE `tbl_endereco` (
   PRIMARY KEY (`id_endereco`),
   KEY `fk_tbl_endereco_id_estado_idx` (`id_estado`),
   CONSTRAINT `fk_tbl_endereco_id_estado` FOREIGN KEY (`id_estado`) REFERENCES `tbl_estado` (`id_estado`)
-) ENGINE=InnoDB AUTO_INCREMENT=127 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=138 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -726,7 +726,7 @@ CREATE TABLE `tbl_imagem_produto_parceiro` (
   PRIMARY KEY (`id_imagem_produto_parceiro`),
   KEY `fk_tbl_imagem_produto_parceiro_id_produto_idx` (`id_produto`),
   CONSTRAINT `fk_tbl_imagem_produto_parceiro_id_produto` FOREIGN KEY (`id_produto`) REFERENCES `tbl_produto` (`id_produto`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -735,7 +735,7 @@ CREATE TABLE `tbl_imagem_produto_parceiro` (
 
 LOCK TABLES `tbl_imagem_produto_parceiro` WRITE;
 /*!40000 ALTER TABLE `tbl_imagem_produto_parceiro` DISABLE KEYS */;
-INSERT INTO `tbl_imagem_produto_parceiro` VALUES (2,3,'../pictures/produto/auto_eletrica.jpg',1),(3,4,'../pictures/produto/pintura_carro.jpg',1),(5,5,'../pictures/produto/farol.jpg',1),(6,6,'../pictures/produto/pneu.png',1),(10,3,'../pictures/produto/d0be999f465e46c277c980fbce2d3697.jpg',1),(11,6,'../pictures/produto/71b226f58175350dc7a6895e36b97f5b.png',1);
+INSERT INTO `tbl_imagem_produto_parceiro` VALUES (2,3,'../pictures/produto/auto_eletrica.jpg',1),(3,4,'../pictures/produto/pintura_carro.jpg',1),(5,5,'../pictures/produto/farol.jpg',1),(6,6,'../pictures/produto/pneu.png',1),(10,3,'../pictures/produto/d0be999f465e46c277c980fbce2d3697.jpg',1),(16,18,'../pictures/perfil/124f014abeb3b61b49e52928ce06e0da.jpg',1);
 /*!40000 ALTER TABLE `tbl_imagem_produto_parceiro` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -953,7 +953,7 @@ CREATE TABLE `tbl_parceiro` (
   CONSTRAINT `fk_tbl_parceiro_id_endereco` FOREIGN KEY (`id_endereco`) REFERENCES `tbl_endereco` (`id_endereco`),
   CONSTRAINT `fk_tbl_parceiro_id_plano_contratacao` FOREIGN KEY (`id_plano_contratacao`) REFERENCES `tbl_plano_contratacao` (`id_plano_contratacao`),
   CONSTRAINT `fk_tbl_parceiro_id_usuario` FOREIGN KEY (`id_usuario`) REFERENCES `tbl_usuario` (`id_usuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8 COMMENT='			';
+) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=utf8 COMMENT='			';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -962,7 +962,7 @@ CREATE TABLE `tbl_parceiro` (
 
 LOCK TABLES `tbl_parceiro` WRITE;
 /*!40000 ALTER TABLE `tbl_parceiro` DISABLE KEYS */;
-INSERT INTO `tbl_parceiro` VALUES (1,'Fast & Run','Fast & Run Importados LTDA','4656516565',1,0,1,'fast&run@fastrun.com.br','1145228475','../pictures/produto/d0be999f465e46c277c980fbce2d3697.jpg','1142158745','2018-04-12 09:47:39',1,1),(15,'TONIMAR','TONIMAR LTDA','12561265',96,1,1,'Tonimar@gmail.com','5156','../pictures/produto/d0be999f465e46c277c980fbce2d3697.jpg','4561','2018-04-21 03:56:44',57,1),(16,'asdas','asdasd','56165',97,0,1,'asdas','156156','','561256.','2018-04-21 03:57:19',34,1),(17,'sadasd','asdf','4514561',99,0,1,'asdd','156165','','56165','2018-04-21 03:59:00',35,1),(18,'sadasd','asdf','4514561',101,0,1,'asdd','156165','','56165','2018-04-21 03:59:09',36,1),(19,'asdasd','asdasd','56156',102,0,1,'asd','15665','','56165','2018-04-21 04:00:43',37,1),(20,'asdas','asds','56156',103,0,1,'xdaf','51656','','56.1256','2018-04-21 04:01:06',38,1),(21,'asdas','asd','561256',104,0,1,'asd','156165','','56156','2018-04-21 04:01:38',39,1),(22,'asdas','asd','564156',105,0,1,'asd','156156','','5616','2018-04-21 04:08:22',40,1),(23,'sadas','asdfas','1556',106,0,1,'asd','5616','','561','2018-04-21 14:17:06',41,1),(24,'adfasdas','asdas','1456156',107,0,1,'asdas','56165','','51561','2018-04-21 14:18:01',42,1),(25,'dfsdf','sdafasd','561456',108,0,1,'asd','15656','','5616','2018-04-21 14:19:59',43,1),(26,'asdas','asd','651256',113,0,0,'as','56.1256.','','26.','2018-04-21 17:10:28',48,2),(27,'t','t','1',114,0,0,'t','1','','1','2018-04-21 17:11:49',49,2),(28,'asdas','dasd','456165',120,0,0,'asds','56156','view/pictures/parceiro/cb8dd5855b1f2a8d0f1ecab00063da9f.png','561','2018-04-21 20:18:27',55,1),(29,'','','',123,0,0,'','','view/pictures/parceiro/9ff4d4e3c57397dea7bac86d1f9bad42.png','','2018-04-22 11:36:45',56,2);
+INSERT INTO `tbl_parceiro` VALUES (1,'Fast & Run','Fast & Run Importados LTDA','4656516565',1,0,1,'fast&run@fastrun.com.br','1145228475','../pictures/produto/d0be999f465e46c277c980fbce2d3697.jpg','1142158745','2018-04-12 09:47:39',1,1),(15,'TONIMAR','TONIMAR LTDA','12561265',96,1,1,'Tonimar@gmail.com','5156','../pictures/produto/d0be999f465e46c277c980fbce2d3697.jpg','4561','2018-04-21 03:56:44',57,1),(16,'asdas','asdasd','56165',97,0,1,'asdas','156156','','561256.','2018-04-21 03:57:19',34,1),(17,'sadasd','asdf','4514561',99,0,1,'asdd','156165','','56165','2018-04-21 03:59:00',36,1),(18,'sadasd','asdf','4514561',101,0,1,'asdd','156165','','56165','2018-04-21 03:59:09',36,1),(19,'asdasd','asdasd','56156',102,0,1,'asd','15665','','56165','2018-04-21 04:00:43',37,1),(20,'asdas','asds','56156',103,0,1,'xdaf','51656','','56.1256','2018-04-21 04:01:06',38,1),(21,'asdas','asd','561256',104,0,1,'asd','156165','','56156','2018-04-21 04:01:38',39,1),(22,'asdas','asd','564156',105,0,1,'asd','156156','','5616','2018-04-21 04:08:22',40,1),(23,'sadas','asdfas','1556',106,0,1,'asd','5616','','561','2018-04-21 14:17:06',41,1),(24,'adfasdas','asdas','1456156',107,0,1,'asdas','56165','','51561','2018-04-21 14:18:01',42,1),(25,'dfsdf','sdafasd','561456',108,0,1,'asd','15656','','5616','2018-04-21 14:19:59',43,1),(26,'asdas','asd','651256',113,0,0,'as','56.1256.','','26.','2018-04-21 17:10:28',48,2),(27,'t','t','1',114,0,0,'t','1','','1','2018-04-21 17:11:49',49,2),(28,'asdas','dasd','456165',120,0,0,'asds','56156','view/pictures/parceiro/cb8dd5855b1f2a8d0f1ecab00063da9f.png','561','2018-04-21 20:18:27',55,1),(29,'','','',123,0,0,'','','view/pictures/parceiro/9ff4d4e3c57397dea7bac86d1f9bad42.png','','2018-04-22 11:36:45',56,2);
 /*!40000 ALTER TABLE `tbl_parceiro` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -984,7 +984,7 @@ CREATE TABLE `tbl_pedido` (
   KEY `fk_tbl_pedido_id_produto_idx` (`id_produto`),
   CONSTRAINT `fk_tbl_pedido_id_cliente` FOREIGN KEY (`id_cliente`) REFERENCES `tbl_cliente` (`id_cliente`),
   CONSTRAINT `fk_tbl_pedido_id_produto` FOREIGN KEY (`id_produto`) REFERENCES `tbl_produto` (`id_produto`)
-) ENGINE=InnoDB AUTO_INCREMENT=78 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=112 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -993,7 +993,7 @@ CREATE TABLE `tbl_pedido` (
 
 LOCK TABLES `tbl_pedido` WRITE;
 /*!40000 ALTER TABLE `tbl_pedido` DISABLE KEYS */;
-INSERT INTO `tbl_pedido` VALUES (62,2,17,'2018-01-28 12:45:00','2018-06-03 22:34:23'),(63,2,4,'2018-06-25 14:00:00','2018-06-03 22:44:35'),(64,2,7,'2018-06-05 19:00:00','2018-06-03 22:49:04'),(65,2,3,'2018-06-26 14:20:00','2018-06-03 22:50:23'),(66,2,4,'2018-06-28 16:00:00','2018-06-03 22:51:06'),(67,2,3,'2018-07-02 18:00:00','2018-06-03 22:51:34'),(68,2,17,'2019-01-26 15:00:00','2018-06-03 22:52:01'),(69,2,7,'2018-06-05 15:40:00','2018-06-03 23:01:41'),(70,2,17,'2019-09-19 19:20:00','2018-06-03 23:02:15'),(71,2,5,NULL,'2018-06-03 23:26:04'),(72,2,6,NULL,'2018-06-03 23:27:13'),(73,2,6,NULL,'2018-06-03 23:27:13'),(74,2,5,NULL,'2018-06-03 23:27:13'),(75,2,5,NULL,'2018-06-03 23:27:13'),(76,2,5,NULL,'2018-06-03 23:27:13'),(77,2,17,'2019-01-01 00:43:00','2018-06-04 00:45:17');
+INSERT INTO `tbl_pedido` VALUES (62,2,17,'2018-01-28 12:45:00','2018-06-03 22:34:23'),(63,2,4,'2018-06-25 14:00:00','2018-06-03 22:44:35'),(64,2,7,'2018-06-05 19:00:00','2018-06-03 22:49:04'),(65,2,3,'2018-06-26 14:20:00','2018-06-03 22:50:23'),(66,2,4,'2018-06-28 16:00:00','2018-06-03 22:51:06'),(67,2,3,'2018-07-02 18:00:00','2018-06-03 22:51:34'),(68,2,17,'2019-01-26 15:00:00','2018-06-03 22:52:01'),(69,2,7,'2018-06-05 15:40:00','2018-06-03 23:01:41'),(70,2,17,'2019-09-19 19:20:00','2018-06-03 23:02:15'),(71,2,5,NULL,'2018-06-03 23:26:04'),(72,2,6,NULL,'2018-06-03 23:27:13'),(73,2,6,NULL,'2018-06-03 23:27:13'),(74,2,5,NULL,'2018-06-03 23:27:13'),(75,2,5,NULL,'2018-06-03 23:27:13'),(76,2,5,NULL,'2018-06-03 23:27:13'),(77,2,17,'2019-01-01 00:43:00','2018-06-04 00:45:17'),(78,2,18,NULL,'2018-06-04 02:11:24'),(79,2,18,NULL,'2018-06-04 02:11:58'),(80,2,18,NULL,'2018-06-04 02:11:58'),(81,2,18,NULL,'2018-06-04 02:11:58'),(82,2,18,NULL,'2018-06-04 02:11:58'),(83,2,18,NULL,'2018-06-04 02:11:58'),(84,2,18,NULL,'2018-06-04 02:11:58'),(85,2,18,NULL,'2018-06-04 02:11:58'),(86,2,18,NULL,'2018-06-04 02:11:58'),(87,2,18,NULL,'2018-06-04 02:11:58'),(88,2,18,NULL,'2018-06-04 02:11:58'),(89,2,18,NULL,'2018-06-04 02:11:58'),(90,2,17,'2018-06-10 08:19:00','2018-06-04 08:20:25'),(91,2,5,NULL,'2018-06-04 08:24:31'),(92,2,5,NULL,'2018-06-04 08:24:31'),(93,2,5,NULL,'2018-06-04 08:24:31'),(94,2,5,NULL,'2018-06-04 08:24:31'),(95,2,5,NULL,'2018-06-04 08:24:31'),(96,2,6,NULL,'2018-06-04 08:24:32'),(97,2,6,NULL,'2018-06-04 08:24:32'),(98,2,18,NULL,'2018-06-04 08:33:53'),(99,2,18,NULL,'2018-06-04 08:33:53'),(100,2,18,NULL,'2018-06-04 08:33:53'),(101,2,18,NULL,'2018-06-04 08:33:53'),(102,2,18,NULL,'2018-06-04 08:33:53'),(103,2,18,NULL,'2018-06-04 08:33:54'),(104,2,18,NULL,'2018-06-04 08:33:54'),(105,2,18,NULL,'2018-06-04 08:33:54'),(106,2,18,NULL,'2018-06-04 08:33:54'),(107,2,18,NULL,'2018-06-04 08:33:54'),(108,2,18,NULL,'2018-06-04 08:33:54'),(109,2,18,NULL,'2018-06-04 08:33:54'),(110,2,18,NULL,'2018-06-04 08:33:54'),(111,2,7,'2018-06-07 08:30:00','2018-06-04 08:40:05');
 /*!40000 ALTER TABLE `tbl_pedido` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1140,7 +1140,7 @@ CREATE TABLE `tbl_produto` (
 
 LOCK TABLES `tbl_produto` WRITE;
 /*!40000 ALTER TABLE `tbl_produto` DISABLE KEYS */;
-INSERT INTO `tbl_produto` VALUES (3,NULL,1,NULL,2,'Higienizacao',89.99,'','','test',NULL),(4,NULL,1,NULL,2,'Revizão veicular',300.00,'','','',NULL),(5,1,1,1,1,'Radiador',300.00,'1 pneu','12 meses','',NULL),(6,1,26,1,1,'Pne35',300.00,'1','6 meses','Produto da pireli e da melhor qualidade',NULL),(7,NULL,15,NULL,2,'Troca de pneu',150.00,NULL,'3 Meses','Troque seu pneu furado por um preÃ§o muito mais barato',NULL),(16,12,15,6,1,'Macaco Jacarï¿½ 2T',569.00,'Um macaco tipo Jacarï¿½ 2T Longo','1 mes','Macaco longo tipo jacarï¿½ com capacidade de 2 toneladas conta com cabo de alta resistï¿½ncia e 4 rodas de ferro. Possui prato de apoio produzido em aï¿½o, com garras que impedem o escorregamento, oferecendo eficiï¿½ncia durante o uso. ','De otima qualidade'),(17,NULL,15,NULL,2,'Balanceamento',69.90,NULL,'12 Meses','AtÃ© aro 18',NULL),(18,4,15,8,1,'Homocinetica',500.00,'1','6 Meses','Homocinetica para veiculos volkswagem','Produto de otima qualidade fabricado para ser o melhor do mercado.'),(19,NULL,15,NULL,2,'LubrificaÃ§Ã£o de eixos',249.99,NULL,'3 Meses','Seus eixos com a melhor lubrificaÃ§Ã£o do mercado',NULL);
+INSERT INTO `tbl_produto` VALUES (3,NULL,1,NULL,2,'Higienizacao',89.99,'','','test',NULL),(4,NULL,1,NULL,2,'Revizão veicular',300.00,'','','',NULL),(5,1,1,1,1,'Radiador',300.00,'1 pneu','12 meses','',NULL),(6,1,26,1,1,'Pne35',300.00,'1','6 meses','Produto da pireli e da melhor qualidade',NULL),(7,NULL,15,NULL,2,'Troca de pneu',150.00,NULL,'3 Meses','Troque seu pneu furado por um preÃ§o muito mais barato',NULL),(16,12,15,6,1,'Macaco Jacarï¿½ 2T',569.00,'Um macaco tipo Jacarï¿½ 2T Longo','1 mes','Macaco longo tipo jacarï¿½ com capacidade de 2 toneladas conta com cabo de alta resistï¿½ncia e 4 rodas de ferro. Possui prato de apoio produzido em aï¿½o, com garras que impedem o escorregamento, oferecendo eficiï¿½ncia durante o uso. ','De otima qualidade'),(17,NULL,15,NULL,2,'Balanceamento',69.90,NULL,'12 Meses','AtÃ© aro 18',NULL),(18,12,15,70,5,'Homocinetica',500.00,'1','6 Meses','Homocinetica para veiculos volkswagem','Produto de otima qualidade fabricado para ser o melhor do mercado.'),(19,NULL,15,NULL,2,'LubrificaÃ§Ã£o de eixos',249.99,NULL,'3 Meses','Seus eixos com a melhor lubrificaÃ§Ã£o do mercado',NULL);
 /*!40000 ALTER TABLE `tbl_produto` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1213,7 +1213,7 @@ CREATE TABLE `tbl_situacao_pedido` (
   KEY `fk_tbl_situacao_pedido_id_tipo_situacao_pedido_idx` (`id_tipo_situacao_pedido`),
   CONSTRAINT `fk_tbl_situacao_pedido_id_pedido` FOREIGN KEY (`id_pedido`) REFERENCES `tbl_pedido` (`id_pedido`),
   CONSTRAINT `fk_tbl_situacao_pedido_id_tipo_situacao_pedido` FOREIGN KEY (`id_tipo_situacao_pedido`) REFERENCES `tbl_tipo_situacao_pedido` (`id_tipo_situacao_pedido`)
-) ENGINE=InnoDB AUTO_INCREMENT=77 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=111 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1222,7 +1222,7 @@ CREATE TABLE `tbl_situacao_pedido` (
 
 LOCK TABLES `tbl_situacao_pedido` WRITE;
 /*!40000 ALTER TABLE `tbl_situacao_pedido` DISABLE KEYS */;
-INSERT INTO `tbl_situacao_pedido` VALUES (61,62,6,'2018-06-03 22:34:24'),(62,63,1,'2018-06-03 22:44:35'),(63,64,6,'2018-06-03 22:49:04'),(64,65,2,'2018-06-03 22:50:23'),(65,66,2,'2018-06-03 22:51:06'),(66,67,2,'2018-06-03 22:51:34'),(67,68,1,'2018-06-03 22:52:01'),(68,69,1,'2018-06-03 23:01:41'),(69,70,2,'2018-06-03 23:02:15'),(70,71,7,'2018-06-03 23:26:04'),(71,72,8,'2018-06-03 23:27:13'),(72,73,8,'2018-06-03 23:27:13'),(73,74,7,'2018-06-03 23:27:13'),(74,75,8,'2018-06-03 23:27:13'),(75,76,9,'2018-06-03 23:27:13'),(76,77,1,'2018-06-04 00:45:17');
+INSERT INTO `tbl_situacao_pedido` VALUES (61,62,6,'2018-06-03 22:34:24'),(62,63,1,'2018-06-03 22:44:35'),(63,64,6,'2018-06-03 22:49:04'),(64,65,2,'2018-06-03 22:50:23'),(65,66,2,'2018-06-03 22:51:06'),(66,67,2,'2018-06-03 22:51:34'),(67,68,1,'2018-06-03 22:52:01'),(68,69,1,'2018-06-03 23:01:41'),(69,70,6,'2018-06-03 23:02:15'),(70,71,7,'2018-06-03 23:26:04'),(71,72,8,'2018-06-03 23:27:13'),(72,73,8,'2018-06-03 23:27:13'),(73,74,7,'2018-06-03 23:27:13'),(74,75,7,'2018-06-03 23:27:13'),(75,76,9,'2018-06-03 23:27:13'),(76,77,1,'2018-06-04 00:45:17'),(77,78,9,'2018-06-04 02:11:24'),(78,80,9,'2018-06-04 02:11:58'),(79,79,9,'2018-06-04 02:11:58'),(80,81,9,'2018-06-04 02:11:58'),(81,82,9,'2018-06-04 02:11:58'),(82,83,9,'2018-06-04 02:11:58'),(83,84,9,'2018-06-04 02:11:58'),(84,85,9,'2018-06-04 02:11:58'),(85,86,9,'2018-06-04 02:11:58'),(86,87,9,'2018-06-04 02:11:58'),(87,88,9,'2018-06-04 02:11:58'),(88,89,9,'2018-06-04 02:11:58'),(89,90,1,'2018-06-04 08:20:25'),(90,91,8,'2018-06-04 08:24:31'),(91,92,8,'2018-06-04 08:24:31'),(92,93,8,'2018-06-04 08:24:31'),(93,94,8,'2018-06-04 08:24:31'),(94,95,8,'2018-06-04 08:24:31'),(95,96,8,'2018-06-04 08:24:32'),(96,97,8,'2018-06-04 08:24:32'),(97,98,8,'2018-06-04 08:33:53'),(98,99,8,'2018-06-04 08:33:53'),(99,100,8,'2018-06-04 08:33:53'),(100,101,8,'2018-06-04 08:33:53'),(101,102,8,'2018-06-04 08:33:53'),(102,103,8,'2018-06-04 08:33:54'),(103,104,8,'2018-06-04 08:33:54'),(104,105,8,'2018-06-04 08:33:54'),(105,106,8,'2018-06-04 08:33:54'),(106,107,8,'2018-06-04 08:33:54'),(107,108,8,'2018-06-04 08:33:54'),(108,109,8,'2018-06-04 08:33:54'),(109,110,8,'2018-06-04 08:33:54'),(110,111,1,'2018-06-04 08:40:05');
 /*!40000 ALTER TABLE `tbl_situacao_pedido` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1512,7 +1512,7 @@ CREATE TABLE `tbl_usuario` (
   PRIMARY KEY (`id_usuario`),
   KEY `fk_tbl_usuario_id_nivel_usuario_idx` (`id_nivel_usuario`),
   CONSTRAINT `fk_tbl_usuario_id_nivel_usuario` FOREIGN KEY (`id_nivel_usuario`) REFERENCES `tbl_nivel_usuario` (`id_nivel_usuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=62 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=70 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1521,7 +1521,7 @@ CREATE TABLE `tbl_usuario` (
 
 LOCK TABLES `tbl_usuario` WRITE;
 /*!40000 ALTER TABLE `tbl_usuario` DISABLE KEYS */;
-INSERT INTO `tbl_usuario` VALUES (1,'leticia','lele','2018-04-12 09:45:06',1,1),(33,'carlos','123','2018-04-21 03:56:44',3,1),(34,'paulo','123','2018-04-21 03:57:19',2,1),(35,'aaaaaaaa','csda','2018-04-21 03:59:00',3,1),(36,'aaaaaassDSDDsss','aaaaaaa','2018-04-21 03:59:09',2,1),(37,'aaaaaasadasdasdasdas','aaaaaaa','2018-04-21 04:00:43',2,1),(38,'aaaaaa\\xd\\sdsadasds','aaaaaaa','2018-04-21 04:01:06',2,1),(39,'aaaaaacdasdfasdasdas','aaaaaaa','2018-04-21 04:01:38',2,1),(40,'aaaaaaadcasdas','aaaaaaa','2018-04-21 04:08:22',2,1),(41,'aaaaaaasdasdsad','aaaaaaa','2018-04-21 14:17:06',2,1),(42,'aaaaaaczxcvdacaxdca','aaaaaaa','2018-04-21 14:18:01',2,1),(43,'aaaaaa\\xc\\szxd\\s','aaaaaaa','2018-04-21 14:19:59',2,1),(44,'aaaasasa','asdasd','2018-04-21 16:07:22',2,1),(45,'nAdm','1','2018-04-21 16:10:04',2,1),(46,'asd','asdas','2018-04-21 16:13:21',2,1),(47,'ssssdd','sadas','2018-04-21 17:07:37',2,1),(48,'das','dsad','2018-04-21 17:10:28',2,1),(49,'t','t','2018-04-21 17:11:49',2,1),(50,'asddfas','sdvsd','2018-04-21 17:47:15',2,1),(51,'sdfgsdfg','asdas','2018-04-21 17:48:26',2,1),(52,'sd','sdfvsd','2018-04-21 17:49:03',2,1),(53,'sdvgfsda','asdfawe','2018-04-21 17:49:48',2,1),(54,'dsad','fdsf','2018-04-21 17:51:40',2,1),(55,'a','1','2018-04-21 20:18:27',2,1),(56,'afasddfas','dvfda','2018-04-22 11:36:45',2,1),(57,'otremba','123','2018-05-24 09:12:31',2,1);
+INSERT INTO `tbl_usuario` VALUES (1,'leticia','lele','2018-04-12 09:45:06',2,1),(33,'caique','123','2018-04-21 03:56:44',3,1),(34,'paulo','123','2018-04-21 03:57:19',2,1),(36,'aaaaaassDSDDsss','aaaaaaa','2018-04-21 03:59:09',2,1),(37,'aaaaaasadasdasdasdas','aaaaaaa','2018-04-21 04:00:43',2,1),(38,'aaaaaa\\xd\\sdsadasds','aaaaaaa','2018-04-21 04:01:06',2,1),(39,'aaaaaacdasdfasdasdas','aaaaaaa','2018-04-21 04:01:38',2,1),(40,'aaaaaaadcasdas','aaaaaaa','2018-04-21 04:08:22',2,1),(41,'aaaaaaasdasdsad','aaaaaaa','2018-04-21 14:17:06',2,1),(42,'aaaaaaczxcvdacaxdca','aaaaaaa','2018-04-21 14:18:01',2,1),(43,'aaaaaa\\xc\\szxd\\s','aaaaaaa','2018-04-21 14:19:59',2,1),(44,'aaaasasa','asdasd','2018-04-21 16:07:22',2,1),(45,'nAdm','1','2018-04-21 16:10:04',2,1),(46,'asd','asdas','2018-04-21 16:13:21',2,1),(47,'ssssdd','sadas','2018-04-21 17:07:37',2,1),(48,'das','dsad','2018-04-21 17:10:28',2,1),(49,'t','t','2018-04-21 17:11:49',2,1),(50,'asddfas','sdvsd','2018-04-21 17:47:15',2,1),(51,'sdfgsdfg','asdas','2018-04-21 17:48:26',2,1),(52,'sd','sdfvsd','2018-04-21 17:49:03',2,1),(53,'sdvgfsda','asdfawe','2018-04-21 17:49:48',2,1),(54,'dsad','fdsf','2018-04-21 17:51:40',2,1),(55,'a','1','2018-04-21 20:18:27',2,1),(56,'afasddfas','dvfda','2018-04-22 11:36:45',2,1),(57,'otremba','123','2018-05-24 09:12:31',2,1),(62,'admin','admin','2018-06-04 20:45:50',1,1),(63,'admin','admin','2018-06-04 20:46:32',1,1);
 /*!40000 ALTER TABLE `tbl_usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2180,6 +2180,23 @@ SET character_set_client = utf8;
 SET character_set_client = @saved_cs_client;
 
 --
+-- Temporary view structure for view `view_produtos_vendidos`
+--
+
+DROP TABLE IF EXISTS `view_produtos_vendidos`;
+/*!50001 DROP VIEW IF EXISTS `view_produtos_vendidos`*/;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+/*!50001 CREATE VIEW `view_produtos_vendidos` AS SELECT 
+ 1 AS `produto`,
+ 1 AS `preco`,
+ 1 AS `nome_fantasia`,
+ 1 AS `id_tipo_situacao_pedido`,
+ 1 AS `log_situacao_pedido`,
+ 1 AS `id_cliente`*/;
+SET character_set_client = @saved_cs_client;
+
+--
 -- Temporary view structure for view `view_receita_plano_contratacao`
 --
 
@@ -2712,6 +2729,24 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET collation_connection      = @saved_col_connection */;
 
 --
+-- Final view structure for view `view_produtos_vendidos`
+--
+
+/*!50001 DROP VIEW IF EXISTS `view_produtos_vendidos`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8 */;
+/*!50001 SET character_set_results     = utf8 */;
+/*!50001 SET collation_connection      = utf8_general_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`caiqueoliveira`@`%%` SQL SECURITY DEFINER */
+/*!50001 VIEW `view_produtos_vendidos` AS select `p`.`nome` AS `produto`,`p`.`preco` AS `preco`,`pa`.`nome_fantasia` AS `nome_fantasia`,`sp`.`id_tipo_situacao_pedido` AS `id_tipo_situacao_pedido`,date_format(cast(`sp`.`log_situacao_pedido` as date),'%d/%m/%Y') AS `log_situacao_pedido`,`c`.`id_cliente` AS `id_cliente` from ((((`tbl_produto` `p` join `tbl_parceiro` `pa` on((`pa`.`id_parceiro` = `p`.`id_parceiro`))) join `tbl_pedido` `pe` on((`pe`.`id_produto` = `p`.`id_produto`))) join `tbl_situacao_pedido` `sp` on((`sp`.`id_pedido` = `pe`.`id_pedido`))) join `tbl_cliente` `c` on((`c`.`id_cliente` = `pe`.`id_cliente`))) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
 -- Final view structure for view `view_receita_plano_contratacao`
 --
 
@@ -2918,4 +2953,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-06-04  2:02:25
+-- Dump completed on 2018-06-05  0:53:36

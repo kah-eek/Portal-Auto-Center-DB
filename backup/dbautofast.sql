@@ -2290,6 +2290,26 @@ SET character_set_client = utf8;
 SET character_set_client = @saved_cs_client;
 
 --
+-- Temporary view structure for view `view_status_produto_por_parceiro`
+--
+
+DROP TABLE IF EXISTS `view_status_produto_por_parceiro`;
+/*!50001 DROP VIEW IF EXISTS `view_status_produto_por_parceiro`*/;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+/*!50001 CREATE VIEW `view_status_produto_por_parceiro` AS SELECT 
+ 1 AS `nome_produto`,
+ 1 AS `preco`,
+ 1 AS `modelo`,
+ 1 AS `categoria`,
+ 1 AS `id_parceiro`,
+ 1 AS `nome_fantasia`,
+ 1 AS `data_pedido`,
+ 1 AS `situacao`,
+ 1 AS `id_situacao_pedido`*/;
+SET character_set_client = @saved_cs_client;
+
+--
 -- Temporary view structure for view `view_status_servico`
 --
 
@@ -2800,6 +2820,24 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET collation_connection      = @saved_col_connection */;
 
 --
+-- Final view structure for view `view_status_produto_por_parceiro`
+--
+
+/*!50001 DROP VIEW IF EXISTS `view_status_produto_por_parceiro`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8 */;
+/*!50001 SET character_set_results     = utf8 */;
+/*!50001 SET collation_connection      = utf8_general_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`caiqueoliveira`@`%%` SQL SECURITY DEFINER */
+/*!50001 VIEW `view_status_produto_por_parceiro` AS select `p`.`nome` AS `nome_produto`,`p`.`preco` AS `preco`,`m`.`modelo` AS `modelo`,`c`.`categoria` AS `categoria`,`parc`.`id_parceiro` AS `id_parceiro`,`parc`.`nome_fantasia` AS `nome_fantasia`,date_format(cast(`s`.`log_situacao_pedido` as date),'%d/%m/%Y') AS `data_pedido`,`tsp`.`situacao` AS `situacao`,`s`.`id_situacao_pedido` AS `id_situacao_pedido` from ((((((`tbl_produto` `p` join `tbl_modelo_produto` `m` on((`m`.`id_modelo_produto` = `p`.`id_modelo_produto`))) join `tbl_categoria_produto` `c` on((`c`.`id_categoria_produto` = `p`.`id_categoria_produto`))) join `tbl_pedido` `ped` on((`ped`.`id_produto` = `p`.`id_produto`))) join `tbl_parceiro` `parc` on((`parc`.`id_parceiro` = `p`.`id_parceiro`))) join `tbl_situacao_pedido` `s` on((`s`.`id_pedido` = `ped`.`id_pedido`))) join `tbl_tipo_situacao_pedido` `tsp` on((`tsp`.`id_tipo_situacao_pedido` = `s`.`id_tipo_situacao_pedido`))) where (`c`.`id_categoria_produto` <> 2) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
 -- Final view structure for view `view_status_servico`
 --
 
@@ -2880,4 +2918,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-06-04  1:52:43
+-- Dump completed on 2018-06-04  2:02:25
