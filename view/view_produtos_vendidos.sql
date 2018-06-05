@@ -20,6 +20,7 @@ pa.nome_fantasia,
 
 /* tbl_situacao_pedido */
 sp.id_tipo_situacao_pedido,
+sp.log_situacao_pedido,
 
 /* tbl_cliente */
 c.id_cliente
