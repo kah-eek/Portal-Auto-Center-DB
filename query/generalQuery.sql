@@ -1,5 +1,5 @@
 use caiqueoliveira;
 
-select * from tbl_cliente;
+select * from tbl_produto;
 
 
