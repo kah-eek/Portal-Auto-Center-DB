@@ -7,7 +7,8 @@ p.id_parceiro,
 p.nome_fantasia,
 
 /* tbl_produto */
-pr.id_produto
+pr.id_produto,
+pr.nome
 
 FROM tbl_parceiro AS p
 
